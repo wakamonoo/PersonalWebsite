@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joven | Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/c15538e89d.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="header">
@@ -32,11 +33,123 @@
         <img src="images/user.png">
       </div>
       <div class="about-col-2">
-        <h1>About Me</h1>
+        <h1 class="sub-title">About Me</h1>
+        <p>I am Joven Serdan Bataller, an aspiring Information Technology professional with a strong passion for technology and problem-solving. 
+          Currently pursuing a Bachelor of Science in Information Technology at Bicol University Polangui, I am dedicated to expanding my expertise in software development, system analysis, and emerging technologies.
+          <br><br>Beyond academics, I am a team player with a background in competitive basketball, which has strengthened my discipline, leadership, and strategic thinking.
+          I am eager to apply my skills in real-world projects, continuously learning and adapting to advancements in the field.</p>
+
+          <div class="tab-titles">
+            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+            <p class="tab-links" onclick="opentab('education')">Education</p>
+          </div>
+          <div class="tab-contents active-tab" id="skills">
+            <ul>
+              <li><span>Web Development</span><br>Web App Development</li>
+              <li><span>Mobile Application Development</span><br>Building Android Apps</li>
+              <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
+            </ul>
+          </div>
+          <div class="tab-contents" id="experience">
+            <ul>
+              <li><span>2025 - Current</span><br>IT Intern at BytesCrafter IT Solutions</li>
+            </ul>
+          </div>
+          <div class="tab-contents" id="education">
+            <ul>
+              <li><span>2009 - 2015</span><br>Apud Elementary School</li>
+              <li><span>2015 - 2021</span><br>Rawis High School</li>
+              <li><span>2021 - Current</span><br>BSIT at Bicol University Polangui</li>
+            </ul>
+          </div>
       </div>
     </div>
   </div>
 </div>
+<!-----Services----->
+<div id="services">
+  <div class="container">
+    <h1 class="sub-title">My Services</h1>
+    <div class="services-list">
+      <div>
+        <i class="fa-solid fa-code"></i>
+        <h2>Web Design</h2>
+        <p>The process of creating visually appealing, responsive, and user-friendly websites that enhance brand identity and engagement.
+          It focuses on clean layouts, intuitive navigation, and modern design principles.</p>
+        <a href="#">Learn more</a>
+      </div>
+      <div>
+        <i class="fa-solid fa-crop-simple"></i>
+        <h2>UI/UX Design</h2>
+        <p>The practice of designing seamless, user-centered digital experiences that prioritize functionality and aesthetics.
+          It involves understanding user behavior to craft intuitive and efficient interfaces.</p>
+        <a href="#">Learn more</a>
+      </div>
+      <div>
+        <i class="fa-brands fa-app-store"></i>
+        <h2>App Design</h2>
+        <p>The development of interactive and responsive mobile applications with a focus on usability, performance, and modern design trends.
+          It ensures smooth navigation, engaging visuals, and high-performance user experiences.</p>
+        <a href="#">Learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-----Portfolio----->
+<div id="portfolio">
+  <div class="container">
+    <h1 class="sub-title">My Works</h1>
+    <div class="work-list">
+      <div class="work">
+        <img src="images/work-1.png">
+        <div class="layer">
+          <h3>FirstResponse</h3>
+          <p>First aid and emergency response application
+          for the 3rd District of Albay, Bicol Region.</p>
+          <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="images/work-2.png">
+        <div class="layer">
+          <h3>Revved</h3>
+          <p>Web-based E-commerce platform for
+          motorcycle parts and accessories.</p>
+          <a href="http://localhost/ecommerce/revved/"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="images/work-3.png">
+        <div class="layer">
+          <h3>Music App</h3>
+          <p>The app connects you to the talented people
+          around the world.</p>
+          <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="btn">See more</a>
+  </div>
+</div>
   
+<script>
+
+  var tablinks = document.getElementsByClassName("tab-links");
+  var tabcontents = document.getElementsByClassName("tab-contents");
+
+  function opentab(tabname){
+    for(tablink of tablinks){
+      tablink.classList.remove("active-link")
+    }
+    for(tabcontent of tabcontents){
+      tabcontent.classList.remove("active-tab")
+    }
+    event.currentTarget.classList.add("active-link")
+    document.getElementById(tabname).classList.add("active-tab")
+  }
+
+</script>
+
 </body>
 </html>
