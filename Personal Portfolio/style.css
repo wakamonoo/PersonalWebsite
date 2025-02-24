@@ -4,6 +4,9 @@
 	font-family: "Poppins", sans-serif;
 	box-sizing: border-box;
 }
+html{
+	scroll-behavior: smooth;
+}
 body{
 	background-color: #242424;
 	color: #fff;
@@ -57,7 +60,7 @@ nav ul li a:hover::after{
 }
 
 .header-text{
-	margin-top: 20%;
+	margin-top: 15%;
 	font-size: 30px;
 }
 .header-text h1{
@@ -324,7 +327,7 @@ nav .fas{
 		background-image: url(images/phone-background.jpg);
 	}
 	.header-text{
-		margin-top: 100%;
+		margin-top: 70%;
 		font-size: 16px;
 	}
 	.header-text h1{
