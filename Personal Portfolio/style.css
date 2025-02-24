@@ -30,6 +30,7 @@ nav{
 }
 
 .logo{
+	height: 70px;
 	width: 140px;
 }
 
@@ -382,5 +383,9 @@ nav .fas{
 	}
 	.copyright{
 		font-size: 14px;
+	}
+	.logo{
+		height: 50px;
+		width: 90px;
 	}
 }
