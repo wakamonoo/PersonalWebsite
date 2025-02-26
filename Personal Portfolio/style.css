@@ -394,3 +394,120 @@ nav .fas{
 	margin-top: -40px;
 	display: block;
 }
+
+/*---------------FIRSTRESPONSE--------------------------------*/
+.gallery {
+    width: 900px;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth; 
+}
+
+.gallery div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+    grid-gap: 20px;
+    padding: 15px;
+    flex: none;
+}
+
+.gallery div img {
+    width: 40vh;
+    height: 50vh;
+    filter: grayscale(100%);
+    transition: transform 0.5s;
+}
+
+.gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0 auto;
+}
+#backBtn, #nextBtn {
+    width: 50px;
+    cursor: pointer;
+    margin: 40px;
+}
+
+.gallery div img:hover {
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.back-button i {
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.back-button i:hover {
+    color: red; /* Change color on hover */
+}
+
+
+@media only screen and (max-width: 600px) {
+    .gallery {
+			width: 900px;
+			display: flex;
+			overflow-x: auto;
+			scroll-behavior: smooth;
+		}
+		
+		.gallery div {
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(17, 1fr);
+			grid-gap: 20px;
+			padding: 10px;
+			flex: none;
+		}
+		
+		.gallery div img {
+			width: 40vh;
+			height: 50vh;
+			filter: grayscale(100%);
+			transition: transform 0.5s;
+		}
+		
+		.gallery div img:hover {
+			filter: grayscale(0);
+			cursor: pointer;
+			transform: scale(1.1);
+		}
+		
+		.gallery-wrap {
+			display: flex;
+			align-items: center;
+			margin: 10% auto;
+		}
+		
+		#backBtn, #nextBtn {
+			width: 30px;
+			cursor: pointer;
+			margin: 40px;
+		}
+		
+		.gallery::-webkit-scrollbar {
+			display: none;
+		}
+		
+		.gallery {
+			-ms-overflow-style: none; 
+			scrollbar-width: none;
+		}
+		
+		.gallery div img:hover {
+			transform: scale(1.1);
+			position: relative;
+			z-index: 1; 
+		}
+}		
+

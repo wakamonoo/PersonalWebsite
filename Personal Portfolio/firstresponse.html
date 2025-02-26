@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FirstResponse</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c15538e89d.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body>
+    <a href="index.html" class="back-button">
+        <i data-lucide="arrow-left"></i>
+    </a>
+    <div class="gallery-wrap">
+        <img src="images/back.png" id="backBtn">
+        <div class="gallery">
+            <div>
+                <span><img src="images/revved1.jpg"></span>
+                <span><img src="images/revved2.jpg"></span>
+                <span><img src="images/revved3.jpg"></span>
+                <span><img src="images/revved4.jpg"></span>
+                <span><img src="images/revved5.jpg"></span>
+                <span><img src="images/revved6.jpg"></span>
+                <span><img src="images/revved7.jpg"></span>
+                <span><img src="images/revved8.jpg"></span>
+                <span><img src="images/revved9.jpg"></span>
+                <span><img src="images/revved10.jpg"></span>
+                <span><img src="images/revved11.jpg"></span>
+                <span><img src="images/revved12.jpg"></span>
+                <span><img src="images/revved13.jpg"></span>
+                <span><img src="images/revved14.jpg"></span>
+                <span><img src="images/revved15.jpg"></span>
+                <span><img src="images/revved16.jpg"></span>
+                <span><img src="images/revved17.jpg"></span>
+            </div>
+        </div>
+        <img src="images/next.png" id="nextBtn">
+    </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    let scrollContainer = document.querySelector(".gallery");
+    let backBtn = document.getElementById("backBtn");
+    let nextBtn = document.getElementById("nextBtn");
+
+    scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+    });
+
+    nextBtn.addEventListener("click", () => {
+        scrollContainer.scrollLeft += 900;
+    });
+
+    backBtn.addEventListener("click", () => {
+        scrollContainer.scrollLeft -= 900;
+    });
+});
+</script>
+<script>
+    lucide.createIcons();
+</script>
+</body>
+</html>
