@@ -397,7 +397,7 @@ nav .fas{
 
 /*---------------FIRSTRESPONSE--------------------------------*/
 .gallery {
-    width: 900px;
+    width: 1010px;
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth; 
@@ -408,13 +408,14 @@ nav .fas{
     display: grid;
     grid-template-columns: repeat(17, 1fr);
     grid-gap: 20px;
-    padding: 15px;
+    padding: 20px;
     flex: none;
 }
 
 .gallery div img {
     width: 40vh;
     height: 50vh;
+	border-radius: 10px;
     filter: grayscale(100%);
     transition: transform 0.5s;
 }
@@ -441,15 +442,10 @@ nav .fas{
     cursor: pointer;
     transform: scale(1.1);
 }
-.back-button i {
-    font-size: 24px;
-    color: black;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.back-button i:hover {
-    color: red; /* Change color on hover */
+.back-button img{
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 50px;
 }
 
 
