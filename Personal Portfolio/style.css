@@ -434,6 +434,7 @@ nav .fas{
 #backBtn, #nextBtn {
     width: 50px;
     cursor: pointer;
+    margin: 40px;
 }
 
 .gallery div img:hover {
@@ -492,7 +493,6 @@ nav .fas{
 	#backBtn, #nextBtn {
 		width: 30px;
 		cursor: pointer;
-		margin: 40px;
 	}
 		
 	.gallery::-webkit-scrollbar {
