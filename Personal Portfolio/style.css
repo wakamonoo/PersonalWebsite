@@ -434,7 +434,6 @@ nav .fas{
 #backBtn, #nextBtn {
     width: 50px;
     cursor: pointer;
-    margin: 40px;
 }
 
 .gallery div img:hover {
