@@ -495,7 +495,7 @@ nav .fas{
 	
 	.desc {
 		position: absolute;
-		top: 80%; 
+		top: 80vh; 
 		left: 50%;
 		transform: translateX(-50%);
 		text-align: center;
