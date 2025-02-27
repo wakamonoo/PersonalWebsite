@@ -477,9 +477,6 @@ nav .fas{
 .back-button img:hover{
 	transform: scale(1.2);
 }
-.swipe{
-	display: none;
-}
 
 @media only screen and (max-width: 600px) {
 	.proj1 {
