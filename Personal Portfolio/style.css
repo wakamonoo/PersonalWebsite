@@ -481,13 +481,13 @@ nav .fas{
 	display: none;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 800px) {
 	.proj1 {
 		position: absolute;
-		top: 20%;
+		top: 15%;
 		left: 50%;
 		transform: translateX(-50%);
-		font-size: 40px;
+		font-size: 30px;
 		font-weight: bold;
 		text-align: center;
 		z-index: 10;
@@ -499,7 +499,7 @@ nav .fas{
 		left: 50%;
 		transform: translateX(-50%);
 		text-align: center;
-		font-size: 24px;
+		font-size: 14px;
 		font-weight: bold;
 		color: #333;
 		z-index: 10;
@@ -509,7 +509,7 @@ nav .fas{
         justify-content: center;
         align-items: center;
         height: 100vh;
-        padding: 50px;
+        padding: 10px;
         margin: 0 10px;
     }
 
@@ -528,7 +528,7 @@ nav .fas{
     .gallery div img {
         width: 32vh;
         height: 50vh;
-        margin: 0 30px;
+		margin: 0 10px;
         filter: grayscale(100%);
         transition: transform 0.5s;
     }
@@ -569,8 +569,8 @@ nav .fas{
         100% { opacity: 0; visibility: hidden; }
     }
 	.back-button img {
-		margin-top: 50px;
-		margin-left: 60px;
+		margin-top: 25px;
+		margin-left: 20px;
 		width: 50px;
 		transition: transform 0.3s ease-in-out;
     }
