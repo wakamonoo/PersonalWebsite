@@ -481,7 +481,7 @@ nav .fas{
 	display: none;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
 	.proj1 {
 		position: absolute;
 		top: 15%;
