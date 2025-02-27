@@ -581,12 +581,13 @@ nav .fas{
     .swipe {
 		display: flex;
         position: absolute;
-        top: 50%;
+        top: 70%;
         left: 50%;
-        background-color: rgba(255, 255, 255, 0.8);
+		border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.5);
         transform: translate(-50%, -50%);
         font-weight: bold;
-        font-size: 20px;
+        font-size: 14px;
         color: #333;
         text-align: center;
         z-index: 2;
