@@ -1,1 +1,7 @@
-Personal Web Color Scheme: 1.#1B1B25; 2. #343435
+Personal Web Color Scheme: 
+Primary Color - 28232b
+Headers Text - 9eb53f
+Text after effects - 586331
+Secondary Color - 2e223c
+Common Text - fif3f1
+

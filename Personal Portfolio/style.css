@@ -8,8 +8,11 @@ html{
 	scroll-behavior: smooth;
 }
 body{
-	background-color: #242424;
-	color: #fff;
+	background-color: #28232b;
+	color: #f1f3f1;
+}
+.sub-title{
+	color: #9eb53f!important;
 }
 #header{
 	width: 100%;
@@ -41,7 +44,7 @@ nav ul li{
 }
 
 nav ul li a{
-	color: #fff;
+	color: #f1f3f1;
 	text-decoration: none;
 	font-size: 18px;
 	position: relative;
@@ -50,7 +53,7 @@ nav ul li a::after{
 	content: '';
 	width: 0;
 	height: 3px;
-	background: #ff004f;
+	background: #9eb53f;
 	position: absolute;
 	left: 0;
 	bottom: -6px;
@@ -69,12 +72,12 @@ nav ul li a:hover::after{
 	margin-top: 20px;
 }
 .header-text h1 span{
-	color: #ff004f;
+	color: #9eb53f;
 }
 /*--------ABOUT-----------*/
 #about{
 	padding: 80px 0;
-	color: #ababab;
+	color: #f1f3f1;
 }
 .row{
 	display: flex;
@@ -95,7 +98,7 @@ nav ul li a:hover::after{
 .sub-title{
 	font-size: 60px;
 	font-weight: 600;
-	color: #fff;
+	color: #f1f3f1;
 }
 
 .tab-titles{
@@ -113,7 +116,7 @@ nav ul li a:hover::after{
 	content: '';
 	width: 0;
 	height: 3px;
-	background: #ff004f;
+	background: #9eb53f;
 	position: absolute;
 	left: 0;
 	bottom: -8px;
@@ -127,7 +130,7 @@ nav ul li a:hover::after{
 	margin: 10px 0;
 }
 .tab-contents ul li span{
-	color: #b54769;
+	color: #586331;
 	font-size: 14px;
 }
 .tab-contents{
@@ -148,7 +151,7 @@ nav ul li a:hover::after{
 	margin-top: 50px;
 }
 .services-list div{
-	background: #343435;
+	background: #2e223c;
 	padding: 40px;
 	font-size: 13px;
 	font-weight: 300;
@@ -166,13 +169,13 @@ nav ul li a:hover::after{
 }
 .services-list div a{
 	text-decoration: none;
-	color: #fff;
+	color: #f1f3f1;
 	font-size: 12px;
 	margin-top: 20px;
 	display: inline-block;
 }
 .services-list div:hover{
-	background: #ff004f;
+	background: #9eb53f;
 	transform: translateY(-10px);
 }
 
@@ -200,7 +203,7 @@ nav ul li a:hover::after{
 .layer{
 	width: 100%;
 	height: 0;
-	background: linear-gradient(rgba(0,0,0,0.6), #ff004f);
+	background: linear-gradient(rgba(0,0,0,0.6), #9eb53f);
 	border-radius: 10px;
 	position: absolute;
 	left: 0;
@@ -221,10 +224,10 @@ nav ul li a:hover::after{
 }
 .layer a {
     margin-top: 20px;
-    color: #ff004f;
+    color: #9eb53f;
     text-decoration: none;
     font-size: 18px;
-    background: #fff;
+    background: #f1f3f1;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -243,15 +246,15 @@ nav ul li a:hover::after{
 	display: block;
 	margin: 50px auto;
 	width: fit-content;
-	border: 1px solid #ff004f;
+	border: 1px solid #9eb53f;
 	padding: 14px 50px;
 	border-radius: 6px;
 	text-decoration: none;
-	color: #fff;
+	color: #f1f3f1;
 	transition: background-color 0.5s;
 }
 .btn:hover{
-	background: #ff004f;
+	background: #586331;
 }
 
 /*--------Contact-----------*/
@@ -265,7 +268,7 @@ nav ul li a:hover::after{
 	margin-top: 30px;
 }
 .contact-left p i{
-	color: #ff004f;
+	color: #9eb53f;
 	margin-right: 15px;
 	font-size: 25px;
 }
@@ -276,17 +279,17 @@ nav ul li a:hover::after{
 	text-decoration: none;
 	font-size: 30px;
 	margin-right: 15px;
-	color: #ababab;
+	color: #f1f3f1;
 	display: inline-block;
 	transition: transform 0.5s;
 }
 .social-icons a:hover{
-	color: #ff004f;
+	color: #586331;
 	transform: translateY(-5px);
 }
 .btn.btn2{
 	display: inline-block;
-	background: #ff004f;
+	background: #9eb53f;
 }
 .contact-right form{
 	width: 100%;
@@ -295,10 +298,10 @@ form input, form textarea{
 	width: 100%;
     border: 0;
 	outline: none;
-	background: #343435;
+	background: #2e223c;
 	padding: 15px;
 	margin: 15px 0;
-	color: #fff;
+	color: #f1f3f1;
 	font-size: 18px;
 	border-radius: 6px;
 }
@@ -312,7 +315,7 @@ form .btn2{
 	width: 100%;
 	text-align: center;
 	padding: 25px;
-	background: #343435;
+	background: #2e223c;
 	font-weight: 300;
 	margin-top: 20px;
 }
@@ -339,7 +342,7 @@ nav .fas{
 		font-size: 25px;
 	}
 	nav ul{
-		background: #ff004f;
+		background: #9eb53f;
 		position: fixed;
 		top: 0;
 		right: -200px;
@@ -390,12 +393,13 @@ nav .fas{
 	}
 }
 #msg{
-	color: #61b752;
+	color: #9eb53f;
 	margin-top: -40px;
 	display: block;
 }
 /*---------------FIRSTRESPONSE--------------------------------*/
 .proj1 {
+	color: #9eb53f;
     position: absolute;
     top: 15%;
     left: 50%;
@@ -414,7 +418,7 @@ nav .fas{
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    color: #333;
+    color: #f1f3f1;
     z-index: 10;
 }
 
@@ -501,7 +505,7 @@ nav .fas{
 		text-align: center;
 		font-size: 14px;
 		font-weight: bold;
-		color: #333;
+		color: #f1f3f1;
 		z-index: 10;
 	}
     .gallery-wrap {
