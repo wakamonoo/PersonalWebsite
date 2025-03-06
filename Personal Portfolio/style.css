@@ -499,7 +499,7 @@ form .btn2{
 nav .fas{
 	display: none;
 }
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 800px){
 	.header-text{
 		font-size: 16px;
 		width: 100%; 
