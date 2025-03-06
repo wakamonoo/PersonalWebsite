@@ -8,18 +8,15 @@ html{
 	scroll-behavior: smooth;
 }
 body{
-	background-color: #28232b;
+	background-color: #2C1E4A;
 	color: #f1f3f1;
 }
 .sub-title{
-	color: #9eb53f!important;
+	color: #39FF14!important;
 }
 #header{
 	width: 100%;
 	height: 100vh;
-	background-image: url(images/background.jpg);
-	background-size: cover;
-	background-position: center;
 }
 .container{
 	padding: 10px 10%;
@@ -53,7 +50,7 @@ nav ul li a::after{
 	content: '';
 	width: 0;
 	height: 3px;
-	background: #9eb53f;
+	background: #D70026;
 	position: absolute;
 	left: 0;
 	bottom: -6px;
@@ -62,17 +59,51 @@ nav ul li a::after{
 nav ul li a:hover::after{
 	width: 100%;
 }
+#container-head {
+	margin-top: -5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
 
-.header-text{
-	margin-top: 15%;
-	font-size: 30px;
+.photo-me {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+	z-index: -2;
 }
-.header-text h1{
-	font-size: 60px;
-	margin-top: 20px;
+
+.photo-me img {
+    width: 100%; 
+    height: auto;
+    object-fit: cover;
+    animation: bounce 3s infinite ease-in-out;
 }
-.header-text h1 span{
-	color: #9eb53f;
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-80px);
+    }
+}
+
+
+.header-text {
+    width: 50%;
+    font-size: 30px;
+}
+
+.header-text h1 {
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.header-text h1 span {
+    color: #39FF14;
 }
 /*--------ABOUT-----------*/
 #about{
@@ -116,7 +147,7 @@ nav ul li a:hover::after{
 	content: '';
 	width: 0;
 	height: 3px;
-	background: #9eb53f;
+	background: #D70026;
 	position: absolute;
 	left: 0;
 	bottom: -8px;
@@ -130,7 +161,7 @@ nav ul li a:hover::after{
 	margin: 10px 0;
 }
 .tab-contents ul li span{
-	color: #586331;
+	color: #D70026;
 	font-size: 14px;
 }
 .tab-contents{
@@ -138,6 +169,72 @@ nav ul li a:hover::after{
 }
 .tab-contents.active-tab{
 	display: block;
+}
+/*--------Tools-----------*/
+.tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    background: #0A0A0A;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.tool-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Default icon size */
+.tool-item i {
+    font-size: 100px;
+}
+
+/* Medium screens: reduce icon size */
+@media (max-width: 1023px) {
+    .tool-item {
+        width: 150px;
+        height: 150px;
+    }
+    .tool-item i {
+        font-size: 80px;
+    }
+}
+
+/* Small screens: further reduce icon size */
+@media (max-width: 768px) {
+    .tool-item {
+        width: 120px;
+        height: 120px;
+    }
+    .tool-item i {
+        font-size: 60px;
+    }
+}
+
+/* Extra small screens: smallest icon size */
+@media (max-width: 480px) {
+    .tool-item {
+        width: 100px;
+        height: 100px;
+    }
+    .tool-item i {
+        font-size: 50px;
+    }
 }
 
 /*--------Services-----------*/
@@ -151,7 +248,7 @@ nav ul li a:hover::after{
 	margin-top: 50px;
 }
 .services-list div{
-	background: #2e223c;
+	background: #0A0A0A;
 	padding: 40px;
 	font-size: 13px;
 	font-weight: 300;
@@ -175,7 +272,7 @@ nav ul li a:hover::after{
 	display: inline-block;
 }
 .services-list div:hover{
-	background: #9eb53f;
+	background: #D70026;
 	transform: translateY(-10px);
 }
 
@@ -203,7 +300,7 @@ nav ul li a:hover::after{
 .layer{
 	width: 100%;
 	height: 0;
-	background: linear-gradient(rgba(0,0,0,0.6), #9eb53f);
+	background: linear-gradient(rgba(0,0,0,0.6), #D70026);
 	border-radius: 10px;
 	position: absolute;
 	left: 0;
@@ -224,7 +321,7 @@ nav ul li a:hover::after{
 }
 .layer a {
     margin-top: 20px;
-    color: #9eb53f;
+    color: #39FF14;
     text-decoration: none;
     font-size: 18px;
     background: #f1f3f1;
@@ -246,7 +343,7 @@ nav ul li a:hover::after{
 	display: block;
 	margin: 50px auto;
 	width: fit-content;
-	border: 1px solid #9eb53f;
+	border: 1px solid #39FF14;
 	padding: 14px 50px;
 	border-radius: 6px;
 	text-decoration: none;
@@ -254,7 +351,7 @@ nav ul li a:hover::after{
 	transition: background-color 0.5s;
 }
 .btn:hover{
-	background: #586331;
+	background: #D70026;
 }
 
 /*--------Contact-----------*/
@@ -268,7 +365,7 @@ nav ul li a:hover::after{
 	margin-top: 30px;
 }
 .contact-left p i{
-	color: #9eb53f;
+	color: #39FF14;
 	margin-right: 15px;
 	font-size: 25px;
 }
@@ -284,12 +381,12 @@ nav ul li a:hover::after{
 	transition: transform 0.5s;
 }
 .social-icons a:hover{
-	color: #586331;
+	color: #D70026;
 	transform: translateY(-5px);
 }
 .btn.btn2{
 	display: inline-block;
-	background: #9eb53f;
+	background: #39FF14;
 }
 .contact-right form{
 	width: 100%;
@@ -298,7 +395,7 @@ form input, form textarea{
 	width: 100%;
     border: 0;
 	outline: none;
-	background: #2e223c;
+	background: #0A0A0A;
 	padding: 15px;
 	margin: 15px 0;
 	color: #f1f3f1;
@@ -327,22 +424,25 @@ nav .fas{
 	display: none;
 }
 @media only screen and (max-width: 600px){
-	#header{
-		background-image: url(images/phone-background.jpg);
-	}
 	.header-text{
-		margin-top: 70%;
 		font-size: 16px;
+		width: 100%; 
+        margin-top: 0;
+	}
+	.photo-me{
+		margin-top: 0;
+		order: -1;
+		width: 100%;
 	}
 	.header-text h1{
-		font-size: 30px;
+		font-size: 24px;
 	}
 	nav .fas{
 		display: block;
 		font-size: 25px;
 	}
 	nav ul{
-		background: #9eb53f;
+		background: #39FF14;
 		position: fixed;
 		top: 0;
 		right: -200px;
@@ -364,6 +464,9 @@ nav .fas{
 	}
 	nav .fa-bars{
 		cursor: pointer;
+	}
+	#container-head{
+		flex-direction: column;
 	}
 	.sub-title{
 		font-size: 40px;
@@ -392,14 +495,15 @@ nav .fas{
 		width: 90px;
 	}
 }
+
 #msg{
-	color: #9eb53f;
+	color: #39FF14;
 	margin-top: -40px;
 	display: block;
 }
 /*---------------FIRSTRESPONSE--------------------------------*/
 .proj1 {
-	color: #9eb53f;
+	color: #39FF14;
     position: absolute;
     top: 15%;
     left: 50%;
