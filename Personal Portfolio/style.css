@@ -584,25 +584,17 @@ nav .fas{
         padding-right: 5%;
         padding-bottom: 5px;
     }
+
     /* Make tool and certificate items smaller */
-    .tool-item{
+    .tool-item, .certificate-item {
         width: auto;	
-        height: auto;
+        height: 100%;
 		padding: 10px;
 		justify-content: center;
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-	.certificate-item {
-		width: 150px;	
-        height: 60px;
-		padding: 5px;
-		justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-	}
 
     /* Reduce icon and text sizes */
     .tool-item i {
