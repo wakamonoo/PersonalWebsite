@@ -15,7 +15,7 @@
       <ul id="sidemenu">
         <li><a href="#header">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#tools-cert">Tools & Certificates</a></li>
+        <li><a href="#tools-cert">Technical Credentials</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -76,54 +76,45 @@
     </div>
   </div>
 </div>
- <!----------Tools & Certificates Section---------->
- <div id="tools-cert">
-  <div class="container">
-      <h1 class="sub-title">Tools & Certificates</h1>
-      <div class="content">
-          <!-- Tools Section -->
-          <div class="tools-section">
-              <h2>Tools</h2>
-              <div class="tools-list">
-                  <div class="tool-item">
-                      <i class="devicon-cplusplus-plain colored"></i>
-                  </div>
-                  <div class="tool-item">
-                      <i class="devicon-java-plain colored"></i>
-                  </div>
-                  <div class="tool-item">
-                      <i class="devicon-javascript-plain colored"></i>
-                  </div>
-                  <div class="tool-item">
-                      <i class="devicon-kotlin-plain colored"></i>
-                  </div>
-                  <div class="tool-item">
-                      <i class="devicon-firebase-plain colored"></i>
-                  </div>
-                  <div class="tool-item">
-                      <i class="devicon-mysql-plain colored"></i>
-                  </div>
-                  <div class="tool-item">
-                      <i class="devicon-php-plain colored"></i>
-                  </div>
-              </div>
+<!----------ToolsCertification---------->
+<div id="tools-cert">
+  <h1 class="sub-title">Technical Credentials</h1>
+
+<div id="tools-cert" class="tab-titles">
+    <p class="tab-links active-link" onclick="openToolsTab('tools-section')">Tools</p>
+    <p class="tab-links" onclick="openToolsTab('certificates-section')">Certificates</p>
+</div>
+<div class="content-wrapper">
+  <div class="scroll-container tab-contents active-tab" id="tools-section">
+      <button class="scroll-btn left-btn" onclick="scrollLeft('tools-scroll')">&#10094;</button>
+      <div class="scroll-content" id="tools-scroll">
+          <div class="tool-item"><i class="devicon-cplusplus-plain colored"></i></div>
+          <div class="tool-item"><i class="devicon-java-plain colored"></i></div>
+          <div class="tool-item"><i class="devicon-javascript-plain colored"></i></div>
+          <div class="tool-item"><i class="devicon-kotlin-plain colored"></i></div>
+          <div class="tool-item"><i class="devicon-firebase-plain colored"></i></div>
+          <div class="tool-item"><i class="devicon-mysql-plain colored"></i></div>
+          <div class="tool-item"><i class="devicon-php-plain colored"></i></div>
+          <div class="tool-item"><i class="devicon-html5-plain colored"></i></div>
+          <div class="tool-item"><i class="devicon-css3-plain colored"></i></div>
+      </div>
+      <button class="scroll-btn right-btn" onclick="scrollRight('tools-scroll')">&#10095;</button>
+  </div>
+  <div class="scroll-container tab-contents hidden" id="certificates-section">
+      <button class="scroll-btn left-btn" onclick="scrollLeft('cert-scroll')">&#10094;</button>
+      <div class="scroll-content" id="cert-scroll">
+          <div class="certificate-item">
+              <img src="images/cert1.png">
+              <p>Intro to Game Development</p>
           </div>
-          <!-- Certificates Section -->
-          <div class="certificates-section">
-              <h2>Certificates</h2>
-              <div class="certificates-list">
-                  <div class="certificate-item">
-                      <img src="images/cert1.png">
-                      <p>Intro to Game Development and Career Opportunities</p>
-                  </div>
-                  <div class="certificate-item">
-                      <img src="images/cert2.png" alt="Certificate 2">
-                      <p> Introduction to IoT and Digital Transformation</p>
-                  </div>
-              </div>
+          <div class="certificate-item">
+              <img src="images/cert2.png">
+              <p>Intro to IoT & Digital Transformation</p>
           </div>
       </div>
+      <button class="scroll-btn right-btn" onclick="scrollRight('cert-scroll')">&#10095;</button>
   </div>
+</div> 
 </div>
 <!-----Services----->
 <div id="services">
@@ -225,19 +216,16 @@
   
 <script>
 
-  var tablinks = document.getElementsByClassName("tab-links");
-  var tabcontents = document.getElementsByClassName("tab-contents");
+var tablinks = document.querySelectorAll("#about .tab-links");
+var tabcontents = document.querySelectorAll("#about .tab-contents");
 
-  function opentab(tabname){
-    for(tablink of tablinks){
-      tablink.classList.remove("active-link")
-    }
-    for(tabcontent of tabcontents){
-      tabcontent.classList.remove("active-tab")
-    }
-    event.currentTarget.classList.add("active-link")
-    document.getElementById(tabname).classList.add("active-tab")
-  }
+function opentab(tabname) {
+  tablinks.forEach(tablink => tablink.classList.remove("active-link"));
+  tabcontents.forEach(tabcontent => tabcontent.classList.remove("active-tab"));
+
+  event.currentTarget.classList.add("active-link");
+  document.getElementById(tabname).classList.add("active-tab");
+}
 
 </script>
 
@@ -270,6 +258,26 @@
       })
       .catch(error => console.error('Error!', error.message))
   })
+</script>
+<script>
+var toolsTabLinks = document.querySelectorAll("#tools-cert .tab-links");
+var toolsTabContents = document.querySelectorAll("#tools-cert .tab-contents");
+
+function openToolsTab(tabName) {
+  toolsTabLinks.forEach(link => link.classList.remove("active-link"));
+  toolsTabContents.forEach(tab => tab.classList.remove("active-tab"));
+
+  event.currentTarget.classList.add("active-link");
+  document.getElementById(tabName).classList.add("active-tab");
+
+  function scrollLeft(containerId) {
+    document.getElementById(containerId).scrollBy({ left: -200, behavior: 'smooth' });
+}
+
+function scrollRight(containerId) {
+    document.getElementById(containerId).scrollBy({ left: 200, behavior: 'smooth' });
+}
+}
 </script>
 </body>
 </html>
