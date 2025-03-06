@@ -170,24 +170,40 @@ nav ul li a:hover::after{
 .tab-contents.active-tab{
 	display: block;
 }
-/*--------Tools-----------*/
+/*--------Tools & Certificates Styles-----------*/
+/* Flexbox Layout for Tools & Certificates */
+.content {
+	margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+/* Tools Section */
+.tools-section {
+    flex: 1;
+    min-width: 300px;
+}
+
 .tools-list {
+	margin-top: 20px;
+	border-radius: 10px;
+	border: solid #0A0A0A;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     padding: 20px 0;
-    max-width: 900px;
-    margin: 0 auto;
 }
 
 .tool-item {
+	margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background: #0A0A0A;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -199,44 +215,85 @@ nav ul li a:hover::after{
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Default icon size */
 .tool-item i {
-    font-size: 100px;
+    font-size: 80px;
 }
 
-/* Medium screens: reduce icon size */
-@media (max-width: 1023px) {
-    .tool-item {
-        width: 150px;
-        height: 150px;
-    }
-    .tool-item i {
-        font-size: 80px;
-    }
+/* Certificates Section */
+.certificates-section {
+    flex: 1;
+    min-width: 300px;
+    justify-content: center;
+	
 }
 
-/* Small screens: further reduce icon size */
+.certificates-list {
+	margin-top: 20px;
+	border-radius: 10px;
+	border: solid #0A0A0A; 	
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+	align-items: center; ;
+}
+
+.certificate-item {
+	margin: 20px 10px;
+    background: #0A0A0A;
+    padding: 10px;
+	width: 80%;	
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.certificate-item img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 5px;
+}
+
+.certificate-item p {
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .tool-item {
         width: 120px;
         height: 120px;
     }
+
     .tool-item i {
         font-size: 60px;
     }
+
+    .certificate-item img {
+        max-width: 200px;
+    }
 }
 
-/* Extra small screens: smallest icon size */
 @media (max-width: 480px) {
     .tool-item {
         width: 100px;
         height: 100px;
     }
+
     .tool-item i {
         font-size: 50px;
     }
-}
 
+    .certificate-item img {
+        max-width: 180px;
+    }
+}
 /*--------Services-----------*/
 #services{
 	padding: 30px 0;
@@ -503,12 +560,11 @@ nav .fas{
 }
 /*---------------FIRSTRESPONSE--------------------------------*/
 .proj1 {
-	color: #39FF14;
     position: absolute;
-    top: 15%;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 40px;
+	width: 30%;
     font-weight: bold;
     text-align: center;
     z-index: 10;
@@ -592,10 +648,10 @@ nav .fas{
 @media only screen and (max-width: 600px) {
 	.proj1 {
 		position: absolute;
-		top: 15%;
+		top: 10%;
 		left: 50%;
 		transform: translateX(-50%);
-		font-size: 30px;
+		width: 60%;
 		font-weight: bold;
 		text-align: center;
 		z-index: 10;
