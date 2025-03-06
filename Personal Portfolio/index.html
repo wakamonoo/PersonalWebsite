@@ -88,16 +88,43 @@
   <div class="scroll-container tab-contents active-tab" id="tools-section">
       <button class="scroll-btn left-btn" onclick="scrollLeft('tools-scroll')">&#10094;</button>
       <div class="scroll-content" id="tools-scroll">
-          <div class="tool-item"><i class="devicon-cplusplus-plain colored"></i></div>
-          <div class="tool-item"><i class="devicon-java-plain colored"></i></div>
-          <div class="tool-item"><i class="devicon-javascript-plain colored"></i></div>
-          <div class="tool-item"><i class="devicon-kotlin-plain colored"></i></div>
-          <div class="tool-item"><i class="devicon-firebase-plain colored"></i></div>
-          <div class="tool-item"><i class="devicon-mysql-plain colored"></i></div>
-          <div class="tool-item"><i class="devicon-php-plain colored"></i></div>
-          <div class="tool-item"><i class="devicon-html5-plain colored"></i></div>
-          <div class="tool-item"><i class="devicon-css3-plain colored"></i></div>
-      </div>
+        <div class="tool-item">
+            <i class="devicon-cplusplus-plain colored"></i>
+            <p>C++</p>
+        </div>
+        <div class="tool-item">
+            <i class="devicon-java-plain colored"></i>
+            <p>Java</p>
+        </div>
+        <div class="tool-item">
+            <i class="devicon-javascript-plain colored"></i>
+            <p>JavaScript</p>
+        </div>
+        <div class="tool-item">
+            <i class="devicon-kotlin-plain colored"></i>
+            <p>Kotlin</p>
+        </div>
+        <div class="tool-item">
+            <i class="devicon-firebase-plain colored"></i>
+            <p>Firebase</p>
+        </div>
+        <div class="tool-item">
+            <i class="devicon-mysql-plain colored"></i>
+            <p>MySQL</p>
+        </div>
+        <div class="tool-item">
+            <i class="devicon-php-plain colored"></i>
+            <p>PHP</p>
+        </div>
+        <div class="tool-item">
+            <i class="devicon-html5-plain colored"></i>
+            <p>HTML5</p>
+        </div>
+        <div class="tool-item">
+            <i class="devicon-css3-plain colored"></i>
+            <p>CSS3</p>
+        </div>
+    </div>    
       <button class="scroll-btn right-btn" onclick="scrollRight('tools-scroll')">&#10095;</button>
   </div>
   <div class="scroll-container tab-contents hidden" id="certificates-section">
@@ -269,15 +296,28 @@ function openToolsTab(tabName) {
 
   event.currentTarget.classList.add("active-link");
   document.getElementById(tabName).classList.add("active-tab");
+}
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    function scrollLeft(containerId) {
+        document.getElementById(containerId).scrollBy({ left: -200, behavior: 'smooth' });
+    }
 
-  function scrollLeft(containerId) {
-    document.getElementById(containerId).scrollBy({ left: -200, behavior: 'smooth' });
-}
+    function scrollRight(containerId) {
+        document.getElementById(containerId).scrollBy({ left: 200, behavior: 'smooth' });
+    }
 
-function scrollRight(containerId) {
-    document.getElementById(containerId).scrollBy({ left: 200, behavior: 'smooth' });
-}
-}
+    // Attach event listeners if not inline
+    document.querySelector(".left-btn").addEventListener("click", function() {
+        scrollLeft("tools-scroll");
+    });
+
+    document.querySelector(".right-btn").addEventListener("click", function() {
+        scrollRight("tools-scroll");
+    });
+});
+
 </script>
 </body>
 </html>
