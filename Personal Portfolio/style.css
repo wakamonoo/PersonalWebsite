@@ -589,7 +589,7 @@ nav .fas{
     .tool-item, .certificate-item {
         width: auto;	
         height: auto;
-		padding: 2;
+		padding: 10px;
 		justify-content: center;
         flex-direction: column;
         align-items: center;
