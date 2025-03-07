@@ -586,7 +586,7 @@ nav .fas{
 		margin-bottom: 10%;
 		}
 	.t-container{
-		height: 120vh;
+		height: 110vh;
 	}
 	.tool-item{
 		width: 80px;
@@ -603,6 +603,7 @@ nav .fas{
 	}
 	#certificates-section .content-grid {
 		gap: 60px;
+		margin-left: 5%;
 	}
 	.content-grid {
 		margin-left: 10%;
