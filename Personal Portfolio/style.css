@@ -581,15 +581,28 @@ nav .fas{
 		gap: 10px; 
 		justify-content: center;
 		align-items: center;
-		max-width: 400px;
+		max-width: 300px;
 		margin-left: 15%;
 		margin-bottom: 10%;
 		}
+	.t-container{
+		height: 120vh;
+	}
+	.tool-item{
+		width: 80px;
+		height: 80px;
+	}
+	.tool-item i{
+		font-size: 40px;
+	}
 	.certificate-item img {
 		width: 80%;
 		height: 80%;
 		border-radius: 8px;
 		transition: opacity 0.3s ease-in-out;
+	}
+	#certificates-section .content-grid {
+		gap: 60px;
 	}
 }
 #msg{
