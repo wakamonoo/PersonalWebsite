@@ -604,6 +604,10 @@ nav .fas{
 	#certificates-section .content-grid {
 		gap: 60px;
 	}
+	.content-grid {
+		margin-left: 5%;
+
+	}
 }
 #msg{
 	color: #39FF14;
