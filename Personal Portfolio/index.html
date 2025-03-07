@@ -27,6 +27,9 @@
       <div class="header-text">
         <p>Software Developer</p>
         <h1>Hi, I'm <span>Joven</span> Bataller <br>from The Philippines</h1>
+        <div class="info">
+          <img src="images/gemini.png">
+        </div>
       </div>
       <div class="photo-me">
         <img src="images/me.png">
@@ -78,71 +81,69 @@
 </div>
 <!----------ToolsCertification---------->
 <div id="tools-cert">
-  <h1 class="sub-title">Technical Credentials</h1>
-
-<div id="tools-cert" class="tab-titles">
+  <div class="t-container">
+    <h1 class="sub-title">Technical Credentials</h1>
+  <div id="tools-cert" class="tab-titles">
     <p class="tab-links active-link" onclick="openToolsTab('tools-section')">Tools</p>
     <p class="tab-links" onclick="openToolsTab('certificates-section')">Certificates</p>
-</div>
-<div class="content-wrapper">
-  <div class="scroll-container tab-contents active-tab" id="tools-section">
-      <button class="scroll-btn left-btn" onclick="scrollLeft('tools-scroll')">&#10094;</button>
-      <div class="scroll-content" id="tools-scroll">
-        <div class="tool-item">
-            <i class="devicon-cplusplus-plain colored"></i>
-            <p>C++</p>
-        </div>
-        <div class="tool-item">
-            <i class="devicon-java-plain colored"></i>
-            <p>Java</p>
-        </div>
-        <div class="tool-item">
-            <i class="devicon-javascript-plain colored"></i>
-            <p>JavaScript</p>
-        </div>
-        <div class="tool-item">
-            <i class="devicon-kotlin-plain colored"></i>
-            <p>Kotlin</p>
-        </div>
-        <div class="tool-item">
-            <i class="devicon-firebase-plain colored"></i>
-            <p>Firebase</p>
-        </div>
-        <div class="tool-item">
-            <i class="devicon-mysql-plain colored"></i>
-            <p>MySQL</p>
-        </div>
-        <div class="tool-item">
-            <i class="devicon-php-plain colored"></i>
-            <p>PHP</p>
-        </div>
-        <div class="tool-item">
-            <i class="devicon-html5-plain colored"></i>
-            <p>HTML5</p>
-        </div>
-        <div class="tool-item">
-            <i class="devicon-css3-plain colored"></i>
-            <p>CSS3</p>
-        </div>
+  </div>
+
+  <div class="tab-contents active-tab" id="tools-section">
+    <div class="content-grid">
+      <div class="tool-item">
+        <i class="devicon-cplusplus-plain colored"></i>
+        <p>C++</p>
+    </div>
+    <div class="tool-item">
+        <i class="devicon-java-plain colored"></i>
+        <p>Java</p>
+    </div>
+    <div class="tool-item">
+        <i class="devicon-javascript-plain colored"></i>
+        <p>JavaScript</p>
+    </div>
+    <div class="tool-item">
+        <i class="devicon-kotlin-plain colored"></i>
+        <p>Kotlin</p>
+    </div>
+    <div class="tool-item">
+        <i class="devicon-firebase-plain colored"></i>
+        <p>Firebase</p>
+    </div>
+    <div class="tool-item">
+        <i class="devicon-mysql-plain colored"></i>
+        <p>MySQL</p>
+    </div>
+    <div class="tool-item">
+        <i class="devicon-php-plain colored"></i>
+        <p>PHP</p>
+    </div>
+    <div class="tool-item">
+        <i class="devicon-html5-plain colored"></i>
+        <p>HTML5</p>
+    </div>
+    <div class="tool-item">
+        <i class="devicon-css3-plain colored"></i>
+        <p>CSS3</p>
     </div>    
-      <button class="scroll-btn right-btn" onclick="scrollRight('tools-scroll')">&#10095;</button>
+    </div>
   </div>
-  <div class="scroll-container tab-contents hidden" id="certificates-section">
-      <button class="scroll-btn left-btn" onclick="scrollLeft('cert-scroll')">&#10094;</button>
-      <div class="scroll-content" id="cert-scroll">
-          <div class="certificate-item">
-              <img src="images/cert1.png">
-              <p>Intro to Game Development</p>
-          </div>
-          <div class="certificate-item">
-              <img src="images/cert2.png">
-              <p>Intro to IoT & Digital Transformation</p>
-          </div>
+
+  <div class="tab-contents hidden" id="certificates-section">
+    <div class="content-grid">
+      <div class="certificate-item">
+        <img src="images/cert1.png">
+        <p>Intro to Game Development</p>
       </div>
-      <button class="scroll-btn right-btn" onclick="scrollRight('cert-scroll')">&#10095;</button>
+      <div class="certificate-item">
+        <img src="images/cert2.png">
+        <p>Intro to IoT & Digital Transformation</p>
+      </div>
+    </div>
   </div>
-</div> 
+  </div>
 </div>
+
 <!-----Services----->
 <div id="services">
   <div class="container">
@@ -297,27 +298,6 @@ function openToolsTab(tabName) {
   event.currentTarget.classList.add("active-link");
   document.getElementById(tabName).classList.add("active-tab");
 }
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    function scrollLeft(containerId) {
-        document.getElementById(containerId).scrollBy({ left: -200, behavior: 'smooth' });
-    }
-
-    function scrollRight(containerId) {
-        document.getElementById(containerId).scrollBy({ left: 200, behavior: 'smooth' });
-    }
-
-    // Attach event listeners if not inline
-    document.querySelector(".left-btn").addEventListener("click", function() {
-        scrollLeft("tools-scroll");
-    });
-
-    document.querySelector(".right-btn").addEventListener("click", function() {
-        scrollRight("tools-scroll");
-    });
-});
-
 </script>
 </body>
 </html>
