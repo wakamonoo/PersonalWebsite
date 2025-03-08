@@ -241,9 +241,11 @@
   </div>
 </div>
 
-  
+<!---------------JavaScript------------------->
 <script>
-
+//pop-up
+alert('Sorry! My page is still under development')
+// tab-links
 var tablinks = document.querySelectorAll("#about .tab-links");
 var tabcontents = document.querySelectorAll("#about .tab-contents");
 
@@ -255,10 +257,7 @@ function opentab(tabname) {
   document.getElementById(tabname).classList.add("active-tab");
 }
 
-</script>
-
-<script>
-
+// Open and close side menu
   var sidemenu = document.getElementById("sidemenu");
 
   function openmenu() {
@@ -268,8 +267,7 @@ function opentab(tabname) {
     sidemenu.style.right = "-200px";
   }
 
-</script>
-<script>
+// Send message to Google Sheet
   const scriptURL = 'https://script.google.com/macros/s/AKfycbxXPL48xLVVTA72KS-zEX73YVhlEJv-3rBSUxm3s2XQoIX-32R4MSlZm2pRkdH7tWMq/exec'
   const form = document.forms['submit-to-google-sheet']
   const ms = document.getElementById("msg")
@@ -286,8 +284,8 @@ function opentab(tabname) {
       })
       .catch(error => console.error('Error!', error.message))
   })
-</script>
-<script>
+
+// tools-cert tab links
 var toolsTabLinks = document.querySelectorAll("#tools-cert .tab-links");
 var toolsTabContents = document.querySelectorAll("#tools-cert .tab-contents");
 
