@@ -917,7 +917,7 @@ nav .fas{
 	.gallery2 div img {
 			width: 40vh;
 			height: 20vh;
-			margin: 0 10px;
+			margin: 0 5px;
 			filter: grayscale(100%);
 			transition: transform 0.5s;
 	}
