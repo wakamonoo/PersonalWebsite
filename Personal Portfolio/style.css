@@ -517,7 +517,7 @@ nav .fas{
 		font-size: 25px;
 	}
 	nav ul{
-		background: #39FF14;
+		background: #0A0A0A;
 		position: fixed;
 		top: 0;
 		right: -200px;
@@ -823,4 +823,75 @@ nav .fas{
         z-index: 2;
         animation: fadeOut 0.5s ease-in-out 2s forwards;
     }
+}
+/********************************REVVED********************************/
+.gallery2 {
+	width: 1010px;
+	display: flex;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+}
+
+.gallery2 div {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(17, 1fr);
+	grid-gap: 20px;
+	padding: 20px;
+	flex: none;
+}
+
+.gallery2 div img {
+	width: 80vh;
+	height: 50vh;
+	border-radius: 10px;
+	filter: grayscale(100%);
+	transition: transform 0.5s;
+}
+
+.gallery2::-webkit-scrollbar {
+	display: none;
+}
+
+.gallery2 div img:hover {
+	filter: grayscale(0);
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+@media only screen and (max-width: 600px) {
+	.gallery2 {
+			width: 900px;
+			display: flex;
+			overflow-x: auto;
+			justify-content: center;
+			align-items: center;
+			height: auto;
+			max-height: 90vh;
+			scroll-behavior: smooth;
+			gap: 20px;
+	}
+
+	.gallery2 div img {
+			width: 40vh;
+			height: 20vh;
+			margin: 0 10px;
+			filter: grayscale(100%);
+			transition: transform 0.5s;
+	}
+
+	.gallery2 div img:hover {
+			filter: grayscale(0);
+			cursor: pointer;
+			transform: scale(1.1);
+	}
+
+	.gallery2::-webkit-scrollbar {
+			display: none;
+	}
+
+	.gallery2 {
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+	}
 }
