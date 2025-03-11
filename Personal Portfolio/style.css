@@ -825,6 +825,27 @@ nav .fas{
     }
 }
 /********************************REVVED********************************/
+.proj2 {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 30%;
+	font-weight: bold;
+	text-align: center;
+	z-index: 10;
+}
+.desc2 {
+	position: absolute;
+	top: 80%; 
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	color: #f1f3f1;
+	z-index: 10;
+}
 .gallery2 {
 	width: 1010px;
 	display: flex;
@@ -860,6 +881,27 @@ nav .fas{
 }
 
 @media only screen and (max-width: 600px) {
+	.proj2 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+		width: 50%;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10;
+}
+	.desc2 {
+		position: absolute;
+		top: 60vh; 
+		left: 50%;
+		transform: translateX(-50%);
+		text-align: center;
+		font-size: 14px;
+		font-weight: bold;
+		color: #f1f3f1;
+		z-index: 10;
+	}
 	.gallery2 {
 			width: 900px;
 			display: flex;
