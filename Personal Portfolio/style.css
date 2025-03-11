@@ -118,7 +118,7 @@ nav ul li a:hover::after{
 .info img:hover{
 	transform: scale(1.1);
 }
-/*--------ABOUT-----------*/
+/*---------------------------------ABOUT---------------------------------*/
 #about{
 	padding: 80px 0;
 	color: #f1f3f1;
@@ -183,7 +183,7 @@ nav ul li a:hover::after{
 .tab-contents.active-tab{
 	display: block;
 }
-/*--------Tools & Certificates Styles-----------*/
+/*---------------------------------TOOLS & CERTIFICATES--------------------------------*/
 #tools-cert .sub-title {
     padding: 30px 0;
     margin-left: 10%;
@@ -208,7 +208,7 @@ nav ul li a:hover::after{
     width: 100px;
     height: 100px;
     display: flex;
-    flex-direction: column; /* Stack icon and text */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 0.1);
@@ -218,8 +218,6 @@ nav ul li a:hover::after{
     transition: background 0.3s ease;
     cursor: pointer;
 }
-
-/* Adjust Icon Size */
 .tool-item i {
     font-size: 80px;
     color: white;
@@ -228,8 +226,6 @@ nav ul li a:hover::after{
 .tool-item i:hover{
     transform: scale(1.1);
 }
-
-/* Initially Hidden Text */
 .tool-item p {
     position: absolute;
     color: #f1f3f1;
@@ -240,22 +236,21 @@ nav ul li a:hover::after{
     white-space: nowrap;
     text-align: center;
     opacity: 0;
-    transform: translateY(10px); /* Moves text down initially */
+    transform: translateY(10px); 
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-/* Show Text on Hover */
+
 .tool-item:hover p {
     opacity: 1;
-    transform: translateY(0); /* Move text smoothly up */
+    transform: translateY(0); 
 }
 
-/* Fade in Text on Click */
 .tool-item:active p {
     opacity: 1;
     transform: translateY(0);
 }
-/* Certificate Grid Layout */
+
 #certificates-section .content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
@@ -267,7 +262,6 @@ nav ul li a:hover::after{
     max-width: 1000px;
 }
 
-/* Certificate Item Styling */
 .certificate-item {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
@@ -279,13 +273,11 @@ nav ul li a:hover::after{
     cursor: pointer;
 }
 
-/* Hover Effect */
 .certificate-item:hover {
     transform: translateY(-5px);
     box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
 }
 
-/* Certificate Image */
 .certificate-item img {
     width: 100%;
     height: 100%;
@@ -293,7 +285,6 @@ nav ul li a:hover::after{
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Certificate Name */
 .certificate-item p {
     margin-top: 10px;
     font-size: 14px;
@@ -303,7 +294,6 @@ nav ul li a:hover::after{
     transition: opacity 0.3s ease-in-out;
 }
 
-/* On Hover: Fade in effect */
 .certificate-item:hover img {
     opacity: 0.9;
 }
@@ -312,7 +302,7 @@ nav ul li a:hover::after{
     opacity: 1;
 }
 
-/*--------Services-----------*/
+/*---------------------------------SERVICES---------------------------------*/
 #services{
 	padding: 30px 0;
 }
@@ -351,7 +341,7 @@ nav ul li a:hover::after{
 	transform: translateY(-10px);
 }
 
-/*--------Portfolio-----------*/
+/*---------------------------------PORTFOLIO---------------------------------*/
 #portfolio{
 	padding: 50px 0;
 }
@@ -429,7 +419,7 @@ nav ul li a:hover::after{
 	background: #D70026;
 }
 
-/*--------Contact-----------*/
+/*---------------------------------CONTACT---------------------------------*/
 .contact-left{
 	flex-basis: 35%;
 }
@@ -494,10 +484,168 @@ form .btn2{
 .copyright i{
 	color: #F88158;
 }
-/*---------------css for small screens--------------------------------*/
 nav .fas{
 	display: none;
 }
+#msg{
+	color: #39FF14;
+	margin-top: -40px;
+	display: block;
+}
+/*---------------------------------FIRST RESPONSE---------------------------------*/
+.proj1 {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+		width: 30%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.desc {
+    position: absolute;
+    top: 80%; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #f1f3f1;
+}
+
+
+.gallery {
+    width: 1010px;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.gallery div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+    flex: none;
+}
+
+.gallery div img {
+    width: 40vh;
+    height: 50vh;
+    border-radius: 10px;
+    filter: grayscale(100%);
+    transition: transform 0.5s;
+		z-index: 1;
+}
+
+.gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin-top: -60px;
+}
+
+#backBtn, #nextBtn {
+    width: 50px;
+    cursor: pointer;
+    margin: 40px;
+}
+
+.gallery div img:hover {
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.back-button img {
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 50px;
+	transition: transform 0.5s;
+}
+
+.back-button img:hover{
+	transform: scale(1.2);
+}
+.swipe{
+	display: none;
+}
+/*---------------------------------REVVED---------------------------------*/
+.swipe2{
+	display: none;
+}
+.gallery-wrap2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	padding: 10px;
+	margin: 0 10px;
+	display: flex;
+	align-items: center;
+	margin-top: -120px;
+}
+.proj2 {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 30%;
+	font-weight: bold;
+	text-align: center;
+}
+.desc2 {
+	position: absolute;
+	top: 80%; 
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	color: #f1f3f1;
+}
+.gallery2 {
+	width: 1010px;
+	display: flex;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+}
+
+.gallery2 div {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(17, 1fr);
+	grid-gap: 20px;
+	padding: 20px;
+	flex: none;
+}
+
+.gallery2 div img {
+	width: 80vh;
+	height: 50vh;
+	border-radius: 10px;
+	filter: grayscale(100%);
+	transition: transform 0.5s;
+}
+
+.gallery2::-webkit-scrollbar {
+	display: none;
+}
+
+.gallery2 div img:hover {
+	filter: grayscale(0);
+	cursor: pointer;
+	transform: scale(1.1);
+}
+/*------------------------------------------------------------------MEDIA QUERY------------------------------------------------------------------*/
+/*-----------------------------800 PX-----------------------------*/
 @media only screen and (max-width: 800px){
 	.header-text{
 		font-size: 16px;
@@ -619,98 +767,7 @@ nav .fas{
 		}
 	}
 }
-#msg{
-	color: #39FF14;
-	margin-top: -40px;
-	display: block;
-}
-/*---------------FIRSTRESPONSE--------------------------------*/
-.proj1 {
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-	width: 30%;
-    font-weight: bold;
-    text-align: center;
-    z-index: 10;
-}
-
-.desc {
-    position: absolute;
-    top: 80%; 
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #f1f3f1;
-    z-index: 10;
-}
-
-
-.gallery {
-    width: 1010px;
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-}
-
-.gallery div {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(17, 1fr);
-    grid-gap: 20px;
-    padding: 20px;
-    flex: none;
-}
-
-.gallery div img {
-    width: 40vh;
-    height: 50vh;
-    border-radius: 10px;
-    filter: grayscale(100%);
-    transition: transform 0.5s;
-}
-
-.gallery::-webkit-scrollbar {
-    display: none;
-}
-
-.gallery-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin-top: -60px;
-}
-
-#backBtn, #nextBtn {
-    width: 50px;
-    cursor: pointer;
-    margin: 40px;
-}
-
-.gallery div img:hover {
-    filter: grayscale(0);
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
-.back-button img {
-    margin-top: 20px;
-    margin-left: 30px;
-    width: 50px;
-	transition: transform 0.5s;
-}
-
-.back-button img:hover{
-	transform: scale(1.2);
-}
-.swipe{
-	display: none;
-}
-
+/*-----------------------------600 PX-----------------------------*/
 @media only screen and (max-width: 600px) {
 	.proj1 {
 		position: absolute;
@@ -823,78 +880,6 @@ nav .fas{
         z-index: 2;
         animation: fadeOut 0.5s ease-in-out 2s forwards;
     }
-}
-/********************************REVVED********************************/
-.swipe2{
-	display: none;
-}
-.gallery-wrap2 {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	padding: 10px;
-	margin: 0 10px;
-	display: flex;
-	align-items: center;
-	margin-top: -120px;
-}
-.proj2 {
-	position: absolute;
-	top: 5%;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 30%;
-	font-weight: bold;
-	text-align: center;
-	z-index: 10;
-}
-.desc2 {
-	position: absolute;
-	top: 80%; 
-	left: 50%;
-	transform: translateX(-50%);
-	text-align: center;
-	font-size: 24px;
-	font-weight: bold;
-	color: #f1f3f1;
-	z-index: 10;
-}
-.gallery2 {
-	width: 1010px;
-	display: flex;
-	overflow-x: auto;
-	scroll-behavior: smooth;
-}
-
-.gallery2 div {
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(17, 1fr);
-	grid-gap: 20px;
-	padding: 20px;
-	flex: none;
-}
-
-.gallery2 div img {
-	width: 80vh;
-	height: 50vh;
-	border-radius: 10px;
-	filter: grayscale(100%);
-	transition: transform 0.5s;
-}
-
-.gallery2::-webkit-scrollbar {
-	display: none;
-}
-
-.gallery2 div img:hover {
-	filter: grayscale(0);
-	cursor: pointer;
-	transform: scale(1.1);
-}
-
-@media only screen and (max-width: 600px) {
 	.proj2 {
     position: absolute;
     top: 20%;
