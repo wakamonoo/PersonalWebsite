@@ -243,8 +243,6 @@
 
 <!---------------JavaScript------------------->
 <script>
-//pop-up
-alert('Sorry! My page is still under development')
 // tab-links
 var tablinks = document.querySelectorAll("#about .tab-links");
 var tabcontents = document.querySelectorAll("#about .tab-contents");
@@ -256,7 +254,6 @@ function opentab(tabname) {
   event.currentTarget.classList.add("active-link");
   document.getElementById(tabname).classList.add("active-tab");
 }
-
 // Open and close side menu
   var sidemenu = document.getElementById("sidemenu");
 
@@ -266,7 +263,6 @@ function opentab(tabname) {
   function closemenu() {
     sidemenu.style.right = "-200px";
   }
-
 // Send message to Google Sheet
   const scriptURL = 'https://script.google.com/macros/s/AKfycbxXPL48xLVVTA72KS-zEX73YVhlEJv-3rBSUxm3s2XQoIX-32R4MSlZm2pRkdH7tWMq/exec'
   const form = document.forms['submit-to-google-sheet']
@@ -284,7 +280,6 @@ function opentab(tabname) {
       })
       .catch(error => console.error('Error!', error.message))
   })
-
 // tools-cert tab links
 var toolsTabLinks = document.querySelectorAll("#tools-cert .tab-links");
 var toolsTabContents = document.querySelectorAll("#tools-cert .tab-contents");
