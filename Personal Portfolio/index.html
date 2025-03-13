@@ -25,8 +25,8 @@
     </nav>
     <div id="container-head">
       <div class="header-text">
-        <p>Software Developer</p>
-        <h1>Hi, I'm <span>Joven</span> Bataller <br>from The Philippines</h1>
+        <p id="dropText" class="drop-text">Software Developer</p>
+        <h1 id="typewriter"></h1>
         <div class="social-info">
           <a href="https://web.facebook.com/joven.serdanbataller"><i class="fa-brands fa-facebook"></i></a>
           <a href="https://www.instagram.com/wakamonoooo/"><i class="fa-brands fa-instagram"></i></a>
@@ -244,6 +244,70 @@
 
 <!---------------JavaScript------------------->
 <script>
+// Header Typewriter Effect
+const textParts = ["Hi, I'm ", "Joven", " Bataller\nfrom The Philippines"];
+const h1 = document.getElementById("typewriter");
+let i = 0, j = 0;
+const speed = 100;
+let currentText = "";
+
+function typeWriter() {
+    if (i < textParts.length) {
+        if (i === 1) { 
+            currentText += `<span class="highlight">${textParts[i][j]}</span>`; 
+        } else { 
+            currentText += textParts[i][j]; 
+        }
+
+        h1.innerHTML = currentText + `<span class="cursor"></span>`;
+
+        j++;
+        if (j >= textParts[i].length) { 
+            i++; 
+            j = 0;
+        }
+
+        setTimeout(typeWriter, speed);
+    } else {
+        h1.innerHTML = currentText + `<span class="cursor"></span>`;
+        setTimeout(() => document.getElementById("dropText").classList.add("show"), 500);
+        setTimeout(animateIcons, 1200);
+    }
+}
+
+function animateIcons() {
+    const icons = document.querySelectorAll(".social-info i");
+    icons.forEach((icon, index) => {
+        setTimeout(() => icon.classList.add("show"), index * 300);
+    });
+}
+
+typeWriter();
+//img bounce
+document.addEventListener("DOMContentLoaded", () => {
+    const image = document.querySelector(".photo-me img");
+    let position = 0;
+    let direction = 1; // 1 for up, -1 for down
+    const amplitude = 30; // Lowered bounce height for a subtle effect
+    const step = 1; // Smaller step for a slower movement
+    const interval = 20; // Higher interval to slow it down
+
+    function bounce() {
+        position += step * direction;
+
+        if (position >= amplitude || position <= 0) {
+            direction *= -1; // Reverse direction at peak/bottom
+        }
+
+        image.style.transform = `translateY(-${position}px)`;
+        setTimeout(bounce, interval); // Slow it down
+    }
+
+    bounce(); // Start the animation loop
+});
+
+
+
 // tab-links
 var tablinks = document.querySelectorAll("#about .tab-links");
 var tabcontents = document.querySelectorAll("#about .tab-contents");
