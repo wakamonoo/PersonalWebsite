@@ -212,9 +212,9 @@ nav ul li a:hover::after{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(10, 10, 10, 0.5);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(10, 10, 10, 0.8);
     position: relative;
     transition: background 0.3s ease;
     cursor: pointer;
@@ -264,9 +264,9 @@ nav ul li a:hover::after{
 }
 
 .certificate-item {
-    background: rgba(255, 255, 255, 0.1);
+		background: rgba(10, 10, 10, 0.5);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(10, 10, 10, 0.8);
     padding: 15px;
     text-align: center;
     position: relative;
@@ -276,7 +276,7 @@ nav ul li a:hover::after{
 
 .certificate-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 5px 15px rgba(10, 10, 10, 0.4);
 }
 
 .certificate-item img {
@@ -646,8 +646,8 @@ nav .fas{
 	transform: scale(1.1);
 }
 /*------------------------------------------------------------------MEDIA QUERY------------------------------------------------------------------*/
-/*-----------------------------800 PX-----------------------------*/
-@media only screen and (max-width: 800px){
+/*-----------------------------768 PX-----------------------------*/
+@media only screen and (max-width: 768px){
 	.header-text{
 		font-size: 16px;
 		width: 100%; 
@@ -771,8 +771,8 @@ nav .fas{
 		}
 	}
 }
-/*-----------------------------600 PX-----------------------------*/
-@media only screen and (max-width: 600px) {
+/*-----------------------------480 PX-----------------------------*/
+@media only screen and (max-width: 480px) {
 	.proj1 {
 		position: absolute;
 		top: 10%;
