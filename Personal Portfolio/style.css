@@ -186,14 +186,12 @@ nav ul li a:hover::after{
 }
 /*---------------------------------TOOLS & CERTIFICATES--------------------------------*/
 #tools-cert .sub-title {
-    padding: 30px 0;
-    margin-left: 10%;
+	padding: 30px 10%;
 }
 
 #tools-cert .tab-titles {
-    margin-left: 10%;
+	padding-left: 10%;
 }
-
 .content-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -206,6 +204,7 @@ nav ul li a:hover::after{
 }
 
 .tool-item {
+		padding: 30 10%;
     width: 100px;
     height: 100px;
     display: flex;
@@ -267,7 +266,7 @@ nav ul li a:hover::after{
 		background: rgba(10, 10, 10, 0.5);
     border-radius: 10px;
     border: 1px solid rgba(10, 10, 10, 0.8);
-    padding: 15px;
+    padding: 15px 10%;
     text-align: center;
     position: relative;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
