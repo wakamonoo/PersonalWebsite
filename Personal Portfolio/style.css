@@ -105,17 +105,18 @@ nav ul li a:hover::after{
 .header-text h1 span {
     color: #39FF14;
 }
-.info{
+.social-info{
 	margin-top: 1%;
 	width: 100%;
 }
-.info img{
-	width: 10%;
-	height: 10%;
+.social-info i{
+	color: #0A0A0A;
+	font-size: 50px;
 	transition: transform 0.5s;
 }
 
-.info img:hover{
+.social-info i:hover{
+	color: #D70026;
 	transform: scale(1.1);
 }
 /*---------------------------------ABOUT---------------------------------*/
@@ -656,6 +657,9 @@ nav .fas{
 		margin-top: 0;
 		order: -1;
 		width: 100%;
+	}
+	.social-info i{
+		font-size: 30px;
 	}
 	.header-text h1{
 		font-size: 28px;
