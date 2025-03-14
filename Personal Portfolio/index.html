@@ -283,30 +283,29 @@ function animateIcons() {
 }
 
 typeWriter();
+
 //img bounce
 document.addEventListener("DOMContentLoaded", () => {
     const image = document.querySelector(".photo-me img");
     let position = 0;
-    let direction = 1; // 1 for up, -1 for down
-    const amplitude = 30; // Lowered bounce height for a subtle effect
-    const step = 1; // Smaller step for a slower movement
-    const interval = 20; // Higher interval to slow it down
+    let direction = 1; 
+    const amplitude = 30; 
+    const step = 1; 
+    const interval = 20; 
 
     function bounce() {
         position += step * direction;
 
         if (position >= amplitude || position <= 0) {
-            direction *= -1; // Reverse direction at peak/bottom
+            direction *= -1; 
         }
 
         image.style.transform = `translateY(-${position}px)`;
-        setTimeout(bounce, interval); // Slow it down
+        setTimeout(bounce, interval); 
     }
 
-    bounce(); // Start the animation loop
+    bounce(); p
 });
-
-
 
 // tab-links
 var tablinks = document.querySelectorAll("#about .tab-links");

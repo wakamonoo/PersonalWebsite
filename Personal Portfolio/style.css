@@ -109,6 +109,7 @@ nav ul li a:hover::after{
 	opacity: 0;
 	transform: translateY(-20px);
 	transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+	margin-bottom: -20px;
 }
 
 .drop-text.show {
@@ -671,7 +672,7 @@ nav .fas{
 	transform: scale(1.1);
 }
 /*------------------------------------------------------------------MEDIA QUERY------------------------------------------------------------------*/
-/*-----------------------------768 PX-----------------------------*/
+/*-----------------------------768 PX [CELLPHONE]-----------------------------*/
 @media only screen and (max-width: 768px){
 	.header-text{
 		font-size: 16px;
@@ -788,9 +789,6 @@ nav .fas{
 		height: auto;
 		object-fit: cover;
 	}
-}
-/*-----------------------------480 PX-----------------------------*/
-@media only screen and (max-width: 480px) {
 	.proj1 {
 		position: absolute;
 		top: 10%;
