@@ -60,7 +60,7 @@ nav ul li a:hover::after{
 	width: 100%;
 }
 #container-head {
-	margin-top: -5%;
+		margin-top: -5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -73,6 +73,7 @@ nav ul li a:hover::after{
     display: flex;
     justify-content: center;
 		z-index: -2;
+		margin-bottom: 10%;
 }
 
 .photo-me img {
@@ -672,13 +673,13 @@ nav .fas{
 	transform: scale(1.1);
 }
 /*------------------------------------------------------------------MEDIA QUERY------------------------------------------------------------------*/
-/*-----------------------------1024 PX [Tablet]-----------------------------*/
-@media only screen and (max-width: 1024px) {
-	nav .fas{
+/*-----------------------------1200 PX [Tablet]-----------------------------*/
+@media only screen and (max-width: 1200px) {
+	nav .fas {
 		display: block;
 		font-size: 25px;
 	}
-	nav ul{
+	nav ul {
 		background: #0A0A0A;
 		position: fixed;
 		top: 0;
@@ -689,26 +690,90 @@ nav .fas{
 		z-index: 2;
 		transition: right 0.5s;
 	}
-	nav ul li{
+	nav ul li {
 		display: block;
 		margin: 25px;
 	}
-	nav ul .fas{
+	nav ul .fas {
 		position: absolute;
 		top: 25px;
 		left: 25px;
 		cursor: pointer;
 	}
-	nav .fa-bars{
+	nav .fa-bars {
 		cursor: pointer;
 	}
+
+	#container-head {
+		margin-top: 10%;
+		display: flex;
+		flex-direction: row; 
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: nowrap; 
+		width: 100%;
+		gap: 20px;
+	}
+
+	.header-text {
+		font-size: 24px;
+		flex: 1; 
+		max-width: 100%;
+		margin: 0;
+		text-align: left;
+	}
+	.photo-me {
+		margin-bottom: 10%;
+		flex: 1;
+		display: flex;
+		justify-content: center;
+	}
+
+	.photo-me img {
+		width: 120%;
+		height: auto;
+		object-fit: cover;
+	}
+
+	.sub-title {
+		font-size: 40px;
+	}
+
+	.content-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 10px; 
+		justify-content: center;
+		align-items: center;
+		max-width: 300px;
+		margin-left: 18%;
+		margin-bottom: 10%;
+		}
+	.tool-item{
+		width: 100px;
+		height: 100px;
+	}
+	.tool-item i{
+		font-size: 60px;
+	}
+	.certificate-item img {
+		width: 80%;
+		height: 80%;
+		border-radius: 8px;
+		transition: opacity 0.3s ease-in-out;
+	}
+	#certificates-section .content-grid {
+		gap: 60px;
+		margin-left: 5%;
+	}
 }
+
 /*-----------------------------768 PX [CELLPHONE]-----------------------------*/
 @media only screen and (max-width: 768px){
 	.header-text{
 		font-size: 16px;
 		width: 100%; 
-    margin-top: 0;
+		margin-top: -20%;
 	}
 	.photo-me{
 		margin-top: 0;
@@ -791,7 +856,7 @@ nav .fas{
 		justify-content: center;
 		align-items: center;
 		max-width: 300px;
-		margin-left: 15%;
+		margin-left: 10%;
 		margin-bottom: 10%;
 		}
 	.tool-item{
@@ -810,10 +875,6 @@ nav .fas{
 	#certificates-section .content-grid {
 		gap: 60px;
 		margin-left: 5%;
-	}
-	.content-grid {
-		margin-left: 10%;
-
 	}
 	.photo-me img {
 		width: 100%; 
