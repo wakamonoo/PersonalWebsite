@@ -672,6 +672,37 @@ nav .fas{
 	transform: scale(1.1);
 }
 /*------------------------------------------------------------------MEDIA QUERY------------------------------------------------------------------*/
+/*-----------------------------1024 PX [Tablet]-----------------------------*/
+@media only screen and (max-width: 1024px) {
+	nav .fas{
+		display: block;
+		font-size: 25px;
+	}
+	nav ul{
+		background: #0A0A0A;
+		position: fixed;
+		top: 0;
+		right: -200px;
+		width: 200px;
+		height: 100vh;
+		padding-top: 50px;
+		z-index: 2;
+		transition: right 0.5s;
+	}
+	nav ul li{
+		display: block;
+		margin: 25px;
+	}
+	nav ul .fas{
+		position: absolute;
+		top: 25px;
+		left: 25px;
+		cursor: pointer;
+	}
+	nav .fa-bars{
+		cursor: pointer;
+	}
+}
 /*-----------------------------768 PX [CELLPHONE]-----------------------------*/
 @media only screen and (max-width: 768px){
 	.header-text{
