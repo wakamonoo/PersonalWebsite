@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,11 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
+
 <body>
     <img class="proj2" src="images/revved.png">
-    <p class="swipe2"><i class="fa-solid fa-hand-point-left"></i> Swipe Left or Right <i class="fa-solid fa-hand-point-right"></i></p>
+    <p class="swipe2"><i class="fa-solid fa-hand-point-left"></i> Swipe Left or Right <i
+            class="fa-solid fa-hand-point-right"></i></p>
     <a href="index.html#portfolio" class="back-button">
         <img src="images/left-arrow.png">
     </a>
@@ -34,28 +37,29 @@
     <p class="desc2">WEB BASED E-COMMERCE PLATFORM FOR MOTORCYCLE PARTS AND ACCESSORIES</p>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-    let scrollContainer = document.querySelector(".gallery2");
-    let backBtn = document.getElementById("backBtn");
-    let nextBtn = document.getElementById("nextBtn");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let scrollContainer = document.querySelector(".gallery2");
+            let backBtn = document.getElementById("backBtn");
+            let nextBtn = document.getElementById("nextBtn");
 
-    scrollContainer.addEventListener("wheel", (evt) => {
-        evt.preventDefault();
-        scrollContainer.scrollLeft += evt.deltaY;
-    });
+            scrollContainer.addEventListener("wheel", (evt) => {
+                evt.preventDefault();
+                scrollContainer.scrollLeft += evt.deltaY;
+            });
 
-    nextBtn.addEventListener("click", () => {
-        scrollContainer.scrollLeft += 900;
-    });
+            nextBtn.addEventListener("click", () => {
+                scrollContainer.scrollLeft += 900;
+            });
 
-    backBtn.addEventListener("click", () => {
-        scrollContainer.scrollLeft -= 900;
-    });
-});
-</script>
-<script>
-    lucide.createIcons();
-</script>
+            backBtn.addEventListener("click", () => {
+                scrollContainer.scrollLeft -= 900;
+            });
+        });
+    </script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
+
 </html>

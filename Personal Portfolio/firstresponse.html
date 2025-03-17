@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,11 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
+
 <body>
     <img class="proj1" src="images/ircs_logo.png">
-    <p class="swipe"><i class="fa-solid fa-hand-point-left"></i> Swipe Left or Right <i class="fa-solid fa-hand-point-right"></i></p>
+    <p class="swipe"><i class="fa-solid fa-hand-point-left"></i> Swipe Left or Right <i
+            class="fa-solid fa-hand-point-right"></i></p>
     <a href="index.html#portfolio" class="back-button">
         <img src="images/left-arrow.png">
     </a>
@@ -18,23 +21,23 @@
         <img src="images/back.png" id="backBtn">
         <div class="gallery">
             <div>
-              <span><img src="images/fr1.jpg"></span>
-              <span><img src="images/fr2.jpg"></span>
-              <span><img src="images/fr3.jpg"></span>
-              <span><img src="images/fr4.jpg"></span>
-              <span><img src="images/fr5.jpg"></span>
-              <span><img src="images/fr6.jpg"></span>
-              <span><img src="images/fr7.jpg"></span>
-              <span><img src="images/fr8.jpg"></span>
-              <span><img src="images/fr9.jpg"></span>
-              <span><img src="images/fr10.jpg"></span>
-              <span><img src="images/fr11.jpg"></span>
-              <span><img src="images/fr12.jpg"></span>
-              <span><img src="images/fr13.jpg"></span>
-              <span><img src="images/fr14.jpg"></span>
-              <span><img src="images/fr15.jpg"></span>
-              <span><img src="images/fr16.jpg"></span>
-              <span><img src="images/fr17.jpg"></span>              
+                <span><img src="images/fr1.jpg"></span>
+                <span><img src="images/fr2.jpg"></span>
+                <span><img src="images/fr3.jpg"></span>
+                <span><img src="images/fr4.jpg"></span>
+                <span><img src="images/fr5.jpg"></span>
+                <span><img src="images/fr6.jpg"></span>
+                <span><img src="images/fr7.jpg"></span>
+                <span><img src="images/fr8.jpg"></span>
+                <span><img src="images/fr9.jpg"></span>
+                <span><img src="images/fr10.jpg"></span>
+                <span><img src="images/fr11.jpg"></span>
+                <span><img src="images/fr12.jpg"></span>
+                <span><img src="images/fr13.jpg"></span>
+                <span><img src="images/fr14.jpg"></span>
+                <span><img src="images/fr15.jpg"></span>
+                <span><img src="images/fr16.jpg"></span>
+                <span><img src="images/fr17.jpg"></span>
             </div>
         </div>
         <img src="images/next.png" id="nextBtn">
@@ -42,28 +45,29 @@
     <p class="desc">RECOMMENDATION FIRST AID APPLICATION FOR EMERGENCY SITUATIONS</p>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-    let scrollContainer = document.querySelector(".gallery");
-    let backBtn = document.getElementById("backBtn");
-    let nextBtn = document.getElementById("nextBtn");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let scrollContainer = document.querySelector(".gallery");
+            let backBtn = document.getElementById("backBtn");
+            let nextBtn = document.getElementById("nextBtn");
 
-    scrollContainer.addEventListener("wheel", (evt) => {
-        evt.preventDefault();
-        scrollContainer.scrollLeft += evt.deltaY;
-    });
+            scrollContainer.addEventListener("wheel", (evt) => {
+                evt.preventDefault();
+                scrollContainer.scrollLeft += evt.deltaY;
+            });
 
-    nextBtn.addEventListener("click", () => {
-        scrollContainer.scrollLeft += 900;
-    });
+            nextBtn.addEventListener("click", () => {
+                scrollContainer.scrollLeft += 900;
+            });
 
-    backBtn.addEventListener("click", () => {
-        scrollContainer.scrollLeft -= 900;
-    });
-});
-</script>
-<script>
-    lucide.createIcons();
-</script>
+            backBtn.addEventListener("click", () => {
+                scrollContainer.scrollLeft -= 900;
+            });
+        });
+    </script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
+
 </html>
