@@ -1,0 +1,68 @@
+{
+  "faqs": [
+    {
+      "question": "What is your name?",
+      "answer": "I am Waka-AI, Joven's AI assistant. I’m here to help with any inquiries about Joven, his projects, web development, AI, and more!"
+    },
+    {
+      "question": "Who created you?",
+      "answer": "I was created by Joven Bataller, a skilled web developer and AI enthusiast, to serve as a smart assistant for answering questions and helping users navigate his work."
+    },
+    {
+      "question": "What services do you offer?",
+      "answer": "Joven offers a variety of services, including:\n- Web Development (Frontend & Backend)\n- AI Integration\n- UI/UX Design\n- Technical Consulting\n- Custom Software Development\n- API Development\nIf you're looking for expert solutions, you're in the right place!"
+    },
+    {
+      "question": "What is your portfolio about?",
+      "answer": "Joven Bataller’s portfolio showcases his expertise in web development, AI, and design. It includes projects ranging from full-stack websites to AI-powered applications. You can explore it at [Joven's Portfolio](https://jovenbataller21.netlify.app/)."
+    },
+    {
+      "question": "What programming languages does Joven use?",
+      "answer": "Joven is proficient in multiple programming languages, including:\n- **JavaScript** (React, Node.js, Express)\n- **Python** (Flask, Django, AI/ML tools)\n- **HTML & CSS** (Tailwind, Bootstrap, SCSS)\n- **SQL & NoSQL Databases** (MySQL, MongoDB, Firebase)\n- **Java & Kotlin** (Android Development)\n- **C# & Unity** (Game Development)"
+    },
+    {
+      "question": "What projects has Joven worked on?",
+      "answer": "Joven has worked on a variety of projects, including:\n- **AI-powered chatbots**\n- **Full-stack web applications**\n- **Portfolio websites**\n- **Android apps**\n- **Custom APIs**\nHis projects focus on innovation, functionality, and seamless user experience."
+    },
+    {
+      "question": "Does Joven develop mobile apps?",
+      "answer": "Yes! Joven has experience in mobile development, particularly with **Android (Java & Kotlin)**. He builds modern, responsive, and efficient apps tailored to different needs."
+    },
+    {
+      "question": "Does Joven integrate AI into websites?",
+      "answer": "Absolutely! Joven specializes in integrating AI into web applications, whether it’s chatbots, recommendation systems, or automation tools. If you need an AI-powered solution, he’s got you covered!"
+    },
+    {
+      "question": "How can I contact Joven?",
+      "answer": "You can reach out to Joven via his portfolio website at [Joven's Portfolio](https://jovenbataller21.netlify.app/) or through his social media links provided on the site."
+    },
+    {
+      "question": "Can Joven build e-commerce websites?",
+      "answer": "Yes! Joven has experience in developing **e-commerce websites** using platforms like Shopify, WooCommerce, and custom-built solutions with React, Node.js, and Firebase."
+    },
+    {
+      "question": "Does Joven offer UI/UX design services?",
+      "answer": "Yes! Joven not only codes but also focuses on **UI/UX design**, ensuring that websites and applications are visually appealing, user-friendly, and highly functional."
+    },
+    {
+      "question": "What frameworks and tools does Joven use?",
+      "answer": "Joven works with a variety of frameworks and tools, including:\n- **Frontend:** React.js, Next.js, Tailwind CSS\n- **Backend:** Node.js, Express, Flask, Django\n- **Databases:** MongoDB, Firebase, MySQL\n- **AI/ML:** OpenAI API, TensorFlow, Deep Learning tools\n- **Mobile:** Android Studio (Java/Kotlin)\n- **Game Development:** Unity (C#)"
+    },
+    {
+      "question": "What is Joven's development workflow?",
+      "answer": "Joven follows a structured development workflow:\n1. **Requirement Gathering** – Understanding client needs.\n2. **Design & Prototyping** – UI/UX wireframing and planning.\n3. **Development** – Writing clean, scalable code.\n4. **Testing & Debugging** – Ensuring smooth performance.\n5. **Deployment** – Launching the project.\n6. **Maintenance & Updates** – Ongoing support and improvements."
+    },
+    {
+      "question": "What makes Joven different from other developers?",
+      "answer": "Joven stands out because of:\n- **Strong AI expertise** – Integrating AI into projects.\n- **Full-stack development skills** – From frontend to backend.\n- **Attention to UI/UX** – Ensuring great user experience.\n- **Problem-solving mindset** – Efficiently tackling challenges.\n- **Passion for innovation** – Always exploring new technologies."
+    },
+    {
+      "question": "Can I hire Joven for freelance work?",
+      "answer": "Yes! Joven is open to **freelance opportunities**. You can discuss your project requirements via his portfolio site or contact him directly through provided channels."
+    },
+    {
+      "question": "What are Joven's future plans?",
+      "answer": "Joven aims to expand his AI and web development expertise, work on cutting-edge projects, and contribute to the tech community by building innovative and impactful software solutions."
+    }
+  ]
+}

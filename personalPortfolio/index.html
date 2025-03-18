@@ -1,0 +1,444 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joven | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/c15538e89d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+
+<body>
+  <div id="header">
+    <div class="container">
+      <nav>
+        <img src="images/logo.png" title="wakamonoo" class="logo">
+        <ul id="sidemenu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#tools-cert">Technical Credentials</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <i class="fas fa-times" onclick="closemenu()"></i>
+        </ul>
+        <i class="fas fa-bars" onclick="openmenu()"></i>
+      </nav>
+      <div id="container-head">
+        <div class="header-text">
+          <p id="dropText" class="drop-text">Software Developer</p>
+          <h1 id="typewriter"></h1>
+          <div class="social-info">
+            <a href="https://web.facebook.com/joven.serdanbataller"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/wakamonoooo/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/joven-bataller-085761350"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/wakamonoo"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+        <div class="photo-me">
+          <img src="images/me.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!----------ABOUT---------->
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <img src="images/user.png">
+        </div>
+        <div class="about-col-2">
+          <h1 class="sub-title">About Me</h1>
+          <p>I am Joven Serdan Bataller, an aspiring Information Technology professional with a strong passion for
+            technology and problem-solving.
+            Currently pursuing a Bachelor of Science in Information Technology at Bicol University Polangui, I am
+            dedicated to expanding my expertise in software development, system analysis, and emerging technologies.
+            <br><br>Beyond academics, I am a team player with a background in competitive basketball, which has
+            strengthened my discipline, leadership, and strategic thinking.
+            I am eager to apply my skills in real-world projects, continuously learning and adapting to advancements in
+            the field.
+          </p>
+
+          <div class="tab-titles">
+            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+            <p class="tab-links" onclick="opentab('education')">Education</p>
+          </div>
+          <div class="tab-contents active-tab" id="skills">
+            <ul>
+              <li><span>Web Development</span><br>Web App Development</li>
+              <li><span>Mobile Application Development</span><br>Building Android Apps</li>
+              <li><span>Database Creation</span><br>Structured Data Management</li>
+            </ul>
+          </div>
+          <div class="tab-contents" id="experience">
+            <ul>
+              <li><span>2025 - Current</span><br>IT Intern at BytesCrafter IT Solutions</li>
+            </ul>
+          </div>
+          <div class="tab-contents" id="education">
+            <ul>
+              <li><span>2009 - 2015</span><br>Apud Elementary School</li>
+              <li><span>2015 - 2021</span><br>Rawis High School</li>
+              <li><span>2021 - Current</span><br>BSIT at Bicol University Polangui</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!----------Tools-Certification---------->
+  <div id="tools-cert">
+    <h1 class="sub-title">Technical Credentials</h1>
+    <div id="tools-cert" class="tab-titles">
+      <p class="tab-links active-link" onclick="openToolsTab('tools-section')">Tools</p>
+      <p class="tab-links" onclick="openToolsTab('certificates-section')">Certificates</p>
+    </div>
+
+    <div class="tab-contents active-tab" id="tools-section">
+      <div class="content-grid">
+        <div class="tool-item">
+          <i class="devicon-cplusplus-plain colored"></i>
+          <p>C++</p>
+        </div>
+        <div class="tool-item">
+          <i class="devicon-java-plain colored"></i>
+          <p>Java</p>
+        </div>
+        <div class="tool-item">
+          <i class="devicon-javascript-plain colored"></i>
+          <p>JavaScript</p>
+        </div>
+        <div class="tool-item">
+          <i class="devicon-kotlin-plain colored"></i>
+          <p>Kotlin</p>
+        </div>
+        <div class="tool-item">
+          <i class="devicon-firebase-plain colored"></i>
+          <p>Firebase</p>
+        </div>
+        <div class="tool-item">
+          <i class="devicon-mysql-plain colored"></i>
+          <p>MySQL</p>
+        </div>
+        <div class="tool-item">
+          <i class="devicon-php-plain colored"></i>
+          <p>PHP</p>
+        </div>
+        <div class="tool-item">
+          <i class="devicon-html5-plain colored"></i>
+          <p>HTML</p>
+        </div>
+        <div class="tool-item">
+          <i class="devicon-css3-plain colored"></i>
+          <p>CSS</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-contents hidden" id="certificates-section">
+      <div class="content-grid">
+        <div class="certificate-item">
+          <img src="images/cert1.png">
+          <p>Intro to Game Development</p>
+        </div>
+        <div class="certificate-item">
+          <img src="images/cert2.png">
+          <p>Intro to IoT & Digital Transformation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-----Services----->
+  <div id="services">
+    <div class="container">
+      <h1 class="sub-title">My Services</h1>
+      <div class="services-list">
+        <div>
+          <i class="fa-solid fa-code"></i>
+          <h2>Web Design</h2>
+          <p>The process of creating visually appealing, responsive, and user-friendly websites that enhance brand
+            identity and engagement.
+            It focuses on clean layouts, intuitive navigation, and modern design principles.</p>
+          <a href="#">Learn more</a>
+        </div>
+        <div>
+          <i class="fa-solid fa-database"></i>
+          <h2>Database Creation</h2>
+          <p>The process of designing and structuring databases for efficient data storage, retrieval, and management.
+            It ensures data integrity, security, and scalability for web and mobile applications.</p>
+          <a href="#">Learn more</a>
+        </div>
+        <div>
+          <i class="fa-brands fa-app-store"></i>
+          <h2>App Design</h2>
+          <p>The development of interactive and responsive mobile applications with a focus on usability, performance,
+            and modern design trends.
+            It ensures smooth navigation, engaging visuals, and high-performance user experiences.</p>
+          <a href="#">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-----Portfolio----->
+  <div id="portfolio">
+    <div class="container">
+      <h1 class="sub-title">My Works</h1>
+      <div class="work-list">
+        <div class="work">
+          <img src="images/work-1.png">
+          <div class="layer">
+            <h3>FirstResponse</h3>
+            <p>First aid and emergency response application
+              for the 3rd District of Albay, Bicol Region.</p>
+            <a href="firstresponse.html"><i class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+        </div>
+        <div class="work">
+          <img src="images/work-2.png">
+          <div class="layer">
+            <h3>Revved</h3>
+            <p>Web-based E-commerce platform for
+              motorcycle parts and accessories.</p>
+            <a href="revved.html"><i class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+        </div>
+        <div class="work">
+          <img src="images/work-3.png">
+          <div class="layer">
+            <h3>Music App</h3>
+            <p>The app connects you to the talented people
+              around the world.</p>
+            <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn">See more</a>
+    </div>
+  </div>
+  <!-----------Contact---------->
+  <div id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="contact-left">
+          <h1 class="sub-title">Contact Me</h1>
+          <p><i class="fa-solid fa-paper-plane"></i> joven.serdanbataller21@gmail.com</p>
+          <p><i class="fa-solid fa-square-phone-flip"></i>09934937214</p>
+          <div class="social-icons">
+            <a href="https://web.facebook.com/joven.serdanbataller"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/wakamonoooo/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/joven-bataller-085761350"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/wakamonoo"><i class="fa-brands fa-github"></i></a>
+          </div>
+          <a href="images/Bataller_Resume.pdf" download class="btn btn2">Download CV</a>
+        </div>
+        <div class="contact-right">
+          <form name="submit-to-google-sheet">
+            <input type="text" name="Name" placeholder="Your Name" required>
+            <input type="email" name="Email" placeholder="Your Email" required>
+            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn btn2">Submit</button>
+          </form>
+          <span id="msg"></span>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 wakamonoo. All rights reserved. Inspired by GreatStack<i class="fa-solid fa-basketball"></i>
+      </p>
+    </div>
+  </div>
+  
+<!-- Floating Chat Head Button -->
+<button class="chat-button" onclick="toggleChat()">💬</button>
+
+<!-- Chat Container -->
+<div class="chat-container" id="chatBox">
+  <h2>Waka-AI</h2>
+  <div class="form-group">
+    <input type="text" class="form-control" id="userInput" placeholder="Enter your question" />
+  </div>
+  <button onclick="sendMessage()">Ask!</button>
+  <div id="response"></div>
+</div>
+
+    
+  <!---------------JavaScript------------------->
+
+  <script>
+    function toggleChat() {
+    var chatBox = document.getElementById("chatBox");
+    chatBox.style.display = chatBox.style.display === "none" || chatBox.style.display === "" ? "block" : "none";
+  }
+  async function sendMessage() {
+    const input = document.getElementById('userInput').value;
+    const responseDiv = document.getElementById('response');
+
+    if (!input) {
+        responseDiv.innerHTML = 'Please enter a message.';
+        return;
+    }
+
+    responseDiv.innerHTML = 'Loading...';
+
+    try {
+        // Step 1: Fetch FAQs from the local file
+        const faqResponse = await fetch('faqs.json'); // Fetching from local file
+        const faqData = await faqResponse.json();
+
+        // Step 2: Convert FAQs into a system message
+        let faqContext = "You are Waka-AI, Joven's intelligent assistant. Use the following FAQs to answer the user's question:\n\n";
+        faqData.faqs.forEach(faq => {
+            faqContext += `Q: ${faq.question}\nA: ${faq.answer}\n\n`;
+        });
+
+        // Step 3: Call OpenRouter AI with the FAQ knowledge
+        const aiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                Authorization: 'Bearer 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',
+                'HTTP-Referer': 'https://jovenbataller21.netlify.app/',
+                'X-Title': 'Wakamonoo Portfolio',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                model: 'deepseek/deepseek-r1:free',
+                messages: [
+                    { role: 'system', content: faqContext }, // Inject FAQ data
+                    { role: 'user', content: input }
+                ],
+            }),
+        });
+
+        const aiData = await aiResponse.json();
+        const markdownText = aiData.choices?.[0]?.message?.content || 'No response received.';
+        responseDiv.innerHTML = marked.parse(markdownText);
+    } catch (error) {
+        responseDiv.innerHTML = 'Error: ' + error.message;
+    }
+}
+
+
+
+
+
+
+    // Header Typewriter Effect
+    const textParts = ["Hi, I'm ", "Joven", " Bataller\nfrom The Philippines"];
+    const h1 = document.getElementById("typewriter");
+    let i = 0, j = 0;
+    const speed = 100;
+    let currentText = "";
+
+    function typeWriter() {
+      if (i < textParts.length) {
+        if (i === 1) {
+          currentText += `<span class="highlight">${textParts[i][j]}</span>`;
+        } else {
+          currentText += textParts[i][j];
+        }
+
+        h1.innerHTML = currentText + `<span class="cursor"></span>`;
+
+        j++;
+        if (j >= textParts[i].length) {
+          i++;
+          j = 0;
+        }
+
+        setTimeout(typeWriter, speed);
+      } else {
+        h1.innerHTML = currentText + `<span class="cursor"></span>`;
+        setTimeout(() => document.getElementById("dropText").classList.add("show"), 500);
+        setTimeout(animateIcons, 1200);
+      }
+    }
+
+    function animateIcons() {
+      const icons = document.querySelectorAll(".social-info i");
+      icons.forEach((icon, index) => {
+        setTimeout(() => icon.classList.add("show"), index * 300);
+      });
+    }
+
+    typeWriter();
+
+    //img bounce
+    document.addEventListener("DOMContentLoaded", () => {
+      const image = document.querySelector(".photo-me img");
+      let position = 0;
+      let direction = 1;
+      const amplitude = 30;
+      const step = 1;
+      const interval = 20;
+
+      function bounce() {
+        position += step * direction;
+
+        if (position >= amplitude || position <= 0) {
+          direction *= -1;
+        }
+
+        image.style.transform = `translateY(-${position}px)`;
+        setTimeout(bounce, interval);
+      }
+
+      bounce(); 
+    });
+
+    // tab-links
+    var tablinks = document.querySelectorAll("#about .tab-links");
+    var tabcontents = document.querySelectorAll("#about .tab-contents");
+
+    function opentab(tabname) {
+      tablinks.forEach(tablink => tablink.classList.remove("active-link"));
+      tabcontents.forEach(tabcontent => tabcontent.classList.remove("active-tab"));
+
+      event.currentTarget.classList.add("active-link");
+      document.getElementById(tabname).classList.add("active-tab");
+    }
+    // Open and close side menu
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu() {
+      sidemenu.style.right = "0";
+    }
+    function closemenu() {
+      sidemenu.style.right = "-200px";
+    }
+    // Send message to Google Sheet
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxXPL48xLVVTA72KS-zEX73YVhlEJv-3rBSUxm3s2XQoIX-32R4MSlZm2pRkdH7tWMq/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const ms = document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          msg.innerHTML = "Message sent successfully"
+          setTimeout(function () {
+            msg.innerHTML = ""
+          }, 5000)
+          form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+    // tools-cert tab links
+    var toolsTabLinks = document.querySelectorAll("#tools-cert .tab-links");
+    var toolsTabContents = document.querySelectorAll("#tools-cert .tab-contents");
+
+    function openToolsTab(tabName) {
+      toolsTabLinks.forEach(link => link.classList.remove("active-link"));
+      toolsTabContents.forEach(tab => tab.classList.remove("active-tab"));
+
+      event.currentTarget.classList.add("active-link");
+      document.getElementById(tabName).classList.add("active-tab");
+    }
+  </script>
+</body>
+
+</html>
