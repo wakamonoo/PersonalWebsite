@@ -386,7 +386,7 @@
         const loadingMessage = appendMessage("bot", "Loading...");
 
         // Call Node.js backend to get AI response
-        const aiResponse = await fetch("https://personalwebsite-1.onrender.com//api/chat", {
+        const aiResponse = await fetch("https://personalwebsite-1.onrender.com/api/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: input }),
