@@ -891,25 +891,21 @@ nav .fas {
   border-radius: 5px;
   cursor: pointer;
 }
-.loading-dots {
-  display: inline-flex;
-  gap: 3px;
-}
-
-.loading-dots span {
-  font-weight: bold;
-  font-size: 20px;
-  color: #d70026;
+.dots span {
   animation: bounce 1.5s infinite ease-in-out;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 20px;
+  color: #39ff14;
 }
 
-.loading-dots span:nth-child(1) {
+.dots span:nth-child(1) {
   animation-delay: 0s;
 }
-.loading-dots span:nth-child(2) {
+.dots span:nth-child(2) {
   animation-delay: 0.2s;
 }
-.loading-dots span:nth-child(3) {
+.dots span:nth-child(3) {
   animation-delay: 0.4s;
 }
 
