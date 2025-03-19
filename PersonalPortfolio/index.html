@@ -380,9 +380,20 @@
         appendMessage("user", input);
         inputElement.value = "";
 
-        try {
-          const loadingMessage = appendMessage("bot", "Loading...");
+        // Create bot loading message
+        const loadingMessage = document.createElement("div");
+        loadingMessage.className = "message bot-message";
+        loadingMessage.innerHTML = `
+    <div class="bot-icon">🤖</div>
+    <div class="loading-container">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  `;
+        responseDiv.appendChild(loadingMessage);
 
+        try {
           const aiResponse = await fetch(
             "https://wakamonoo-site-backend.onrender.com/api/chat",
             {
@@ -392,45 +403,28 @@
             }
           );
 
-          const aiData = await aiResponse.json();
-          let botReply =
-            aiData.reply || "I didn't catch that, kindly ask again.";
+          if (!aiResponse.ok) {
+            throw new Error(
+              `Server error: ${aiResponse.status} ${aiResponse.statusText}`
+            );
+          }
 
-          loadingMessage.remove();
+          const aiData = await aiResponse.json();
+
+          let botReply =
+            aiData.reply || "Sumemasen! I didn't catch that, kindly ask again.";
+
+          loadingMessage.remove(); // Remove loading dots
           appendMessage("bot", botReply, true);
         } catch (error) {
-          appendMessage("bot", "Error: " + error.message);
+          console.error("Fetch error:", error);
+          loadingMessage.remove();
+          appendMessage(
+            "bot",
+            "Oops! Something went wrong. Please try again later."
+          );
         }
       }
-
-      function appendMessage(sender, text, isMarkdown = false) {
-        const responseDiv = document.getElementById("response");
-        const messageDiv = document.createElement("div");
-        messageDiv.classList.add("message", sender);
-
-        const icon = document.createElement("div");
-        icon.classList.add("icon");
-        icon.innerHTML = sender === "user" ? "👤" : "🤖";
-
-        const textDiv = document.createElement("div");
-        textDiv.classList.add("text");
-
-        if (isMarkdown) {
-          textDiv.innerHTML = marked.parse(text);
-        } else {
-          textDiv.innerText = text;
-        }
-
-        messageDiv.appendChild(icon);
-        messageDiv.appendChild(textDiv);
-        responseDiv.appendChild(messageDiv);
-
-        responseDiv.scrollTop = responseDiv.scrollHeight;
-
-        return messageDiv;
-      }
-
-
 
       function appendMessage(sender, text, isMarkdown = false) {
         const responseDiv = document.getElementById("response");
