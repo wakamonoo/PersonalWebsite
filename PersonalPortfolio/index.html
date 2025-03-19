@@ -364,6 +364,8 @@
 
     <!---------------JavaScript------------------->
     <script>
+      //TEMPORARY AI ALERT
+      alert("WAKA-AI is not yet functional on devices outside localhost");
       // waka-AI
       function toggleChat() {
         const chatBox = document.getElementById("chatBox");
@@ -371,68 +373,70 @@
           chatBox.style.display === "none" ? "flex" : "none";
       }
       async function sendMessage() {
-    const inputElement = document.getElementById("userInput");
-    const input = inputElement.value.trim();
-    const responseDiv = document.getElementById("response");
+        const inputElement = document.getElementById("userInput");
+        const input = inputElement.value.trim();
+        const responseDiv = document.getElementById("response");
 
-    if (!input) return;
+        if (!input) return;
 
-    appendMessage("user", input);
-    inputElement.value = "";
+        appendMessage("user", input);
+        inputElement.value = "";
 
-    try {
-        const loadingMessage = appendMessage("bot", "Loading...");
+        try {
+          const loadingMessage = appendMessage("bot", "Loading...");
 
-        // Call Node.js backend to get AI response
-        const aiResponse = await fetch("http://localhost:5000/api/chat", {
+          const aiResponse = await fetch("http://localhost:5000/api/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: input }),
+          });
+
+          const aiData = await aiResponse.json();
+          let botReply =
+            aiData.reply || "I didn't catch that, kindly ask again.";
+
+          loadingMessage.remove();
+          appendMessage("bot", botReply, true);
+        } catch (error) {
+          appendMessage("bot", "Error: " + error.message);
+        }
+      }
+
+      function appendMessage(sender, text, isMarkdown = false) {
+        const responseDiv = document.getElementById("response");
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", sender);
+
+        const icon = document.createElement("div");
+        icon.classList.add("icon");
+        icon.innerHTML = sender === "user" ? "👤" : "🤖";
+
+        const textDiv = document.createElement("div");
+        textDiv.classList.add("text");
+
+        if (isMarkdown) {
+          textDiv.innerHTML = marked.parse(text);
+        } else {
+          textDiv.innerText = text;
+        }
+
+        messageDiv.appendChild(icon);
+        messageDiv.appendChild(textDiv);
+        responseDiv.appendChild(messageDiv);
+
+        responseDiv.scrollTop = responseDiv.scrollHeight;
+
+        return messageDiv;
+      }
+
+      document
+        .getElementById("userInput")
+        .addEventListener("keypress", function (event) {
+          if (event.key === "Enter") {
+            sendMessage();
+          }
         });
 
-        const aiData = await aiResponse.json();
-        let botReply = aiData.reply || "I didn't catch that, kindly ask again.";
-
-        loadingMessage.remove();
-        appendMessage("bot", botReply, true);
-    } catch (error) {
-        appendMessage("bot", "Error: " + error.message);
-    }
-}
-
-function appendMessage(sender, text, isMarkdown = false) {
-    const responseDiv = document.getElementById("response");
-    const messageDiv = document.createElement("div");
-    messageDiv.classList.add("message", sender);
-
-    const icon = document.createElement("div");
-    icon.classList.add("icon");
-    icon.innerHTML = sender === "user" ? "👤" : "🤖";
-
-    const textDiv = document.createElement("div");
-    textDiv.classList.add("text");
-
-    if (isMarkdown) {
-        textDiv.innerHTML = marked.parse(text);
-    } else {
-        textDiv.innerText = text;
-    }
-
-    messageDiv.appendChild(icon);
-    messageDiv.appendChild(textDiv);
-    responseDiv.appendChild(messageDiv);
-
-    responseDiv.scrollTop = responseDiv.scrollHeight;
-
-    return messageDiv;
-}
-
-// Handle "Enter" key
-document.getElementById("userInput").addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-        sendMessage();
-    }
-});
       // Header Typewriter Effect
       const textParts = [
         "Hi, I'm ",
