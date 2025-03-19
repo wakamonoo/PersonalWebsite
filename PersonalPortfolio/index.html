@@ -351,46 +351,71 @@
       <div id="response"></div>
     </div>
 
-
     <!---------------JavaScript------------------->
     <script>
       // waka-AI
-      function toggleChat() {
-        var chatBox = document.getElementById("chatBox");
-        chatBox.style.display =
-          chatBox.style.display === "none" || chatBox.style.display === ""
-            ? "block"
-            : "none";
-      }
-      async function sendMessage() {
-    const input = document.getElementById("userInput").value;
-    const responseDiv = document.getElementById("response");
-
-    if (!input) {
-        responseDiv.innerHTML = "Please enter a message.";
-        return;
-    }
-
-    responseDiv.innerHTML = "Loading...";
-
-    try {
-        const response = await fetch("/.netlify/functions/chatProxy", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                model: "deepseek/deepseek-r1:free",
-                messages: [{ role: "user", content: input }],
-            }),
-        });
-
-        const data = await response.json();
-        responseDiv.innerHTML = marked.parse(data.choices?.[0]?.message?.content || "No response received.");
-    } catch (error) {
-        responseDiv.innerHTML = "Error: " + error.message;
-    }
+function toggleChat() {
+  var chatBox = document.getElementById("chatBox");
+  chatBox.style.display =
+    chatBox.style.display === "none" || chatBox.style.display === ""
+      ? "block"
+      : "none";
 }
 
+async function sendMessage() {
+  const input = document.getElementById("userInput").value;
+  const responseDiv = document.getElementById("response");
 
+  if (!input) {
+    responseDiv.innerHTML = "Please enter a message.";
+    return;
+  }
+
+  responseDiv.innerHTML = "Loading...";
+
+  try {
+    // Step 1: Fetch FAQs from the local file
+    const faqResponse = await fetch("faqs.json"); // Fetching from local file
+    const faqData = await faqResponse.json();
+
+    // Step 2: Convert FAQs into a system message
+    let faqContext =
+      "You are Waka-AI, Joven's intelligent assistant. Use the following FAQs to answer the user's question:\n\n";
+    faqData.faqs.forEach((faq) => {
+      faqContext += `Q: ${faq.question}\nA: ${faq.answer}\n\n`;
+    });
+
+    // Step 3: Call OpenRouter AI with the FAQ knowledge
+    const aiResponse = await fetch(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          Authorization:
+            "Bearer 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",
+          "HTTP-Referer": "https://jovenbataller21.netlify.app/",
+          "X-Title": "Wakamonoo Portfolio",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "deepseek/deepseek-r1:free",
+          messages: [
+            { role: "system", content: faqContext }, // Inject FAQ data
+            { role: "user", content: input },
+          ],
+        }),
+      }
+    );
+
+    const aiData = await aiResponse.json();
+    const markdownText =
+      aiData.choices?.[0]?.message?.content || "No response received.";
+    responseDiv.innerHTML = marked.parse(markdownText);
+  } catch (error) {
+    responseDiv.innerHTML = "Error: " + error.message;
+  }
+}
+      
       // Header Typewriter Effect
       const textParts = [
         "Hi, I'm ",
