@@ -381,7 +381,7 @@
         inputElement.value = "";
 
         try {
-          const loadingMessage = appendMessage("bot", "Loading");
+          const loadingMessage = appendMessage("bot", "Neural Linking");
 
           // Create the dot animation
           let dots = 0;
@@ -403,7 +403,7 @@
           clearInterval(loadingInterval); // Stop the animation
           const aiData = await aiResponse.json();
           let botReply =
-            aiData.reply || "I didn't catch that, kindly ask again.";
+            aiData.reply || "Sumimasen! I didn't catch that, kindly ask again.";
 
           loadingMessage.remove(); // Remove loading message
           appendMessage("bot", botReply, true);
