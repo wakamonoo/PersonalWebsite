@@ -891,17 +891,37 @@ nav .fas {
   border-radius: 5px;
   cursor: pointer;
 }
-.loading-dots {
-  display: inline-block;
-  font-size: 20px;
-  font-weight: bold;
-  color: #D70026; /* Red color */
-  animation: bounce 1s infinite;
+.loading-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 24px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #D70026;
+  border-radius: 50%;
+  animation: bounce 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  0%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
 }
 
 /*------------------------------------------MEDIAQUERY------------------------------------------*/

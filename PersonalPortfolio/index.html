@@ -381,38 +381,35 @@
   inputElement.value = "";
 
   try {
-    // Create loading message
-    const loadingMessage = appendMessage("bot", '<span class="loading-dots"></span>');
+    const loadingMessage = document.createElement("div");
+    loadingMessage.classList.add("bot-message");
+    loadingMessage.innerHTML = `
+      <div class="loading-animation">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    `;
+    responseDiv.appendChild(loadingMessage);
 
-    // Start bouncing dots animation
-    const dotsElement = loadingMessage.querySelector(".loading-dots");
-    let dotCount = 0;
-    const loadingInterval = setInterval(() => {
-      dotCount = (dotCount + 1) % 4; // Cycle through 0 to 3 dots
-      dotsElement.innerHTML = ".".repeat(dotCount);
-    }, 500);
+    const aiResponse = await fetch(
+      "https://personalwebsite-1.onrender.com/api/chat",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: input }),
+      }
+    );
 
-    // Fetch AI response
-    const aiResponse = await fetch("https://personalwebsite-1.onrender.com/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: input }),
-    });
-
-    clearInterval(loadingInterval); // Stop animation
-    loadingMessage.remove(); // Remove loading message
-
-    if (!aiResponse.ok) {
-      appendMessage("bot", "Oops! Server error, please try again.");
-      return;
-    }
+    loadingMessage.remove(); // Remove loading animation
 
     const aiData = await aiResponse.json();
-    let botReply = aiData?.reply?.trim() || "I'm sorry, I couldn't understand that.";
+    let botReply =
+      aiData.reply || "Sumemasen! I didn't catch that, kindly ask again.";
 
     appendMessage("bot", botReply, true);
   } catch (error) {
-    appendMessage("bot", "An error occurred. Please check your connection.");
+    appendMessage("bot", "Error: " + error.message);
   }
 }
 
