@@ -898,13 +898,13 @@ nav .fas {
 .dot {
   font-weight: bold;
   display: inline-block;
-  font-size: 20px;
+  font-size: 30px;
   animation: bounce 1.5s infinite ease-in-out;
 }
 
 .dot1 { color: #D70026; animation-delay: 0s; } /* Bold Red */
-.dot2 { color: #39FF14; animation-delay: 0.2s; } /* Neon Green */
-.dot3 { color: #F1F3F1; animation-delay: 0.4s; } /* White / Light Gray */
+.dot2 { color: #0A0A0A; animation-delay: 0.2s; } /* Neon Green */
+.dot3 { color: #39FF14; animation-delay: 0.4s; } /* White / Light Gray */
 
 @keyframes bounce {
   0%, 80%, 100% { transform: translateY(0); }
