@@ -381,13 +381,16 @@
   inputElement.value = "";
 
   try {
-    // Create loading message with bouncing dots
+    // Create bot message container
     const loadingMessage = document.createElement("div");
-    loadingMessage.className = "loading-container";
+    loadingMessage.className = "message bot-message";
     loadingMessage.innerHTML = `
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
+      <div class="bot-icon">🤖</div>
+      <div class="loading-container">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
     `;
     responseDiv.appendChild(loadingMessage);
 
@@ -400,7 +403,7 @@
       }
     );
 
-    loadingMessage.remove(); // Remove loading dots
+    loadingMessage.remove(); // Remove loading dots after fetching response
     const aiData = await aiResponse.json();
     let botReply =
       aiData.reply || "Sumemasen! I didn't catch that, kindly ask again.";

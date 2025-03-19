@@ -891,9 +891,32 @@ nav .fas {
   border-radius: 5px;
   cursor: pointer;
 }
-.loading-container {
+.message {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.bot-message {
+  justify-content: flex-start;
+}
+
+.bot-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #D70026;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
   display: flex;
   justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.loading-container {
+  display: flex;
   align-items: center;
   gap: 5px;
 }
