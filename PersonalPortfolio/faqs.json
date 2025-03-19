@@ -14,7 +14,7 @@
     },
     {
       "question": "What is your portfolio about?",
-      "answer": "Joven Bataller’s portfolio showcases his expertise in web development, AI, and design. It includes projects ranging from full-stack websites to AI-powered applications. You can explore it at [Joven's Portfolio](https://jovenbataller21.netlify.app/)."
+      "answer": "Joven Bataller’s portfolio showcases his expertise in web development, AI, and design. It includes projects ranging from full-stack websites to AI-powered applications. You can explore it at [Joven's Portfolio](https://jovenbataller21.vercel.app/)."
     },
     {
       "question": "What programming languages does Joven use?",
@@ -66,7 +66,7 @@
     },
     {
       "question": "Where is Joven from?",
-      "answer": "Joven is from **Brgy. Apud, Libon, Albay, Philippines**."
+      "answer": "Joven is from **Libon, Albay, Philippines**."
     },
     {
       "question": "What are Joven's hobbies?",

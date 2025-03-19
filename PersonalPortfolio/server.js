@@ -1,12 +1,12 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import fs from "fs/promises"; // Async fs module
+import fs from "fs/promises";
 
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: "*" })); // Allow all origins
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 const API_KEY = process.env.OPENROUTER_API_KEY;
@@ -29,33 +29,44 @@ app.post("/api/chat", async (req, res) => {
     try {
       const data = await fs.readFile("faqs.json", "utf8");
       const faqData = JSON.parse(data);
-      faqContext += faqData.faqs.map(faq => `Q: ${faq.question}\nA: ${faq.answer}\n`).join("\n");
+      faqContext += faqData.faqs
+        .map((faq) => `Q: ${faq.question}\nA: ${faq.answer}\n`)
+        .join("\n");
     } catch (faqError) {
-      console.warn("⚠️ Warning: faqs.json not found or invalid, skipping FAQ context.");
+      console.warn(
+        "⚠️ Warning: faqs.json not found or invalid, skipping FAQ context."
+      );
     }
 
     // Send request to OpenRouter AI
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "deepseek/deepseek-r1:free",
-        messages: [
-          { role: "system", content: faqContext },
-          { role: "user", content: message },
-        ],
-      }),
-    });
+    const response = await fetch(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "deepseek/deepseek-r1:free",
+          messages: [
+            { role: "system", content: faqContext },
+            { role: "user", content: message },
+          ],
+        }),
+      }
+    );
 
     const data = await response.json();
     if (!response.ok) {
       throw new Error(`OpenRouter API error: ${data.error || "Unknown error"}`);
     }
 
-    res.json({ reply: data.choices?.[0]?.message?.content || "I'm sorry, I couldn't understand that." });
+    res.json({
+      reply:
+        data.choices?.[0]?.message?.content ||
+        "I'm sorry, I couldn't understand that.",
+    });
   } catch (error) {
     console.error("❌ Chat API Error:", error);
     res.status(500).json({ error: "Error fetching AI response" });
@@ -64,4 +75,6 @@ app.post("/api/chat", async (req, res) => {
 
 // Use Render's assigned port
 const PORT = process.env.PORT || 10000;
-app.listen(PORT, "0.0.0.0", () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`🚀 Server running on port ${PORT}`)
+);
