@@ -38,7 +38,6 @@ app.post("/api/chat", async (req, res) => {
       );
     }
 
-    // Send request to OpenRouter AI
     const response = await fetch(
       "https://openrouter.ai/api/v1/chat/completions",
       {
@@ -56,17 +55,20 @@ app.post("/api/chat", async (req, res) => {
         }),
       }
     );
-
+    
     const data = await response.json();
-    if (!response.ok) {
-      throw new Error(`OpenRouter API error: ${data.error || "Unknown error"}`);
+    console.log("🔍 OpenRouter API Response:", JSON.stringify(data, null, 2)); // Debugging log
+    
+    if (!response.ok || !data.choices || !data.choices.length) {
+      throw new Error(`OpenRouter API error: ${data.error || "No valid response"}`);
     }
-
+    
+    const aiReply = data.choices[0]?.message?.content?.trim();
+    
     res.json({
-      reply:
-        data.choices?.[0]?.message?.content ||
-        "I'm sorry, I couldn't understand that.",
+      reply: aiReply || "I'm sorry, I couldn't understand that.",
     });
+    
   } catch (error) {
     console.error("❌ Chat API Error:", error);
     res.status(500).json({ error: "Error fetching AI response" });
