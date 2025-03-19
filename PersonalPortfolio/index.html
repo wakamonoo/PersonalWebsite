@@ -380,20 +380,20 @@
   appendMessage("user", input);
   inputElement.value = "";
 
-  try {
-    // Create bot message container
-    const loadingMessage = document.createElement("div");
-    loadingMessage.className = "message bot-message";
-    loadingMessage.innerHTML = `
-      <div class="bot-icon">🤖</div>
-      <div class="loading-container">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    `;
-    responseDiv.appendChild(loadingMessage);
+  // Create bot loading message
+  const loadingMessage = document.createElement("div");
+  loadingMessage.className = "message bot-message";
+  loadingMessage.innerHTML = `
+    <div class="bot-icon">🤖</div>
+    <div class="loading-container">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  `;
+  responseDiv.appendChild(loadingMessage);
 
+  try {
     const aiResponse = await fetch(
       "https://personalwebsite-1.onrender.com/api/chat",
       {
@@ -403,16 +403,24 @@
       }
     );
 
-    loadingMessage.remove(); // Remove loading dots after fetching response
+    if (!aiResponse.ok) {
+      throw new Error(`Server error: ${aiResponse.status} ${aiResponse.statusText}`);
+    }
+
     const aiData = await aiResponse.json();
+
     let botReply =
       aiData.reply || "Sumemasen! I didn't catch that, kindly ask again.";
 
+    loadingMessage.remove(); // Remove loading dots
     appendMessage("bot", botReply, true);
   } catch (error) {
-    appendMessage("bot", "Error: " + error.message);
+    console.error("Fetch error:", error);
+    loadingMessage.remove();
+    appendMessage("bot", "Oops! Something went wrong. Please try again later.");
   }
 }
+
 
 
       function appendMessage(sender, text, isMarkdown = false) {
