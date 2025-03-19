@@ -371,55 +371,64 @@
           chatBox.style.display === "none" ? "flex" : "none";
       }
       async function sendMessage() {
-  const inputElement = document.getElementById("userInput");
-  const input = inputElement.value.trim();
-  const responseDiv = document.getElementById("response");
+        const inputElement = document.getElementById("userInput");
+        const input = inputElement.value.trim();
+        const responseDiv = document.getElementById("response");
 
-  if (!input) return;
+        if (!input) return;
 
-  appendMessage("user", input);
-  inputElement.value = "";
+        appendMessage("user", input);
+        inputElement.value = "";
 
-  // Create bot loading message
-  const loadingMessage = document.createElement("div");
-  loadingMessage.className = "message bot-message";
-  loadingMessage.innerHTML = `
-    <div class="bot-icon">🤖</div>
-    <div class="loading-container">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  `;
-  responseDiv.appendChild(loadingMessage);
+        try {
+          const loadingMessage = appendMessage("bot", "Loading...");
 
-  try {
-    const aiResponse = await fetch(
-      "https://wakamonoo-site-backend.onrender.com/api/chat",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
+          const aiResponse = await fetch(
+            "https://personalwebsite-1.onrender.com/api/chat",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ message: input }),
+            }
+          );
+
+          const aiData = await aiResponse.json();
+          let botReply =
+            aiData.reply || "I didn't catch that, kindly ask again.";
+
+          loadingMessage.remove();
+          appendMessage("bot", botReply, true);
+        } catch (error) {
+          appendMessage("bot", "Error: " + error.message);
+        }
       }
-    );
 
-    if (!aiResponse.ok) {
-      throw new Error(`Server error: ${aiResponse.status} ${aiResponse.statusText}`);
-    }
+      function appendMessage(sender, text, isMarkdown = false) {
+        const responseDiv = document.getElementById("response");
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", sender);
 
-    const aiData = await aiResponse.json();
+        const icon = document.createElement("div");
+        icon.classList.add("icon");
+        icon.innerHTML = sender === "user" ? "👤" : "🤖";
 
-    let botReply =
-      aiData.reply || "Sumemasen! I didn't catch that, kindly ask again.";
+        const textDiv = document.createElement("div");
+        textDiv.classList.add("text");
 
-    loadingMessage.remove(); // Remove loading dots
-    appendMessage("bot", botReply, true);
-  } catch (error) {
-    console.error("Fetch error:", error);
-    loadingMessage.remove();
-    appendMessage("bot", "Oops! Something went wrong. Please try again later.");
-  }
-}
+        if (isMarkdown) {
+          textDiv.innerHTML = marked.parse(text);
+        } else {
+          textDiv.innerText = text;
+        }
+
+        messageDiv.appendChild(icon);
+        messageDiv.appendChild(textDiv);
+        responseDiv.appendChild(messageDiv);
+
+        responseDiv.scrollTop = responseDiv.scrollHeight;
+
+        return messageDiv;
+      }
 
 
 
