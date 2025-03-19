@@ -1,0 +1,15 @@
+{
+  "projectId": "prj_5IyYq2QzHS3nrzMXdHWWKSVBEW9Z",
+  "orgId": "team_AHBQqhBwIgHbkE6AR6zDXdc7",
+  "settings": {
+    "createdAt": 1742346161578,
+    "framework": null,
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": "PersonalPortfolio",
+    "directoryListing": false,
+    "nodeVersion": "22.x"
+  }
+}
