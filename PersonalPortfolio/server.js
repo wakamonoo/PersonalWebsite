@@ -17,29 +17,6 @@ if (!API_KEY) {
   process.exit(1);
 }
 
-// Function to load FAQs asynchronously
-let faqContext =
-  "You are Waka-AI, Joven's intelligent assistant. Use the following FAQs to answer the user's question:\n\n";
-
-const loadFAQs = async () => {
-  try {
-    const data = await fs.readFile("faqs.json", "utf8");
-    const faqData = JSON.parse(data);
-
-    faqData.faqs.forEach((faq) => {
-      faqContext += `Q: ${faq.question}\nA: ${faq.answer}\n\n`;
-    });
-
-    console.log("✅ FAQs loaded successfully.");
-  } catch (error) {
-    console.error("❌ Error loading faqs.json:", error);
-    faqContext += "No FAQ data available.";
-  }
-};
-
-// Load FAQs at startup
-loadFAQs();
-
 app.post("/api/chat", async (req, res) => {
   try {
     const { message } = req.body;
@@ -48,6 +25,20 @@ app.post("/api/chat", async (req, res) => {
       return res.status(400).json({ error: "Message is required." });
     }
 
+    // Load FAQs dynamically on each request
+    let faqContext = "You are Waka-AI, Joven's intelligent assistant. Use the following FAQs to answer the user's question:\n\n";
+    try {
+      const data = await fs.readFile("faqs.json", "utf8");
+      const faqData = JSON.parse(data);
+      faqData.faqs.forEach((faq) => {
+        faqContext += `Q: ${faq.question}\nA: ${faq.answer}\n\n`;
+      });
+    } catch (faqError) {
+      console.error("❌ Error loading faqs.json:", faqError);
+      faqContext += "No FAQ data available.";
+    }
+
+    // Send request to OpenRouter AI
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -57,14 +48,13 @@ app.post("/api/chat", async (req, res) => {
       body: JSON.stringify({
         model: "deepseek/deepseek-r1:free",
         messages: [
-          { role: "system", content: faqContext }, // Include FAQ context
+          { role: "system", content: faqContext }, // Include updated FAQ context
           { role: "user", content: message },
         ],
       }),
     });
 
     const data = await response.json();
-
     if (!response.ok) {
       throw new Error(`OpenRouter API error: ${data.error || "Unknown error"}`);
     }

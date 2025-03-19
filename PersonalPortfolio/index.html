@@ -381,26 +381,17 @@
     inputElement.value = "";
 
     try {
-        // Fetch FAQs from JSON file
-        const faqResponse = await fetch("faqs.json");
-        const faqData = await faqResponse.json();
-
-        let faqContext = "You are Waka-AI, Joven's intelligent assistant. Use the following FAQs to answer the user's question:\n\n";
-        faqData.faqs.forEach((faq) => {
-            faqContext += `Q: ${faq.question}\nA: ${faq.answer}\n\n`;
-        });
-
         const loadingMessage = appendMessage("bot", "Loading...");
 
-        // Call Node.js backend instead of exposing API key
+        // Call Node.js backend to get AI response
         const aiResponse = await fetch("http://localhost:5000/api/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: input, faqContext }),
+            body: JSON.stringify({ message: input }),
         });
 
         const aiData = await aiResponse.json();
-        let botReply = aiData.choices?.[0]?.message?.content || "I didn't catch that, kindly ask again.";
+        let botReply = aiData.reply || "I didn't catch that, kindly ask again.";
 
         loadingMessage.remove();
         appendMessage("bot", botReply, true);
