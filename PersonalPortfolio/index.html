@@ -371,46 +371,46 @@
           chatBox.style.display === "none" ? "flex" : "none";
       }
       async function sendMessage() {
-        const inputElement = document.getElementById("userInput");
-        const input = inputElement.value.trim();
-        const responseDiv = document.getElementById("response");
+  const inputElement = document.getElementById("userInput");
+  const input = inputElement.value.trim();
+  const responseDiv = document.getElementById("response");
 
-        if (!input) return;
+  if (!input) return;
 
-        appendMessage("user", input);
-        inputElement.value = "";
+  appendMessage("user", input);
+  inputElement.value = "";
 
-        try {
-          const loadingMessage = appendMessage("bot", "Loading");
+  try {
+    // Create loading message with bouncing dots
+    const loadingMessage = document.createElement("div");
+    loadingMessage.className = "loading-container";
+    loadingMessage.innerHTML = `
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    `;
+    responseDiv.appendChild(loadingMessage);
 
-          // Create the dot animation
-          let dots = 0;
-          const loadingInterval = setInterval(() => {
-            dots = (dots + 1) % 4; // Cycle through 0 to 3 dots
-            loadingMessage.querySelector(".text").innerText =
-              "Loading" + ".".repeat(dots);
-          }, 500);
-
-          const aiResponse = await fetch(
-            "https://personalwebsite-1.onrender.com/api/chat",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ message: input }),
-            }
-          );
-
-          clearInterval(loadingInterval); // Stop the animation
-          const aiData = await aiResponse.json();
-          let botReply =
-            aiData.reply || "Sumemasen! I didn't catch that, kindly ask again.";
-
-          loadingMessage.remove(); // Remove loading message
-          appendMessage("bot", botReply, true);
-        } catch (error) {
-          appendMessage("bot", "Error: " + error.message);
-        }
+    const aiResponse = await fetch(
+      "https://personalwebsite-1.onrender.com/api/chat",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: input }),
       }
+    );
+
+    loadingMessage.remove(); // Remove loading dots
+    const aiData = await aiResponse.json();
+    let botReply =
+      aiData.reply || "Sumemasen! I didn't catch that, kindly ask again.";
+
+    appendMessage("bot", botReply, true);
+  } catch (error) {
+    appendMessage("bot", "Error: " + error.message);
+  }
+}
+
 
       function appendMessage(sender, text, isMarkdown = false) {
         const responseDiv = document.getElementById("response");
