@@ -25,7 +25,6 @@ app.post("/api/chat", async (req, res) => {
       return res.status(400).json({ error: "Message is required." });
     }
 
-    // Load FAQs dynamically on each request
     let faqContext = "You are Waka-AI, Joven's intelligent assistant. Use the following FAQs to answer the user's question:\n\n";
     try {
       const data = await fs.readFile("faqs.json", "utf8");
@@ -48,7 +47,7 @@ app.post("/api/chat", async (req, res) => {
       body: JSON.stringify({
         model: "deepseek/deepseek-r1:free",
         messages: [
-          { role: "system", content: faqContext }, // Include updated FAQ context
+          { role: "system", content: faqContext },
           { role: "user", content: message },
         ],
       }),
@@ -66,5 +65,5 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+// Vercel expects serverless functions
+export default app;
