@@ -381,8 +381,10 @@
     inputElement.value = "";
 
     try {
-        const loadingMessage = appendLoadingMessage("bot", "Loading");
+        // Add the "Neural Linking..." message with bouncing dots
+        const loadingMessage = appendLoadingMessage("bot", "Neural Linking");
 
+        // Fetch response from API (your original logic)
         const aiResponse = await fetch(
             "https://personalwebsite-1.onrender.com/api/chat",
             {
@@ -392,16 +394,21 @@
             }
         );
 
+        if (!aiResponse.ok) throw new Error(`HTTP error! Status: ${aiResponse.status}`);
+
         const aiData = await aiResponse.json();
         let botReply = aiData.reply || "I didn't catch that, kindly ask again.";
 
-        loadingMessage.remove(); // Remove loading animation
+        // Remove loading animation and show response
+        loadingMessage.remove();
         appendMessage("bot", botReply, true);
     } catch (error) {
-        appendMessage("bot", "Error: " + error.message);
+        console.error("Fetch error:", error); // Log error for debugging
+        appendMessage("bot", "Error: Failed to connect to AI server. Please try again.");
     }
 }
 
+// Adds the animated "Neural Linking..." message with bouncing dots
 function appendLoadingMessage(sender, text) {
     const responseDiv = document.getElementById("response");
     const messageDiv = document.createElement("div");
@@ -413,7 +420,11 @@ function appendLoadingMessage(sender, text) {
 
     const textDiv = document.createElement("div");
     textDiv.classList.add("text");
-    textDiv.innerHTML = `${text} <span class="dots"><span>.</span><span>.</span><span>.</span></span>`;
+    textDiv.innerHTML = `${text} <span class="dots">
+        <span class="dot dot1">.</span>
+        <span class="dot dot2">.</span>
+        <span class="dot dot3">.</span>
+    </span>`;
 
     messageDiv.appendChild(icon);
     messageDiv.appendChild(textDiv);
