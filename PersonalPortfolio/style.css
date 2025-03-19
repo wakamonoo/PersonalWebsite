@@ -893,7 +893,7 @@ nav .fas {
 }
 .message {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Aligns everything to the top */
   margin: 10px 0;
 }
 
@@ -913,6 +913,7 @@ nav .fas {
   align-items: center;
   border-radius: 50%;
   margin-right: 8px;
+  flex-shrink: 0; /* Prevents shrinking if content grows */
 }
 
 .loading-container {
