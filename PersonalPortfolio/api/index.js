@@ -17,7 +17,7 @@ if (!API_KEY) {
   process.exit(1);
 }
 
-app.post("/api/chat", async (req, res) => {
+app.post("/api/chat", async (req, res) => {  // ✅ Vercel requires /api prefix
   try {
     const { message } = req.body;
 
@@ -25,8 +25,7 @@ app.post("/api/chat", async (req, res) => {
       return res.status(400).json({ error: "Message is required." });
     }
 
-    let faqContext =
-      "You are Waka-AI, Joven's intelligent assistant. Use the following FAQs to answer the user's question:\n\n";
+    let faqContext = "You are Waka-AI, Joven's intelligent assistant...\n\n";
     try {
       const data = await fs.readFile("faqs.json", "utf8");
       const faqData = JSON.parse(data);
@@ -38,23 +37,20 @@ app.post("/api/chat", async (req, res) => {
       faqContext += "No FAQ data available.";
     }
 
-    const response = await fetch(
-      "https://openrouter.ai/api/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: "deepseek/deepseek-r1:free",
-          messages: [
-            { role: "system", content: faqContext },
-            { role: "user", content: message },
-          ],
-        }),
-      }
-    );
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "deepseek/deepseek-r1:free",
+        messages: [
+          { role: "system", content: faqContext },
+          { role: "user", content: message },
+        ],
+      }),
+    });
 
     const data = await response.json();
     if (!response.ok) {
@@ -62,9 +58,7 @@ app.post("/api/chat", async (req, res) => {
     }
 
     res.json({
-      reply:
-        data.choices?.[0]?.message?.content ||
-        "I'm sorry, I couldn't understand that.",
+      reply: data.choices?.[0]?.message?.content || "I'm sorry, I couldn't understand that.",
     });
   } catch (error) {
     console.error("❌ Chat API Error:", error);
@@ -72,5 +66,4 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+export default app;  // ✅ Vercel requires this instead of app.listen()
