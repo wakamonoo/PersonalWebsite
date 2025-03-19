@@ -336,86 +336,112 @@
     </div>
 
     <!-----------Waka-AI---------->
-    <button class="chat-button" onclick="toggleChat()">💬</button>
+    <button class="chat-button" onclick="toggleChat()">
+      <i class="fa-solid fa-robot"></i>
+    </button>
+
     <div class="chat-container" id="chatBox">
-      <h2>Waka-AI</h2>
-      <div class="form-group">
+      <div class="chat-header">
+        <h2>Waka-AI <i class="fa-solid fa-robot"></i></h2>
+        <button class="close-btn" onclick="toggleChat()">&times;</button>
+      </div>
+
+      <div id="response" class="chat-messages"></div>
+
+      <div class="chat-input-container">
         <input
           type="text"
           class="form-control"
           id="userInput"
-          placeholder="Enter your question"
+          placeholder="Type a message..."
+          onkeypress="handleKeyPress(event)"
         />
+        <button onclick="sendMessage()">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
       </div>
-      <button onclick="sendMessage()">Ask!</button>
-      <div id="response"></div>
     </div>
 
     <!---------------JavaScript------------------->
     <script>
       // waka-AI
-function toggleChat() {
-  var chatBox = document.getElementById("chatBox");
-  chatBox.style.display =
-    chatBox.style.display === "none" || chatBox.style.display === ""
-      ? "block"
-      : "none";
-}
-
-async function sendMessage() {
-  const input = document.getElementById("userInput").value;
-  const responseDiv = document.getElementById("response");
-
-  if (!input) {
-    responseDiv.innerHTML = "Please enter a message.";
-    return;
-  }
-
-  responseDiv.innerHTML = "Loading...";
-
-  try {
-    // Step 1: Fetch FAQs from the local file
-    const faqResponse = await fetch("faqs.json"); // Fetching from local file
-    const faqData = await faqResponse.json();
-
-    // Step 2: Convert FAQs into a system message
-    let faqContext =
-      "You are Waka-AI, Joven's intelligent assistant. Use the following FAQs to answer the user's question:\n\n";
-    faqData.faqs.forEach((faq) => {
-      faqContext += `Q: ${faq.question}\nA: ${faq.answer}\n\n`;
-    });
-
-    // Step 3: Call OpenRouter AI with the FAQ knowledge
-    const aiResponse = await fetch(
-      "https://openrouter.ai/api/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          Authorization:
-            "Bearer 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",
-          "HTTP-Referer": "https://jovenbataller21.netlify.app/",
-          "X-Title": "Wakamonoo Portfolio",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: "deepseek/deepseek-r1:free",
-          messages: [
-            { role: "system", content: faqContext }, // Inject FAQ data
-            { role: "user", content: input },
-          ],
-        }),
+      function toggleChat() {
+        const chatBox = document.getElementById("chatBox");
+        chatBox.style.display =
+          chatBox.style.display === "none" ? "flex" : "none";
       }
-    );
+      async function sendMessage() {
+    const inputElement = document.getElementById("userInput");
+    const input = inputElement.value.trim();
+    const responseDiv = document.getElementById("response");
 
-    const aiData = await aiResponse.json();
-    const markdownText =
-      aiData.choices?.[0]?.message?.content || "No response received.";
-    responseDiv.innerHTML = marked.parse(markdownText);
-  } catch (error) {
-    responseDiv.innerHTML = "Error: " + error.message;
-  }
+    if (!input) return;
+
+    appendMessage("user", input);
+    inputElement.value = "";
+
+    try {
+        // Fetch FAQs from JSON file
+        const faqResponse = await fetch("faqs.json");
+        const faqData = await faqResponse.json();
+
+        let faqContext = "You are Waka-AI, Joven's intelligent assistant. Use the following FAQs to answer the user's question:\n\n";
+        faqData.faqs.forEach((faq) => {
+            faqContext += `Q: ${faq.question}\nA: ${faq.answer}\n\n`;
+        });
+
+        const loadingMessage = appendMessage("bot", "Loading...");
+
+        // Call Node.js backend instead of exposing API key
+        const aiResponse = await fetch("http://localhost:5000/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: input, faqContext }),
+        });
+
+        const aiData = await aiResponse.json();
+        let botReply = aiData.choices?.[0]?.message?.content || "I didn't catch that, kindly ask again.";
+
+        loadingMessage.remove();
+        appendMessage("bot", botReply, true);
+    } catch (error) {
+        appendMessage("bot", "Error: " + error.message);
+    }
 }
-      
+
+function appendMessage(sender, text, isMarkdown = false) {
+    const responseDiv = document.getElementById("response");
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("message", sender);
+
+    const icon = document.createElement("div");
+    icon.classList.add("icon");
+    icon.innerHTML = sender === "user" ? "👤" : "🤖";
+
+    const textDiv = document.createElement("div");
+    textDiv.classList.add("text");
+
+    if (isMarkdown) {
+        textDiv.innerHTML = marked.parse(text);
+    } else {
+        textDiv.innerText = text;
+    }
+
+    messageDiv.appendChild(icon);
+    messageDiv.appendChild(textDiv);
+    responseDiv.appendChild(messageDiv);
+
+    responseDiv.scrollTop = responseDiv.scrollHeight;
+
+    return messageDiv;
+}
+
+// Handle "Enter" key
+document.getElementById("userInput").addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+});
       // Header Typewriter Effect
       const textParts = [
         "Hi, I'm ",

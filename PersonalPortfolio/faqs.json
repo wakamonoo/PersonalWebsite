@@ -6,7 +6,7 @@
     },
     {
       "question": "Who created you?",
-      "answer": "I was created by Joven Bataller, a skilled web developer and AI enthusiast, to serve as a smart assistant for answering questions and helping users navigate his work."
+      "answer": "I was created by Joven Bataller, an IT student at Bicol University Polangui, passionate about web development, AI, and software innovation."
     },
     {
       "question": "What services do you offer?",
@@ -18,11 +18,11 @@
     },
     {
       "question": "What programming languages does Joven use?",
-      "answer": "Joven is proficient in multiple programming languages, including:\n- **JavaScript** (React, Node.js, Express)\n- **Python** (Flask, Django, AI/ML tools)\n- **HTML & CSS** (Tailwind, Bootstrap, SCSS)\n- **SQL & NoSQL Databases** (MySQL, MongoDB, Firebase)\n- **Java & Kotlin** (Android Development)\n- **C# & Unity** (Game Development)"
+      "answer": "Joven is proficient in multiple programming languages, including:\n- **JavaScript**\n- **Java**\n- **HTML & CSS**\n- **Kotlin**\n- **Firebase**\n- **SQL**\nHe is currently learning JavaScript frameworks to expand his development expertise."
     },
     {
       "question": "What projects has Joven worked on?",
-      "answer": "Joven has worked on a variety of projects, including:\n- **AI-powered chatbots**\n- **Full-stack web applications**\n- **Portfolio websites**\n- **Android apps**\n- **Custom APIs**\nHis projects focus on innovation, functionality, and seamless user experience."
+      "answer": "Joven has worked on a variety of projects, including:\n- **Revved** – An e-commerce motorcycle shop for parts and accessories.\n- **FirstResponse** – An emergency and first aid app catering to the 3rd district of Albay.\nHis projects focus on innovation, functionality, and seamless user experience."
     },
     {
       "question": "Does Joven develop mobile apps?",
@@ -30,7 +30,7 @@
     },
     {
       "question": "Does Joven integrate AI into websites?",
-      "answer": "Absolutely! Joven specializes in integrating AI into web applications, whether it’s chatbots, recommendation systems, or automation tools. If you need an AI-powered solution, he’s got you covered!"
+      "answer": "Absolutely! Joven is exploring AI integration in web applications, including chatbots and automation tools. He aims to develop intelligent solutions using AI-driven technologies."
     },
     {
       "question": "How can I contact Joven?",
@@ -38,7 +38,7 @@
     },
     {
       "question": "Can Joven build e-commerce websites?",
-      "answer": "Yes! Joven has experience in developing **e-commerce websites** using platforms like Shopify, WooCommerce, and custom-built solutions with React, Node.js, and Firebase."
+      "answer": "Yes! Joven has experience in developing **e-commerce websites**, including Revved, an online motorcycle shop for parts and accessories."
     },
     {
       "question": "Does Joven offer UI/UX design services?",
@@ -46,7 +46,7 @@
     },
     {
       "question": "What frameworks and tools does Joven use?",
-      "answer": "Joven works with a variety of frameworks and tools, including:\n- **Frontend:** React.js, Next.js, Tailwind CSS\n- **Backend:** Node.js, Express, Flask, Django\n- **Databases:** MongoDB, Firebase, MySQL\n- **AI/ML:** OpenAI API, TensorFlow, Deep Learning tools\n- **Mobile:** Android Studio (Java/Kotlin)\n- **Game Development:** Unity (C#)"
+      "answer": "Joven works with a variety of frameworks and tools, including:\n- **Frontend:** JavaScript, HTML, CSS\n- **Backend:** Firebase, SQL\n- **Mobile:** Android Studio (Java/Kotlin)\nHe is currently learning JavaScript frameworks to expand his skill set."
     },
     {
       "question": "What is Joven's development workflow?",
@@ -54,7 +54,7 @@
     },
     {
       "question": "What makes Joven different from other developers?",
-      "answer": "Joven stands out because of:\n- **Strong AI expertise** – Integrating AI into projects.\n- **Full-stack development skills** – From frontend to backend.\n- **Attention to UI/UX** – Ensuring great user experience.\n- **Problem-solving mindset** – Efficiently tackling challenges.\n- **Passion for innovation** – Always exploring new technologies."
+      "answer": "Joven stands out because of:\n- **Strong passion for development** – Always improving and learning.\n- **Full-stack development skills** – From frontend to backend.\n- **Attention to UI/UX** – Ensuring great user experience.\n- **Problem-solving mindset** – Efficiently tackling challenges.\n- **Love for innovation** – Constantly exploring new technologies."
     },
     {
       "question": "Can I hire Joven for freelance work?",
@@ -62,11 +62,81 @@
     },
     {
       "question": "What are Joven's future plans?",
-      "answer": "Joven aims to expand his AI and web development expertise, work on cutting-edge projects, and contribute to the tech community by building innovative and impactful software solutions."
+      "answer": "Joven aims to master JavaScript frameworks, expand his expertise in web and mobile development, and build innovative and impactful software solutions."
     },
     {
-      "question": "Who is Jp?",
-      "answer": "Jp is so handsome, he is the escort of BytesCrafter IT Solution >_<"
-    }
+      "question": "Where is Joven from?",
+      "answer": "Joven is from **Brgy. Apud, Libon, Albay, Philippines**."
+    },
+    {
+      "question": "What are Joven's hobbies?",
+      "answer": "Joven loves to **play basketball** and **watch movies**. His favorite movie genres are **mystery** and **thriller**, and some of his top movies include *Get Out, Fight Club, Incendies,* and *Oldboy*."
+    },
+    {
+      "question": "When is Joven's birthday?",
+      "answer": "Joven was born on **June 17, 2003**, making him **21 years old**."
+    },
+    [
+      {
+        "question": "What’s Joven's favorite anime series or characters?",
+        "answer": "Joven's favorite anime series include Charlotte, Attack on Titan, and One Piece. His favorite anime character is Luffy from One Piece."
+      },
+      {
+        "question": "Does Joven have a favorite video game or gaming genre?",
+        "answer": "Joven mostly plays Clash of Clans and NBA 2K24, and he has also tried Farlight 84."
+      },
+      {
+        "question": "What music does Joven enjoy listening to? Any favorite artists or bands?",
+        "answer": "Joven enjoys music from Cigarettes After Sex, The 1975, Arctic Monkeys, and Radiohead."
+      },
+      {
+        "question": "Does Joven have any pets? If yes, what are their names and breeds?",
+        "answer": "Yes! Joven has a dog at home named Choco."
+      },
+      {
+        "question": "What’s Joven's dream travel destination?",
+        "answer": "Joven's dream travel destination is Japan."
+      },
+      {
+        "question": "Does Joven have any favorite books or authors?",
+        "answer": "Joven enjoys books by Franz Kafka, Fyodor Dostoevsky, Friedrich Nietzsche, and Osamu Dazai."
+      },
+      {
+        "question": "What other hobbies or activities does Joven enjoy besides basketball and movies?",
+        "answer": "Besides basketball and movies, Joven enjoys coding and—let’s be honest—sleeping, haha!"
+      },
+      {
+        "question": "Is Joven into any specific fitness or workout routines?",
+        "answer": "Not yet, but he hopes to start in the next few months."
+      },
+      {
+        "question": "What’s Joven's favorite project he has worked on so far, and why?",
+        "answer": "Joven considers all of his projects to be his favorites!"
+      },
+      {
+        "question": "Are there any new technologies or programming languages Joven is currently exploring?",
+        "answer": "Joven is still learning JavaScript so he can move on to frameworks later."
+      },
+      {
+        "question": "What inspired Joven to get into IT and software development?",
+        "answer": "Joven was inspired by the ever-evolving trends in technology—he wants to be part of the IT revolution."
+      },
+      {
+        "question": "Does Joven have a dream job or career goal for the future?",
+        "answer": "Joven wants to become a famous software developer or software engineer."
+      },
+      {
+        "question": "Has Joven participated in any coding competitions or hackathons?",
+        "answer": "Not yet, but hopefully soon!"
+      },
+      {
+        "question": "Are there any developers or tech influencers Joven looks up to?",
+        "answer": "Joven mainly learns from various YouTube educators."
+      },
+      {
+        "question": "What’s the most challenging project Joven has worked on, and how did he overcome it?",
+        "answer": "Every project has been a challenge for Joven since he works on them alone, often learning something new along the way."
+      }
+    ]    
   ]
 }
