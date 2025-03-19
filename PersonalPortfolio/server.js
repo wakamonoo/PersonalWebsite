@@ -7,7 +7,7 @@ import fs from "fs/promises"; // Use async fs for better performance
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: "*" })); // Ensure requests from any frontend are allowed
 app.use(express.json());
 
 const API_KEY = process.env.OPENROUTER_API_KEY;
@@ -65,4 +65,5 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
+// Vercel expects serverless functions
 export default app;
