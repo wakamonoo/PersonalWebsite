@@ -397,16 +397,39 @@
 
           const aiData = await aiResponse.json();
           let botReply =
-            aiData.reply || "Sumimasen! I didn't catch that, kindly ask again.";
+            aiData.reply || "I didn't catch that, kindly ask again.";
 
           loadingMessage.remove();
           appendMessage("bot", botReply, true);
         } catch (error) {
+          console.error("Fetch error:", error);
           appendMessage(
             "bot",
             "Error: Failed to connect to AI server. Please try again."
           );
         }
+      }
+
+      function appendLoadingMessage(sender, text) {
+        const responseDiv = document.getElementById("response");
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", sender);
+
+        const icon = document.createElement("div");
+        icon.classList.add("icon");
+        icon.innerHTML = sender === "user" ? "👤" : "🤖";
+
+        const textDiv = document.createElement("div");
+        textDiv.classList.add("text");
+        textDiv.innerHTML = `${text} <span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>`;
+
+        messageDiv.appendChild(icon);
+        messageDiv.appendChild(textDiv);
+        responseDiv.appendChild(messageDiv);
+
+        responseDiv.scrollTop = responseDiv.scrollHeight;
+
+        return messageDiv;
       }
 
       function appendLoadingMessage(sender, text) {
