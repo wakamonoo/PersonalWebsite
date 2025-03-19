@@ -1,13 +1,12 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import fetch from "node-fetch";
-import fs from "fs/promises"; // Use async fs for better performance
+import fs from "fs/promises"; // Async fs module
 
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: "*" })); // Ensure requests from any frontend are allowed
+app.use(cors({ origin: "*" })); // Allow all origins
 app.use(express.json());
 
 const API_KEY = process.env.OPENROUTER_API_KEY;
@@ -25,17 +24,14 @@ app.post("/api/chat", async (req, res) => {
       return res.status(400).json({ error: "Message is required." });
     }
 
-    // Load FAQs dynamically on each request
-    let faqContext = "You are Waka-AI, Joven's intelligent assistant. Use the following FAQs to answer the user's question:\n\n";
+    // Load FAQs from JSON file
+    let faqContext = "You are Waka-AI, Joven's intelligent assistant.\n\n";
     try {
       const data = await fs.readFile("faqs.json", "utf8");
       const faqData = JSON.parse(data);
-      faqData.faqs.forEach((faq) => {
-        faqContext += `Q: ${faq.question}\nA: ${faq.answer}\n\n`;
-      });
+      faqContext += faqData.faqs.map(faq => `Q: ${faq.question}\nA: ${faq.answer}\n`).join("\n");
     } catch (faqError) {
-      console.error("❌ Error loading faqs.json:", faqError);
-      faqContext += "No FAQ data available.";
+      console.warn("⚠️ Warning: faqs.json not found or invalid, skipping FAQ context.");
     }
 
     // Send request to OpenRouter AI
@@ -48,7 +44,7 @@ app.post("/api/chat", async (req, res) => {
       body: JSON.stringify({
         model: "deepseek/deepseek-r1:free",
         messages: [
-          { role: "system", content: faqContext }, // Include updated FAQ context
+          { role: "system", content: faqContext },
           { role: "user", content: message },
         ],
       }),
@@ -66,5 +62,6 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 10000; // Use Render's assigned port
+// Use Render's assigned port
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, "0.0.0.0", () => console.log(`🚀 Server running on port ${PORT}`));
