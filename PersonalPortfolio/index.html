@@ -371,46 +371,51 @@
           chatBox.style.display === "none" ? "flex" : "none";
       }
       async function sendMessage() {
-        const inputElement = document.getElementById("userInput");
-        const input = inputElement.value.trim();
-        const responseDiv = document.getElementById("response");
+  const inputElement = document.getElementById("userInput");
+  const input = inputElement.value.trim();
+  const responseDiv = document.getElementById("response");
 
-        if (!input) return;
+  if (!input) return;
 
-        appendMessage("user", input);
-        inputElement.value = "";
+  appendMessage("user", input);
+  inputElement.value = "";
 
-        try {
-          const loadingMessage = appendMessage("bot", "Loading");
+  try {
+    // Create loading message
+    const loadingMessage = appendMessage("bot", '<span class="loading-dots"></span>');
 
-          // Create the dot animation
-          let dots = 0;
-          const loadingInterval = setInterval(() => {
-            dots = (dots + 1) % 4; // Cycle through 0 to 3 dots
-            loadingMessage.querySelector(".text").innerText =
-              "Loading" + ".".repeat(dots);
-          }, 500);
+    // Start bouncing dots animation
+    const dotsElement = loadingMessage.querySelector(".loading-dots");
+    let dotCount = 0;
+    const loadingInterval = setInterval(() => {
+      dotCount = (dotCount + 1) % 4; // Cycle through 0 to 3 dots
+      dotsElement.innerHTML = ".".repeat(dotCount);
+    }, 500);
 
-          const aiResponse = await fetch(
-            "https://personalwebsite-1.onrender.com/api/chat",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ message: input }),
-            }
-          );
+    // Fetch AI response
+    const aiResponse = await fetch("https://personalwebsite-1.onrender.com/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: input }),
+    });
 
-          clearInterval(loadingInterval); // Stop the animation
-          const aiData = await aiResponse.json();
-          let botReply =
-            aiData.reply || "Sumemasen! I didn't catch that, kindly ask again.";
+    clearInterval(loadingInterval); // Stop animation
+    loadingMessage.remove(); // Remove loading message
 
-          loadingMessage.remove(); // Remove loading message
-          appendMessage("bot", botReply, true);
-        } catch (error) {
-          appendMessage("bot", "Error: " + error.message);
-        }
-      }
+    if (!aiResponse.ok) {
+      appendMessage("bot", "Oops! Server error, please try again.");
+      return;
+    }
+
+    const aiData = await aiResponse.json();
+    let botReply = aiData?.reply?.trim() || "I'm sorry, I couldn't understand that.";
+
+    appendMessage("bot", botReply, true);
+  } catch (error) {
+    appendMessage("bot", "An error occurred. Please check your connection.");
+  }
+}
+
 
       function appendMessage(sender, text, isMarkdown = false) {
         const responseDiv = document.getElementById("response");
