@@ -381,7 +381,7 @@
     inputElement.value = "";
 
     try {
-        // Add the "Neural Linking..." message with bouncing dots
+        // Add the "Neural Linking..." message with a single bouncing dot
         const loadingMessage = appendLoadingMessage("bot", "Neural Linking");
 
         // Fetch response from API (your original logic)
@@ -403,38 +403,10 @@
         loadingMessage.remove();
         appendMessage("bot", botReply, true);
     } catch (error) {
-        console.error("Fetch error:", error); // Log error for debugging
+
         appendMessage("bot", "Error: Failed to connect to AI server. Please try again.");
     }
 }
-
-// Adds the animated "Neural Linking..." message with bouncing dots
-function appendLoadingMessage(sender, text) {
-    const responseDiv = document.getElementById("response");
-    const messageDiv = document.createElement("div");
-    messageDiv.classList.add("message", sender);
-
-    const icon = document.createElement("div");
-    icon.classList.add("icon");
-    icon.innerHTML = sender === "user" ? "👤" : "🤖";
-
-    const textDiv = document.createElement("div");
-    textDiv.classList.add("text");
-    textDiv.innerHTML = `${text} <span class="dots">
-        <span class="dot dot1">.</span>
-        <span class="dot dot2">.</span>
-        <span class="dot dot3">.</span>
-    </span>`;
-
-    messageDiv.appendChild(icon);
-    messageDiv.appendChild(textDiv);
-    responseDiv.appendChild(messageDiv);
-
-    responseDiv.scrollTop = responseDiv.scrollHeight;
-
-    return messageDiv;
-}
-
 
 function appendLoadingMessage(sender, text) {
     const responseDiv = document.getElementById("response");
