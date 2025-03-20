@@ -342,7 +342,7 @@
 
     <div class="chat-container" id="chatBox">
       <div class="chat-header">
-        <h2>Waka-AI <i class="fa-solid fa-robot"></i></h2>
+        <h2>Waka-Bot <i class="fa-solid fa-robot"></i></h2>
         <button class="close-btn" onclick="toggleChat()">&times;</button>
       </div>
 
@@ -380,17 +380,16 @@
         appendMessage("user", input);
         inputElement.value = "";
 
-        // Create bot loading message
         const loadingMessage = document.createElement("div");
         loadingMessage.className = "message bot-message";
         loadingMessage.innerHTML = `
-    <div class="bot-icon">🤖</div>
-    <div class="loading-container">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  `;
+        <div class="bot-icon">🤖</div>
+        <div class="loading-container">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      `;
         responseDiv.appendChild(loadingMessage);
 
         try {
@@ -414,7 +413,7 @@
           let botReply =
             aiData.reply || "Sumemasen! I didn't catch that, kindly ask again.";
 
-          loadingMessage.remove(); // Remove loading dots
+          loadingMessage.remove();
           appendMessage("bot", botReply, true);
         } catch (error) {
           console.error("Fetch error:", error);
