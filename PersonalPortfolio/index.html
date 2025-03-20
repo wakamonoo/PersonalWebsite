@@ -337,12 +337,20 @@
 
     <!-----------Waka-AI---------->
     <button class="chat-button" onclick="toggleChat()">
-      <i class="fa-solid fa-robot"></i>
+      <img src="images/wakabot.png" alt="Chat Bot" width="40" height="40" />
     </button>
 
     <div class="chat-container" id="chatBox">
       <div class="chat-header">
-        <h2>Waka-Bot <i class="fa-solid fa-robot"></i></h2>
+        <h2>
+          Waka-Bot
+          <img
+            src="images/wakabot.png"
+            alt="Robot Icon"
+            width="24"
+            height="24"
+          />
+        </h2>
         <button class="close-btn" onclick="toggleChat()">&times;</button>
       </div>
 
@@ -367,9 +375,20 @@
       // waka-AI
       function toggleChat() {
         const chatBox = document.getElementById("chatBox");
-        chatBox.style.display =
-          chatBox.style.display === "none" ? "flex" : "none";
+        if (window.getComputedStyle(chatBox).display === "none") {
+          chatBox.style.display = "flex";
+        } else {
+          chatBox.style.display = "none";
+        }
       }
+
+      function handleKeyPress(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          sendMessage();
+        }
+      }
+
       async function sendMessage() {
         const inputElement = document.getElementById("userInput");
         const input = inputElement.value.trim();
@@ -383,7 +402,9 @@
         const loadingMessage = document.createElement("div");
         loadingMessage.className = "message bot-message";
         loadingMessage.innerHTML = `
-        <div class="bot-icon">🤖</div>
+        <div class="bot-icon">
+            <img src="images/wakabot.png" alt="Robot Icon" width="24" height="24">
+        </div>
         <div class="loading-container">
           <span class="dot"></span>
           <span class="dot"></span>
@@ -432,7 +453,10 @@
 
         const icon = document.createElement("div");
         icon.classList.add("icon");
-        icon.innerHTML = sender === "user" ? "👤" : "🤖";
+        icon.innerHTML =
+          sender === "user"
+            ? "👤"
+            : '<img src="images/wakabot.png" alt="Robot Icon" width="24" height="24">';
 
         const textDiv = document.createElement("div");
         textDiv.classList.add("text");
