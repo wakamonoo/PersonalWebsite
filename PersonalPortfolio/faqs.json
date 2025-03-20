@@ -76,71 +76,70 @@
       "question": "When is Joven's birthday?",
       "answer": "Joven was born on **June 17, 2003**, making him **21 years old**."
     },
-    [
-      {
-        "question": "What’s Joven's favorite anime series or characters?",
-        "answer": "Joven's favorite anime series include Charlotte, Attack on Titan, and One Piece. His favorite anime character is Luffy from One Piece."
-      },
-      {
-        "question": "Does Joven have a favorite video game or gaming genre?",
-        "answer": "Joven mostly plays Clash of Clans and NBA 2K24, and he has also tried Farlight 84."
-      },
-      {
-        "question": "What music does Joven enjoy listening to? Any favorite artists or bands?",
-        "answer": "Joven enjoys music from Cigarettes After Sex, The 1975, Arctic Monkeys, and Radiohead."
-      },
-      {
-        "question": "Does Joven have any pets? If yes, what are their names and breeds?",
-        "answer": "Yes! Joven has a dog at home named Choco."
-      },
-      {
-        "question": "What’s Joven's dream travel destination?",
-        "answer": "Joven's dream travel destination is Japan."
-      },
-      {
-        "question": "Does Joven have any favorite books or authors?",
-        "answer": "Joven enjoys books by Franz Kafka, Fyodor Dostoevsky, Friedrich Nietzsche, and Osamu Dazai."
-      },
-      {
-        "question": "What other hobbies or activities does Joven enjoy besides basketball and movies?",
-        "answer": "Besides basketball and movies, Joven enjoys coding and—let’s be honest—sleeping, haha!"
-      },
-      {
-        "question": "Is Joven into any specific fitness or workout routines?",
-        "answer": "Not yet, but he hopes to start in the next few months."
-      },
-      {
-        "question": "What’s Joven's favorite project he has worked on so far, and why?",
-        "answer": "Joven considers all of his projects to be his favorites!"
-      },
-      {
-        "question": "Are there any new technologies or programming languages Joven is currently exploring?",
-        "answer": "Joven is still learning JavaScript so he can move on to frameworks later."
-      },
-      {
-        "question": "What inspired Joven to get into IT and software development?",
-        "answer": "Joven was inspired by the ever-evolving trends in technology—he wants to be part of the IT revolution."
-      },
-      {
-        "question": "Does Joven have a dream job or career goal for the future?",
-        "answer": "Joven wants to become a famous software developer or software engineer."
-      },
-      {
-        "question": "Has Joven participated in any coding competitions or hackathons?",
-        "answer": "Not yet, but hopefully soon!"
-      },
-      {
-        "question": "Are there any developers or tech influencers Joven looks up to?",
-        "answer": "Joven mainly learns from various YouTube educators."
-      },
-      {
-        "question": "What’s the most challenging project Joven has worked on, and how did he overcome it?",
-        "answer": "Every project has been a challenge for Joven since he works on them alone, often learning something new along the way."
-      },
-      {
-        "question": "Who is Dylan?",
-        "answer": "Dylan Emmett Arive is the son of Dominic Aribe from Apud, Libon, Albay born on August 11, 2023"
-      }
-    ]
+
+    {
+      "question": "What’s Joven's favorite anime series or characters?",
+      "answer": "Joven's favorite anime series include Charlotte, Attack on Titan, and One Piece. His favorite anime character is Luffy from One Piece."
+    },
+    {
+      "question": "Does Joven have a favorite video game or gaming genre?",
+      "answer": "Joven mostly plays Clash of Clans and NBA 2K24, and he has also tried Farlight 84."
+    },
+    {
+      "question": "What music does Joven enjoy listening to? Any favorite artists or bands?",
+      "answer": "Joven enjoys music from Cigarettes After Sex, The 1975, Arctic Monkeys, and Radiohead."
+    },
+    {
+      "question": "Does Joven have any pets? If yes, what are their names and breeds?",
+      "answer": "Yes! Joven has a dog at home named Choco."
+    },
+    {
+      "question": "What’s Joven's dream travel destination?",
+      "answer": "Joven's dream travel destination is Japan."
+    },
+    {
+      "question": "Does Joven have any favorite books or authors?",
+      "answer": "Joven enjoys books by Franz Kafka, Fyodor Dostoevsky, Friedrich Nietzsche, and Osamu Dazai."
+    },
+    {
+      "question": "What other hobbies or activities does Joven enjoy besides basketball and movies?",
+      "answer": "Besides basketball and movies, Joven enjoys coding and—let’s be honest—sleeping, haha!"
+    },
+    {
+      "question": "Is Joven into any specific fitness or workout routines?",
+      "answer": "Not yet, but he hopes to start in the next few months."
+    },
+    {
+      "question": "What’s Joven's favorite project he has worked on so far, and why?",
+      "answer": "Joven considers all of his projects to be his favorites!"
+    },
+    {
+      "question": "Are there any new technologies or programming languages Joven is currently exploring?",
+      "answer": "Joven is still learning JavaScript so he can move on to frameworks later."
+    },
+    {
+      "question": "What inspired Joven to get into IT and software development?",
+      "answer": "Joven was inspired by the ever-evolving trends in technology—he wants to be part of the IT revolution."
+    },
+    {
+      "question": "Does Joven have a dream job or career goal for the future?",
+      "answer": "Joven wants to become a famous software developer or software engineer."
+    },
+    {
+      "question": "Has Joven participated in any coding competitions or hackathons?",
+      "answer": "Not yet, but hopefully soon!"
+    },
+    {
+      "question": "Are there any developers or tech influencers Joven looks up to?",
+      "answer": "Joven mainly learns from various YouTube educators."
+    },
+    {
+      "question": "What’s the most challenging project Joven has worked on, and how did he overcome it?",
+      "answer": "Every project has been a challenge for Joven since he works on them alone, often learning something new along the way."
+    },
+    {
+      "question": "Who is Dylan?",
+      "answer": "Dylan Emmett Arive is the son of Dominic Aribe from Apud, Libon, Albay born on August 11, 2023"
+    }
   ]
 }
