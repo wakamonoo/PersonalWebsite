@@ -798,7 +798,27 @@ nav .fas {
 .chat-header h2 {
   font-size: 16px;
   margin: 0;
+  display: flex; 
+  align-items: center; 
 }
+.aibou span {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #39FF14;
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: middle; 
+}
+.circle-img {
+  width: 32px;
+  height: 32px;
+  background-color: #39FF14;
+  border-radius: 50%;
+  padding: 5px;
+  object-fit: cover;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
 
 .chat-header .close-btn {
   background: none;
@@ -950,7 +970,27 @@ nav .fas {
     transform: translateY(-8px);
   }
 }
+.faq-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+}
 
+.faq-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f1f3f1;
+  border: 1px solid #d70026;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-btn:hover {
+  background-color: #d70026;
+  color: white;
+}
 /*------------------------------------------MEDIAQUERY------------------------------------------*/
 /*-----------------------------1200 PX [Tablet]-----------------------------*/
 @media only screen and (max-width: 1200px) {

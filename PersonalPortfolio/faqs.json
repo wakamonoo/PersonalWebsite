@@ -2,23 +2,23 @@
   "faqs": [
     {
       "question": "What is your name?",
-      "answer": "I am Waka-Bot, Joven's AI assistant. I’m here to help with any inquiries about Joven, his projects, web development, AI, and more!"
+      "answer": "I am AIbou! Meaning partner, since I'm and AI chatbot is AI-Bou. Kanji is 相棒. Joven's AI assistant. I’m here to help with any inquiries about Joven, his projects, web development, AI, and more!"
     },
     {
       "question": "Who created you?",
-      "answer": "I was created by Joven Bataller, an IT student at Bicol University Polangui, passionate about web development, AI, and software innovation."
+      "answer": "I was created by Joven Bataller, an IT student at Bicol University Polangui, passionate about web development, database creation,currently learning AI integration, and software innovation."
     },
     {
       "question": "What services do you offer?",
-      "answer": "Joven offers a variety of services, including:\n- Web Development (Frontend & Backend)\n- AI Integration\n- UI/UX Design\n- Technical Consulting\n- Custom Software Development\n- API Development\nIf you're looking for expert solutions, you're in the right place!"
+      "answer": "Joven offers a variety of services, including:\n- Web Development\n- Database Creation\n- UI/UX Design\n- Technical Consulting\n- Custom Software Development\n If you're looking for expert solutions, you're in the right place!"
     },
     {
       "question": "What is your portfolio about?",
-      "answer": "Joven Bataller’s portfolio showcases his expertise in web development, AI, and design. It includes projects ranging from full-stack websites to AI-powered applications. You can explore it at [Joven's Portfolio](https://jovenbataller21.vercel.app/)."
+      "answer": "Joven Bataller’s portfolio showcases his expertise in web development, mobile development, database creation and design. It includes projects ranging from website application to mobile ones. The color scheme was inspired by the anime he watched call **Neon Genesis Evangelion**. You can explore it at [Joven's Portfolio](https://jovenbataller21.vercel.app/)."
     },
     {
       "question": "What programming languages does Joven use?",
-      "answer": "Joven is proficient in multiple programming languages, including:\n- **JavaScript**\n- **Java**\n- **HTML & CSS**\n- **Kotlin**\n- **Firebase**\n- **SQL**\nHe is currently learning JavaScript frameworks to expand his development expertise."
+      "answer": "Joven has experience in multiple programming languages, including:\n- **JavaScript**\n- **Java**\n- **HTML & CSS**\n- **Kotlin**\n- **Firebase**\n- **SQL**\nHe plans on learning JavaScript frameworks to expand his development expertise."
     },
     {
       "question": "What projects has Joven worked on?",
@@ -42,11 +42,11 @@
     },
     {
       "question": "Does Joven offer UI/UX design services?",
-      "answer": "Yes! Joven not only codes but also focuses on **UI/UX design**, ensuring that websites and applications are visually appealing, user-friendly, and highly functional."
+      "answer": "Yes! Joven not only codes but also focuses on **UI/UX design**, ensuring that websites and applications are visually appealing, user-friendly, and highly functional. He has experience using Figma and Canva"
     },
     {
       "question": "What frameworks and tools does Joven use?",
-      "answer": "Joven works with a variety of frameworks and tools, including:\n- **Frontend:** JavaScript, HTML, CSS\n- **Backend:** Firebase, SQL\n- **Mobile:** Android Studio (Java/Kotlin)\nHe is currently learning JavaScript frameworks to expand his skill set."
+      "answer": "Joven works with a variety of frameworks and tools, including:\n- **Frontend:** JavaScript, HTML, CSS\n- **Backend:** Firebase, SQL\n- **Mobile:** Android Studio (Java/Kotlin)\nHe is planning to learn JavaScript frameworks to expand his skill set."
     },
     {
       "question": "What is Joven's development workflow?",
@@ -62,7 +62,7 @@
     },
     {
       "question": "What are Joven's future plans?",
-      "answer": "Joven aims to master JavaScript frameworks, expand his expertise in web and mobile development, and build innovative and impactful software solutions."
+      "answer": "Joven aims to master multiple programming languages and other tech tools, expand his expertise in web and mobile development, and build innovative and impactful software solutions."
     },
     {
       "question": "Where is Joven from?",

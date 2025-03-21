@@ -335,26 +335,39 @@
       </div>
     </div>
 
-    <!-----------Waka-AI---------->
+    <!-----------Waka-AI----------->
     <button class="chat-button" onclick="toggleChat()">
       <img src="images/wakabot.png" alt="Chat Bot" width="40" height="40" />
     </button>
 
     <div class="chat-container" id="chatBox">
       <div class="chat-header">
-        <h2>
-          Waka-Bot
-          <img
-            src="images/wakabot.png"
-            alt="Robot Icon"
-            width="24"
-            height="24"
-          />
+        <h2 class="aibou">
+          <img src="images/wakabot.png" alt="Robot Icon" class="circle-img" />
+          <span>AI</span>BOU相棒
         </h2>
         <button class="close-btn" onclick="toggleChat()">&times;</button>
       </div>
 
       <div id="response" class="chat-messages"></div>
+
+      <div class="faq-buttons" id="faqContainer">
+        <button class="faq-btn" onclick="sendFAQ('Tell me more about Joven!')">
+          Tell me more about Joven!
+        </button>
+        <button
+          class="faq-btn"
+          onclick="sendFAQ('What tech stack is he most comfortable with?')"
+        >
+          What tech stack is he most comfortable with?
+        </button>
+        <button
+          class="faq-btn"
+          onclick="sendFAQ('Why are you called Aibou?')"
+        >
+          Why are you called Aibou?
+        </button>
+      </div>
 
       <div class="chat-input-container">
         <input
@@ -372,14 +385,16 @@
 
     <!---------------JavaScript------------------->
     <script>
-      // waka-AI
+      // WAKA-BOT
+      function sendFAQ(question) {
+        sendMessage(question);
+        document.getElementById("faqContainer").style.display = "none";
+      }
+
       function toggleChat() {
         const chatBox = document.getElementById("chatBox");
-        if (window.getComputedStyle(chatBox).display === "none") {
-          chatBox.style.display = "flex";
-        } else {
-          chatBox.style.display = "none";
-        }
+        chatBox.style.display =
+          window.getComputedStyle(chatBox).display === "none" ? "flex" : "none";
       }
 
       function handleKeyPress(event) {
@@ -389,15 +404,17 @@
         }
       }
 
-      async function sendMessage() {
+      async function sendMessage(customMessage = null) {
         const inputElement = document.getElementById("userInput");
-        const input = inputElement.value.trim();
+        const input = customMessage || inputElement.value.trim();
         const responseDiv = document.getElementById("response");
 
         if (!input) return;
 
         appendMessage("user", input);
-        inputElement.value = "";
+        if (!customMessage) inputElement.value = "";
+
+        document.getElementById("faqContainer").style.display = "none";
 
         const loadingMessage = document.createElement("div");
         loadingMessage.className = "message bot-message";
@@ -406,11 +423,11 @@
             <img src="images/wakabot.png" alt="Robot Icon" width="24" height="24">
         </div>
         <div class="loading-container">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
         </div>
-      `;
+    `;
         responseDiv.appendChild(loadingMessage);
 
         try {
@@ -430,7 +447,6 @@
           }
 
           const aiData = await aiResponse.json();
-
           let botReply =
             aiData.reply || "Sumemasen! I didn't catch that, kindly ask again.";
 
@@ -471,7 +487,11 @@
         messageDiv.appendChild(textDiv);
         responseDiv.appendChild(messageDiv);
 
-        responseDiv.scrollTop = responseDiv.scrollHeight;
+        if (sender === "bot") {
+          setTimeout(() => {
+            messageDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 100);
+        }
 
         return messageDiv;
       }
