@@ -61,7 +61,7 @@
       <div class="container">
         <div class="row">
           <div class="about-col-1">
-            <img src="images/user.png" />
+            <img src="images/user.jpg" />
           </div>
           <div class="about-col-2">
             <h1 class="sub-title">About Me</h1>
@@ -335,15 +335,20 @@
       </div>
     </div>
 
-    <!-----------Waka-AI----------->
-    <button class="chat-button" onclick="toggleChat()">
-      <img src="images/wakabot.png" alt="Chat Bot" width="40" height="40" />
-    </button>
+    <!-----------AI-Bou----------->
+    <!-- Chat Button & Greeting Wrapper -->
+    <div class="chat-toggle-container">
+      <div id="chatGreeting" class="chat-greeting">👋 Hi, I'm <span style="color: #D70026; font-family: Georgia, 'Times New Roman', Times, serif;">AI</span>bou!</div>
+      <button class="chat-button" onclick="toggleChat()">
+        <img src="images/aibou.png" alt="Chat Bot" width="60" height="60" />
+      </button>
+    </div>
 
+    <!-- Chat Box -->
     <div class="chat-container" id="chatBox">
       <div class="chat-header">
         <h2 class="aibou">
-          <img src="images/wakabot.png" alt="Robot Icon" class="circle-img" />
+          <img src="images/aibou.png" alt="Robot Icon" class="circle-img" />
           <span>AI</span>BOU相棒
         </h2>
         <button class="close-btn" onclick="toggleChat()">&times;</button>
@@ -361,10 +366,7 @@
         >
           What tech stack is he most comfortable with?
         </button>
-        <button
-          class="faq-btn"
-          onclick="sendFAQ('Why are you called Aibou?')"
-        >
+        <button class="faq-btn" onclick="sendFAQ('Why are you called Aibou?')">
           Why are you called Aibou?
         </button>
       </div>
@@ -386,6 +388,19 @@
     <!---------------JavaScript------------------->
     <script>
       // WAKA-BOT
+      window.onload = function () {
+        let greeting = document.getElementById("chatGreeting");
+
+        setTimeout(() => {
+          greeting.classList.add("fade-in");
+          greeting.classList.remove("hidden");
+        }, 1500);
+
+        setTimeout(() => {
+          greeting.classList.add("fade-out");
+        }, 6000);
+      };
+
       function sendFAQ(question) {
         sendMessage(question);
         document.getElementById("faqContainer").style.display = "none";
@@ -393,8 +408,15 @@
 
       function toggleChat() {
         const chatBox = document.getElementById("chatBox");
+        const greeting = document.getElementById("chatGreeting");
+
         chatBox.style.display =
           window.getComputedStyle(chatBox).display === "none" ? "flex" : "none";
+
+        if (chatBox.style.display === "flex") {
+          greeting.style.opacity = "0";
+          greeting.style.visibility = "hidden";
+        }
       }
 
       function handleKeyPress(event) {
@@ -420,7 +442,7 @@
         loadingMessage.className = "message bot-message";
         loadingMessage.innerHTML = `
         <div class="bot-icon">
-            <img src="images/wakabot.png" alt="Robot Icon" width="24" height="24">
+            <img src="images/aibou.png" alt="Robot Icon" width="24" height="24">
         </div>
         <div class="loading-container">
             <span class="dot"></span>
@@ -471,8 +493,8 @@
         icon.classList.add("icon");
         icon.innerHTML =
           sender === "user"
-            ? "👤"
-            : '<img src="images/wakabot.png" alt="Robot Icon" width="24" height="24">';
+            ? '<img src="images/chat-user.png" alt="Robot Icon" width="24" height="24">'
+            : '<img src="images/aibou.png" alt="Robot Icon" width="24" height="24">';
 
         const textDiv = document.createElement("div");
         textDiv.classList.add("text");
