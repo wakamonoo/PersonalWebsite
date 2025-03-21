@@ -338,7 +338,16 @@
     <!-----------AI-Bou----------->
     <!-- Chat Button & Greeting Wrapper -->
     <div class="chat-toggle-container">
-      <div id="chatGreeting" class="chat-greeting">👋 Hi, I'm <span style="color: #D70026; font-family: Georgia, 'Times New Roman', Times, serif;">AI</span>bou!</div>
+      <div id="chatGreeting" class="chat-greeting">
+        👋 Hi, I'm
+        <span
+          style="
+            color: #d70026;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+          "
+          >AI</span
+        >bou!
+      </div>
       <button class="chat-button" onclick="toggleChat()">
         <img src="images/aibou.png" alt="Chat Bot" width="60" height="60" />
       </button>
@@ -392,13 +401,13 @@
         let greeting = document.getElementById("chatGreeting");
 
         setTimeout(() => {
-          greeting.classList.add("fade-in");
-          greeting.classList.remove("hidden");
+          greeting.classList.add("funny-in");
+          greeting.style.visibility = "visible";
         }, 1500);
 
         setTimeout(() => {
-          greeting.classList.add("fade-out");
-        }, 6000);
+          greeting.classList.add("funny-out");
+        }, 5000);
       };
 
       function sendFAQ(question) {
