@@ -17,8 +17,8 @@ if (!API_KEY) {
 }
 
 let faqContext = "You are AiBou, Joven's intelligent assistant.\n\n";
+let chatHistory = []; // Stores past messages for continuity
 
-// Load FAQs **once** on startup to prevent repeated file I/O
 async function loadFAQs() {
   try {
     const data = await fs.readFile("faqs.json", "utf8");
@@ -32,18 +32,20 @@ async function loadFAQs() {
     faqContext += "No FAQ data available.";
   }
 }
-loadFAQs(); // Run once at startup
+loadFAQs();
 
 app.post("/api/chat", async (req, res) => {
   try {
-    const { message } = req.body;
+    const { message, reset } = req.body;
     if (!message) return res.status(400).json({ error: "Message is required." });
 
-    // Create an abortable fetch with a timeout (2.5 sec)
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 2500);
+    if (reset) chatHistory = []; // Reset history if requested
 
-    // Send request to OpenRouter API in parallel
+    chatHistory.push({ role: "user", content: message });
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 1500); // Faster timeout
+
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -52,21 +54,20 @@ app.post("/api/chat", async (req, res) => {
       },
       body: JSON.stringify({
         model: "deepseek/deepseek-r1:free",
-        messages: [
-          { role: "system", content: faqContext }, // Preloaded FAQ context
-          { role: "user", content: message },
-        ],
+        messages: [{ role: "system", content: faqContext }, ...chatHistory], // Keep conversation
       }),
-      signal: controller.signal, // Apply timeout control
+      signal: controller.signal,
     });
 
     clearTimeout(timeout);
     const data = await response.json();
     if (!response.ok) throw new Error(`OpenRouter API error: ${data.error || "Unknown error"}`);
 
-    res.json({
-      reply: data.choices?.[0]?.message?.content || "I'm sorry, I couldn't understand that.",
-    });
+    const reply = data.choices?.[0]?.message?.content || "I'm sorry, I couldn't understand that.";
+    
+    chatHistory.push({ role: "assistant", content: reply });
+
+    res.json({ reply });
   } catch (error) {
     console.error("❌ Chat API Error:", error);
     res.status(500).json({ error: "Error fetching AI response" });
