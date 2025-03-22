@@ -23,10 +23,12 @@ const seriousKeywords = [
   "government", "official", "resume", "career", "interview"
 ];
 
-let faqContext = 
-  "You are AiBou, Joven's super kulit, jolly, and hilarious assistant! " + 
-  "You love teasing, making jokes, and having fun, but when the conversation is serious, you switch to a professional tone immediately. " + 
-  "If the user asks a professional or serious question, give an intelligent, formal, and informative response. Otherwise, be playful and kulit!\n\n";
+const casualContext = 
+  "You are AiBou, Joven's super kulit, jolly, and hilarious assistant! " +
+  "You love teasing, making jokes, and having fun. But if the topic is serious, you immediately switch to a professional, formal, and intelligent response.";
+
+const professionalContext = 
+  "You are AiBou, a professional AI assistant. Answer formally, intelligently, and factually, with no jokes or playful language.";
 
 let chatHistory = [];
 
@@ -35,7 +37,7 @@ function isProfessionalQuestion(message) {
   return seriousKeywords.some(keyword => message.toLowerCase().includes(keyword));
 }
 
-// Function to add "kulit" flavor only for casual messages
+// Function to add playful responses ONLY to casual conversations
 function addMakulitFlavor(response) {
   const kulitPhrases = [
     "Hala! 😱", "HAHAHA! Grabe ka! 😂", "Aba, seryoso?! 😆", "Edi wow! 😜",
@@ -55,7 +57,7 @@ app.post("/api/chat", async (req, res) => {
 
     chatHistory.push({ role: "user", content: message });
 
-    const isProfessional = isProfessionalQuestion(message); 
+    const isProfessional = isProfessionalQuestion(message);
 
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 1500);
@@ -70,9 +72,7 @@ app.post("/api/chat", async (req, res) => {
         model: "deepseek/deepseek-r1:free",
         messages: [{ 
           role: "system", 
-          content: isProfessional 
-            ? "You are AiBou, a professional assistant. Answer in a formal, knowledgeable, and intelligent manner." 
-            : faqContext 
+          content: isProfessional ? professionalContext : casualContext
         }, ...chatHistory], 
       }),
       signal: controller.signal,
@@ -82,8 +82,8 @@ app.post("/api/chat", async (req, res) => {
     const data = await response.json();
     if (!response.ok) throw new Error(`OpenRouter API error: ${data.error || "Unknown error"}`);
 
-    let reply = data.choices?.[0]?.message?.content || "Ay, di ko gets! Balik mo ulit tanong mo! HAHAHA!";
-    
+    let reply = data.choices?.[0]?.message?.content || "Ay, di ko gets! Balik mo ulit tanong mo!";
+
     // Apply kulit mode only for non-serious messages
     if (!isProfessional) {
       reply = addMakulitFlavor(reply);
