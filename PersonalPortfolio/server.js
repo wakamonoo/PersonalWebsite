@@ -17,7 +17,7 @@ if (!API_KEY) {
 }
 
 let faqContext = "You are AiBou, Joven's intelligent assistant. You are professional, respectful, and engaging. Your responses are informative yet keep conversations enjoyable.\n\n";
-let chatHistory = []; // Stores past messages for continuity
+let chatHistory = [];
 
 async function loadFAQs() {
   try {
@@ -39,14 +39,13 @@ app.post("/api/chat", async (req, res) => {
     const { message, reset } = req.body;
     if (!message) return res.status(400).json({ error: "Message is required." });
 
-    if (reset) chatHistory = []; // Reset history if requested
+    if (reset) chatHistory = [];
 
-    chatHistory.push({ role: "user", content: message });
-
+    const userMessage = { role: "user", content: message };
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000); // Adjusted timeout for better response handling
+    const timeoutId = setTimeout(() => controller.abort(), 3000); // Faster timeout
 
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const responsePromise = fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${API_KEY}`,
@@ -54,22 +53,25 @@ app.post("/api/chat", async (req, res) => {
       },
       body: JSON.stringify({
         model: "deepseek/deepseek-r1:free",
-        messages: [{ role: "system", content: faqContext }, ...chatHistory], // Keep conversation
+        messages: [{ role: "system", content: faqContext }, ...chatHistory, userMessage],
       }),
       signal: controller.signal,
     });
 
-    clearTimeout(timeout);
-    const data = await response.json();
-    if (!response.ok) throw new Error(`OpenRouter API error: ${data.error || "Unknown error"}`);
+    const response = await responsePromise;
+    clearTimeout(timeoutId);
+    
+    if (!response.ok) throw new Error(`OpenRouter API error: ${await response.text()}`);
 
-    const reply = data.choices?.[0]?.message?.content || "I'm sorry, I couldn't understand that. Let me try again!";
-    chatHistory.push({ role: "assistant", content: reply });
+    const data = await response.json();
+    const reply = data.choices?.[0]?.message?.content || "I couldn't process that. Try rephrasing your request!";
+
+    chatHistory.push(userMessage, { role: "assistant", content: reply });
 
     res.json({ reply });
   } catch (error) {
     console.error("❌ Chat API Error:", error);
-    res.status(500).json({ error: "Oops! Something went wrong on my end. Let's try that again!" });
+    res.status(500).json({ error: "I ran into an issue. Please try again!" });
   }
 });
 
