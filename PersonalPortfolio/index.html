@@ -336,24 +336,13 @@
     </div>
 
     <!-----------AI-Bou----------->
-    <!-- Chat Button & Greeting Wrapper -->
+    <!-- Chat Button -->
     <div class="chat-toggle-container">
-      <div id="chatGreeting" class="chat-greeting">
-        👋 Hi, I'm
-        <span
-          style="
-            color: #d70026;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-          "
-          >AI</span
-        >bou!
-      </div>
-      <button class="chat-button" onclick="toggleChat()">
+      <button class="chat-button" id="chatButton" onclick="toggleChat()">
         <img src="images/aibou.png" alt="Chat Bot" width="60" height="60" />
       </button>
     </div>
 
-    <!-- Chat Box -->
     <div class="chat-container" id="chatBox">
       <div class="chat-header">
         <h2 class="aibou">
@@ -393,21 +382,18 @@
         </button>
       </div>
     </div>
-
+    <div class="wrap">
     <!---------------JavaScript------------------->
     <script>
       // WAKA-BOT
       window.onload = function () {
-        let greeting = document.getElementById("chatGreeting");
-
         setTimeout(() => {
-          greeting.classList.add("funny-in");
-          greeting.style.visibility = "visible";
-        }, 1500);
-
-        setTimeout(() => {
-          greeting.classList.add("funny-out");
-        }, 5000);
+          const chatButton = document.getElementById("chatButton");
+          chatButton.classList.add("cartoon-animate");
+          setTimeout(() => {
+            chatButton.classList.remove("cartoon-animate");
+          }, 1000);
+        }, 7500);
       };
 
       function sendFAQ(question) {
@@ -417,15 +403,8 @@
 
       function toggleChat() {
         const chatBox = document.getElementById("chatBox");
-        const greeting = document.getElementById("chatGreeting");
-
         chatBox.style.display =
           window.getComputedStyle(chatBox).display === "none" ? "flex" : "none";
-
-        if (chatBox.style.display === "flex") {
-          greeting.style.opacity = "0";
-          greeting.style.visibility = "hidden";
-        }
       }
 
       function handleKeyPress(event) {
@@ -450,15 +429,15 @@
         const loadingMessage = document.createElement("div");
         loadingMessage.className = "message bot-message";
         loadingMessage.innerHTML = `
-        <div class="bot-icon">
-            <img src="images/aibou.png" alt="Robot Icon" width="24" height="24">
-        </div>
-        <div class="loading-container">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    `;
+    <div class="bot-icon">
+        <img src="images/aibou.png" alt="Robot Icon" width="24" height="24">
+    </div>
+    <div class="loading-container">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+  `;
         responseDiv.appendChild(loadingMessage);
 
         try {
@@ -502,8 +481,8 @@
         icon.classList.add("icon");
         icon.innerHTML =
           sender === "user"
-            ? '<img src="images/chat-user.png" alt="Robot Icon" width="24" height="24">'
-            : '<img src="images/aibou.png" alt="Robot Icon" width="24" height="24">';
+            ? '<img src="images/chat-user.png" alt="User Icon" width="24" height="24">'
+            : '<img src="images/aibou.png" alt="Bot Icon" width="24" height="24">';
 
         const textDiv = document.createElement("div");
         textDiv.classList.add("text");
