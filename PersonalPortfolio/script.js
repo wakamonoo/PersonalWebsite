@@ -1,3 +1,22 @@
+document.addEventListener("mousemove", updateFlashlight);
+document.addEventListener("touchmove", updateFlashlight);
+
+function updateFlashlight(e) {
+  const overlay = document.querySelector(".flashlight-overlay");
+
+  let x, y;
+  if (e.touches) {
+    x = e.touches[0].clientX;
+    y = e.touches[0].clientY;
+  } else {
+    x = e.clientX;
+    y = e.clientY;
+  }
+
+  overlay.style.setProperty("--x", `${x}px`);
+  overlay.style.setProperty("--y", `${y}px`);
+}
+
 // WAKA-BOT
 window.onload = function () {
   setTimeout(() => {
