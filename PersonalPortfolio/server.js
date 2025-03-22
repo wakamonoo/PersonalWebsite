@@ -16,35 +16,49 @@ if (!API_KEY) {
   process.exit(1);
 }
 
-let faqContext = "You are AiBou, Joven's intelligent assistant.\n\n";
-let chatHistory = []; // Stores past messages for continuity
+// Define serious topics that require a professional tone
+const seriousKeywords = [
+  "medical", "diagnosis", "law", "legal", "contract", "health",
+  "finance", "investment", "business", "engineering", "technology",
+  "government", "official", "resume", "career", "interview"
+];
 
-async function loadFAQs() {
-  try {
-    const data = await fs.readFile("faqs.json", "utf8");
-    const faqData = JSON.parse(data);
-    faqData.faqs.forEach((faq) => {
-      faqContext += `Q: ${faq.question}\nA: ${faq.answer}\n\n`;
-    });
-    console.log("✅ FAQs loaded into memory.");
-  } catch (error) {
-    console.error("❌ Error loading faqs.json:", error);
-    faqContext += "No FAQ data available.";
-  }
+let faqContext = 
+  "You are AiBou, Joven's super kulit, jolly, and hilarious assistant! " + 
+  "You love teasing, making jokes, and having fun, but when the conversation is serious, you switch to a professional tone immediately. " + 
+  "If the user asks a professional or serious question, give an intelligent, formal, and informative response. Otherwise, be playful and kulit!\n\n";
+
+let chatHistory = [];
+
+// Function to detect professional questions
+function isProfessionalQuestion(message) {
+  return seriousKeywords.some(keyword => message.toLowerCase().includes(keyword));
 }
-loadFAQs();
+
+// Function to add "kulit" flavor only for casual messages
+function addMakulitFlavor(response) {
+  const kulitPhrases = [
+    "Hala! 😱", "HAHAHA! Grabe ka! 😂", "Aba, seryoso?! 😆", "Edi wow! 😜",
+    "Ay sus ginoo! 😆", "Wala lang, trip ko lang sagutin ‘to HAHA! 😆",
+    "OA ka naman! Charot! 😂", "Oyy, wag kang galit! HAHAHA!", "Ay naku, tawa na lang tayo! 🤣"
+  ];
+  const randomIndex = Math.floor(Math.random() * kulitPhrases.length);
+  return `${kulitPhrases[randomIndex]} ${response} HAHAHA!! 😂`;
+}
 
 app.post("/api/chat", async (req, res) => {
   try {
     const { message, reset } = req.body;
     if (!message) return res.status(400).json({ error: "Message is required." });
 
-    if (reset) chatHistory = []; // Reset history if requested
+    if (reset) chatHistory = []; 
 
     chatHistory.push({ role: "user", content: message });
 
+    const isProfessional = isProfessionalQuestion(message); 
+
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 1500); // Faster timeout
+    const timeout = setTimeout(() => controller.abort(), 1500);
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
@@ -54,7 +68,12 @@ app.post("/api/chat", async (req, res) => {
       },
       body: JSON.stringify({
         model: "deepseek/deepseek-r1:free",
-        messages: [{ role: "system", content: faqContext }, ...chatHistory], // Keep conversation
+        messages: [{ 
+          role: "system", 
+          content: isProfessional 
+            ? "You are AiBou, a professional assistant. Answer in a formal, knowledgeable, and intelligent manner." 
+            : faqContext 
+        }, ...chatHistory], 
       }),
       signal: controller.signal,
     });
@@ -63,8 +82,13 @@ app.post("/api/chat", async (req, res) => {
     const data = await response.json();
     if (!response.ok) throw new Error(`OpenRouter API error: ${data.error || "Unknown error"}`);
 
-    const reply = data.choices?.[0]?.message?.content || "I'm sorry, I couldn't understand that.";
+    let reply = data.choices?.[0]?.message?.content || "Ay, di ko gets! Balik mo ulit tanong mo! HAHAHA!";
     
+    // Apply kulit mode only for non-serious messages
+    if (!isProfessional) {
+      reply = addMakulitFlavor(reply);
+    }
+
     chatHistory.push({ role: "assistant", content: reply });
 
     res.json({ reply });
