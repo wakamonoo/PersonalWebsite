@@ -1,3 +1,4 @@
+//FLASHLIGHT EFFECT
 document.addEventListener("mousemove", updateFlashlight);
 document.addEventListener("touchmove", updateFlashlight);
 
