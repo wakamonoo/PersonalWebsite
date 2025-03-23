@@ -1,18 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  document.addEventListener("scroll", function () {
-      const body = document.body;
-      const html = document.documentElement;
-      
-      // Get the maximum scrollable height
-      const maxScroll = Math.max(body.scrollHeight, html.scrollHeight) - window.innerHeight;
-      
-      // If user tries to scroll beyond the content, reset the scroll position
-      if (window.scrollY > maxScroll) {
-          window.scrollTo({ top: maxScroll, behavior: "smooth" });
-      }
-  });
-});
-
 //FLASHLIGHT EFFECT
 document.addEventListener("mousemove", updateFlashlight);
 document.addEventListener("touchmove", updateFlashlight);
