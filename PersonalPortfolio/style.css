@@ -628,7 +628,7 @@ form .btn2 {
   width: 100%;
   text-align: center;
   padding: 25px;
-  background: #2e223c;
+  background: #0A0A0A;
   font-weight: 300;
   margin-top: 20px;
 }
@@ -707,14 +707,19 @@ nav .fas {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  margin-top: -60px;
+  margin-top: -100px;
 }
 
 #backBtn,
 #nextBtn {
-  width: 50px;
+  width: 80px;
   cursor: pointer;
   margin: 40px;
+  transition: transform 0.5s;
+}
+#backBtn:hover,
+#nextBtn:hover{
+  transform: scale(1.2);
 }
 
 .gallery div img:hover {
@@ -726,13 +731,15 @@ nav .fas {
 .back-button img {
   margin-top: 20px;
   margin-left: 30px;
-  width: 50px;
+  width: 100px;
   transition: transform 0.5s;
 }
 
 .back-button img:hover {
   transform: scale(1.2);
+  filter: drop-shadow(0 0 10px #D70026);
 }
+
 
 .swipe {
   display: none;
@@ -1424,7 +1431,7 @@ nav .fas {
   .back-button img {
     margin-top: 25px;
     margin-left: 20px;
-    width: 30px;
+    width: 70px;
     transition: transform 0.3s ease-in-out;
   }
 
