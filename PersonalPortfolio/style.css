@@ -298,7 +298,7 @@ nav ul li a:hover::after {
 
 /*---------------------------------TOOLS & CERTIFICATES--------------------------------*/
 #tools-cert {
-  padding: 30px 0;
+  padding: 20px 0;
   background-color: #2c1e4a;
 }
 #tools-cert .sub-title {
@@ -319,7 +319,7 @@ nav ul li a:hover::after {
   align-items: center;
   max-width: 400px;
   margin-left: 20%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 .tool-item {
   width: 100px;
