@@ -419,7 +419,8 @@ nav ul li a:hover::after {
 .certificate-item:hover p {
   opacity: 1;
 }
-.btn_tools, .btn_certs {
+.btn_tools,
+.btn_certs {
   display: block;
   margin: 5% 10%;
   margin-top: -2%;
@@ -431,7 +432,8 @@ nav ul li a:hover::after {
   color: #f1f3f1;
   transition: background-color 0.5s;
 }
-.btn_tools:hover, .btn_certs:hover {
+.btn_tools:hover,
+.btn_certs:hover {
   background: #d70026;
 }
 /*---------------------------------SERVICES---------------------------------*/
