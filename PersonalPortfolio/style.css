@@ -5,17 +5,21 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #2c1e4a;
+  background:  #2C1E4A;
   color: #f1f3f1;
-}
-
-.sub-title {
-  color: #39ff14 !important;
+  margin: 0;
 }
 
 #header {
   width: 100%;
   height: 100vh;
+  position: relative;
+  background: none; /* Ensures header retains its unique background */
+}
+
+
+.sub-title {
+  color: #39ff14 !important;
 }
 
 .container {
@@ -156,7 +160,7 @@ nav ul li a:hover::after {
 
 .social-info i:hover {
   color: #39ff14;
-  font-size: 52px;
+  text-shadow: 0 0 4px #39ff14, 0 0 6px rgba(57, 255, 20, 0.6);
 }
 
 .social-info i.show {
@@ -212,6 +216,7 @@ nav ul li a:hover::after {
 
 /*---------------------------------ABOUT---------------------------------*/
 #about {
+  
   padding: 80px 0;
   color: #f1f3f1;
 }
@@ -288,6 +293,10 @@ nav ul li a:hover::after {
 }
 
 /*---------------------------------TOOLS & CERTIFICATES--------------------------------*/
+#tools-cert {
+  padding: 30px 0;
+  background-color: #2c1e4a;
+}
 #tools-cert .sub-title {
   padding: 30px 10%;
 }
@@ -303,12 +312,11 @@ nav ul li a:hover::after {
   justify-content: center;
   align-items: center;
   max-width: 400px;
-  margin-left: 18%;
+  margin-left: 20%;
   margin-bottom: 10%;
 }
 
 .tool-item {
-  padding: 30 10%;
   width: 100px;
   height: 100px;
   display: flex;
@@ -363,7 +371,7 @@ nav ul li a:hover::after {
   gap: 20px;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding-right: 5%;
   margin-left: 10%;
   max-width: 1000px;
 }
@@ -411,6 +419,7 @@ nav ul li a:hover::after {
 /*---------------------------------SERVICES---------------------------------*/
 #services {
   padding: 30px 0;
+  background-color: #2c1e4a;
 }
 
 .services-list {
@@ -456,6 +465,7 @@ nav ul li a:hover::after {
 /*---------------------------------PORTFOLIO---------------------------------*/
 #portfolio {
   padding: 50px 0;
+  background-color: #2c1e4a;
 }
 
 .work-list {
@@ -542,6 +552,9 @@ nav ul li a:hover::after {
 }
 
 /*---------------------------------CONTACT---------------------------------*/
+#contact {
+  background-color: #2c1e4a;
+}
 .contact-left {
   flex-basis: 35%;
 }
@@ -631,6 +644,10 @@ nav .fas {
 }
 
 /*---------------------------------FIRST RESPONSE---------------------------------*/
+.firstresponse {
+  background-color: #2c1e4a;
+}
+
 .proj1 {
   position: absolute;
   top: 5%;
@@ -718,6 +735,9 @@ nav .fas {
 }
 
 /*---------------------------------REVVED---------------------------------*/
+.revved {
+  background-color: #2c1e4a;
+}
 .swipe2 {
   display: none;
 }
@@ -731,7 +751,7 @@ nav .fas {
   margin: 0 10px;
   display: flex;
   align-items: center;
-  margin-top: -120px;
+  margin-top: -100px;
 }
 
 .proj2 {
