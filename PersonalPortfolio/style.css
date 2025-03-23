@@ -307,6 +307,8 @@ nav ul li a:hover::after {
 
 #tools-cert .tab-titles {
   padding-left: 10%;
+  margin-bottom: 2%;
+  margin-top: -2%;
 }
 
 .content-grid {
@@ -319,7 +321,6 @@ nav ul li a:hover::after {
   margin-left: 20%;
   margin-bottom: 10%;
 }
-
 .tool-item {
   width: 100px;
   height: 100px;
@@ -334,7 +335,6 @@ nav ul li a:hover::after {
   transition: background 0.3s ease;
   cursor: pointer;
 }
-
 .tool-item i {
   font-size: 80px;
   color: white;
@@ -1095,7 +1095,7 @@ nav .fas {
   }
 
   nav ul {
-    background: #0a0a0a;
+    background: linear-gradient(to bottom, #d70026 5%, #0a0a0a 60%);
     position: fixed;
     top: 0;
     right: -200px;
@@ -1168,6 +1168,10 @@ nav .fas {
     margin-left: 18%;
     margin-bottom: 10%;
   }
+  #tools-cert .tab-titles {
+    margin: 0;
+    margin-top: -5%;
+  }
 
   .tool-item {
     width: 100px;
@@ -1177,7 +1181,9 @@ nav .fas {
   .tool-item i {
     font-size: 60px;
   }
-
+  .certificate-item {
+    padding: 5% 0;
+  }
   .certificate-item img {
     width: 80%;
     height: 80%;
@@ -1186,8 +1192,10 @@ nav .fas {
   }
 
   #certificates-section .content-grid {
-    gap: 60px;
-    margin-left: 5%;
+    margin-left: 0;
+    gap: 40px;
+    align-items: center;
+    padding: 0 10%;
   }
 }
 
@@ -1223,7 +1231,7 @@ nav .fas {
   }
 
   nav ul {
-    background: #0a0a0a;
+    background: linear-gradient(to bottom, #d70026 5%, #0a0a0a 60%);
     position: fixed;
     top: 0;
     right: -200px;
@@ -1293,7 +1301,10 @@ nav .fas {
   .scroll-container {
     padding: 40px;
   }
-
+  #tools-cert .tab-titles {
+    margin: 0;
+    margin-top: -5%;
+  }
   .content-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1304,7 +1315,6 @@ nav .fas {
     margin-left: 10%;
     margin-bottom: 10%;
   }
-
   .tool-item {
     width: 80px;
     height: 80px;
@@ -1313,17 +1323,24 @@ nav .fas {
   .tool-item i {
     font-size: 40px;
   }
-
+  #tools-section .content-grid {
+    align-items: center;
+  }
+  .certificate-item {
+    padding: 5% 0;
+  }
   .certificate-item img {
-    width: 80%;
+    width: 90%;
     height: 80%;
     border-radius: 8px;
     transition: opacity 0.3s ease-in-out;
   }
 
   #certificates-section .content-grid {
-    gap: 60px;
-    margin-left: 5%;
+    margin-left: 0;
+    gap: 40px;
+    align-items: center;
+    padding: 0 10%;
   }
 
   .photo-me img {
