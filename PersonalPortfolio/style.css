@@ -4,15 +4,16 @@
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
-html, body {
-  overscroll-behavior-x: none; 
+html,
+body {
+  overscroll-behavior-x: none;
   overscroll-behavior-y: auto;
   overflow-x: hidden;
-  width: 100vw; 
+  width: 100vw;
 }
 
 body {
-  background-color: #0A0A0A;
+  background-color: #0a0a0a;
   color: #f1f3f1;
   margin: 0;
 }
@@ -20,7 +21,6 @@ body {
   width: 100%;
   height: 100vh;
 }
-
 
 .sub-title {
   color: #39ff14 !important;
@@ -220,7 +220,7 @@ nav ul li a:hover::after {
 
 /*---------------------------------ABOUT---------------------------------*/
 #about {
-  background:  #2C1E4A;
+  background: #2c1e4a;
   padding: 80px 0;
   color: #f1f3f1;
 }
@@ -628,7 +628,7 @@ form .btn2 {
   width: 100%;
   text-align: center;
   padding: 25px;
-  background: #0A0A0A;
+  background: #0a0a0a;
   font-weight: 300;
   margin-top: 20px;
 }
@@ -718,7 +718,7 @@ nav .fas {
   transition: transform 0.5s;
 }
 #backBtn:hover,
-#nextBtn:hover{
+#nextBtn:hover {
   transform: scale(1.2);
 }
 
@@ -737,9 +737,8 @@ nav .fas {
 
 .back-button img:hover {
   transform: scale(1.2);
-  filter: drop-shadow(0 0 10px #D70026);
+  filter: drop-shadow(0 0 10px #d70026);
 }
-
 
 .swipe {
   display: none;
@@ -1332,16 +1331,15 @@ nav .fas {
     height: auto;
     object-fit: cover;
   }
-
   .proj1 {
     position: absolute;
-    top: 10%;
+    top: 15%;
     left: 50%;
     transform: translateX(-50%);
     width: 60%;
     font-weight: bold;
     text-align: center;
-    z-index: 10;
+    z-index: -1;
   }
 
   .desc {
@@ -1454,10 +1452,9 @@ nav .fas {
     z-index: 2;
     animation: fadeOut 0.5s ease-in-out 2s forwards;
   }
-
   .proj2 {
     position: absolute;
-    top: 20%;
+    top: 25%;
     left: 50%;
     transform: translateX(-50%);
     width: 50%;
@@ -1468,7 +1465,7 @@ nav .fas {
 
   .desc2 {
     position: absolute;
-    top: 60vh;
+    top: 68vh;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
