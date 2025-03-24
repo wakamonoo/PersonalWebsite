@@ -1181,15 +1181,15 @@ nav .fas {
     font-size: 40px;
   }
 
-  .content-grid {
+  #tools-section .content-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    max-width: 300px;
-    margin-left: 18%;
-    margin-bottom: 10%;
+    width: fit-content;
+    margin-left: 10%;
+    margin-bottom: 5%;
   }
   #tools-cert .tab-titles {
     margin: 0;
@@ -1340,15 +1340,15 @@ nav .fas {
     margin: 0;
     margin-top: -5%;
   }
-  .content-grid {
+  #tools-section .content-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    max-width: 300px;
-    margin-left: 14%;
-    margin-bottom: 10%;
+    width: fit-content;
+    margin-left: 10%;
+    margin-bottom: 5%;
   }
   .tool-item {
     width: 80px;
@@ -1675,15 +1675,15 @@ nav .fas {
     margin-top: -5%;
     margin-bottom: 2%;
   }
-  .content-grid {
+  #tools-section .content-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    max-width: 300px;
+    width: fit-content;
     margin-left: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
   .tool-item {
     width: 80px;
