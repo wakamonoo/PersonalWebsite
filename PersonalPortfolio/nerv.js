@@ -8,16 +8,14 @@ const leaves = [];
 const leafImage = new Image();
 leafImage.src = "images/nerv.png";
 
-// Function to get leaf size based on screen width
 function getLeafSize() {
   if (window.innerWidth <= 768) {
-    return Math.random() * 40 + 30; // Smaller leaves for mobile
+    return Math.random() * 40 + 30; 
   } else {
-    return Math.random() * 80 + 50; // Original size for larger screens
+    return Math.random() * 80 + 50; 
   }
 }
 
-// Initialize leaves
 for (let i = 0; i < 6; i++) {
   leaves.push({
     x: Math.random() * canvas.width,
@@ -82,12 +80,11 @@ function drawLeaves() {
   requestAnimationFrame(drawLeaves);
 }
 
-// Resize canvas and update leaf sizes when window resizes
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  // Update leaf sizes
+ 
   leaves.forEach((leaf) => {
     leaf.size = getLeafSize();
   });
