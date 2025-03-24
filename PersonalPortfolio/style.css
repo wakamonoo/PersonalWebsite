@@ -311,16 +311,17 @@ nav ul li a:hover::after {
   margin-top: -2%;
 }
 
-.content-grid {
+#tools-section .content-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 20px;
   justify-content: center;
   align-items: center;
-  max-width: 400px;
-  margin-left: 18%;
+  width: fit-content;
+  margin-left: 10%;
   margin-bottom: 5%;
 }
+
 .tool-item {
   width: 100px;
   height: 100px;
@@ -377,7 +378,7 @@ nav ul li a:hover::after {
   align-items: center;
   padding-right: 5%;
   margin-left: 10%;
-  max-width: 1000px;
+  width: fit-content;
 }
 
 .certificate-item {
@@ -423,7 +424,7 @@ nav ul li a:hover::after {
 .btn_certs {
   display: block;
   margin: 5% 10%;
-  margin-top: -2%;
+  margin-top: 5%;
   width: fit-content;
   border: 1px solid #39ff14;
   padding: 14px 50px;
