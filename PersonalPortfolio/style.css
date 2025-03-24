@@ -126,7 +126,7 @@ nav ul li a:hover::after {
   opacity: 0;
   transform: translateY(-20px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  margin-bottom: -20px;
+  margin-bottom: -25px;
 }
 
 .drop-text.show {
@@ -1276,7 +1276,20 @@ nav .fas {
     height: auto;
     object-fit: cover;
   }
+  .drop-text {
+    font-size: 2.5vh;
+  }
 
+  .header-text h1{
+    font-size: 8vw;
+    flex: 1;
+    max-width: 100%;
+    margin-top: 5%;
+    text-align: left;
+  }
+  .social-info i {
+    font-size: 6.5vw;
+  }
   
   #container-head {
     flex-direction: column;
@@ -1362,6 +1375,200 @@ nav .fas {
     align-items: center;
     padding: 0 10%;
   }
+  .proj1 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    font-weight: bold;
+    text-align: center;
+    z-index: -1;
+  }
+
+  .desc {
+    position: absolute;
+    top: 80vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #f1f3f1;
+    z-index: 10;
+  }
+
+  .gallery-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 10px;
+    margin: 0 10px;
+  }
+
+  .gallery {
+    width: 900px;
+    display: flex;
+    overflow-x: auto;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    max-height: 90vh;
+    scroll-behavior: smooth;
+    gap: 20px;
+  }
+
+  .gallery div img {
+    width: 32vh;
+    height: 50vh;
+    margin: 0 10px;
+    filter: grayscale(100%);
+    transition: transform 0.5s;
+  }
+
+  .gallery div img:hover {
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  .gallery-wrap {
+    display: flex;
+    align-items: center;
+    margin-top: -80px;
+  }
+
+  #backBtn,
+  #nextBtn {
+    display: none;
+  }
+
+  .gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .gallery div img:hover {
+    transform: scale(1.1);
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .back-button img {
+    margin-top: 25px;
+    margin-left: 20px;
+    width: 70px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .back-button img:active {
+    transform: scale(1.2);
+  }
+
+  .swipe {
+    display: flex;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    z-index: 2;
+    animation: fadeOut 0.5s ease-in-out 2s forwards;
+  }
+  .proj2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .desc2 {
+    position: absolute;
+    top: 80vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #f1f3f1;
+    z-index: 10;
+  }
+
+  .gallery2 {
+    width: 900px;
+    display: flex;
+    overflow-x: auto;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    max-height: 90vh;
+    scroll-behavior: smooth;
+    gap: 20px;
+  }
+
+  .gallery2 div img {
+    width: 60vh;
+    height: 50vh;
+    margin: 0 0;
+    filter: grayscale(100%);
+    transition: transform 0.5s;
+  }
+
+  .gallery2 div img:hover {
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  .gallery2::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery2 {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .swipe2 {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    z-index: 2;
+    animation: fadeOut 0.5s ease-in-out 2s forwards;
+  }
 }
 /*-----------------------------576 PX [CELLPHONE]-----------------------------*/
 @media only screen and (max-width: 576px) {
@@ -1372,7 +1579,7 @@ nav .fas {
   }
 
   .photo-me {
-    margin-top: 0;
+    margin-top: 20%;
     order: -1;
     width: 100%;
   }
