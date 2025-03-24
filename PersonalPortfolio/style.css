@@ -1682,7 +1682,7 @@ nav .fas {
     justify-content: center;
     align-items: center;
     width: fit-content;
-    margin: 0 auto;
+    margin-left: 10%;
     margin-bottom: 5%;
   }
   .tool-item {
