@@ -1621,6 +1621,14 @@ nav .fas {
   #container-head {
     flex-direction: column;
   }
+  .photo-me {
+    margin-top: 10%;
+  }
+  .photo-me img {
+    width: 110%;
+    height: auto;
+    object-fit: cover;
+  }
 
   .sub-title {
     font-size: 40px;
@@ -1703,11 +1711,7 @@ nav .fas {
     padding: 0 10%;
   }
 
-  .photo-me img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
+  
   .proj1 {
     position: absolute;
     top: 15%;
