@@ -1152,7 +1152,7 @@ nav .fas {
     font-size: 3vh;
   }
 
-  .header-text h1{
+  .header-text h1 {
     font-size: 5vw;
     flex: 1;
     max-width: 100%;
@@ -1281,7 +1281,7 @@ nav .fas {
     margin-bottom: -5%;
   }
 
-  .header-text h1{
+  .header-text h1 {
     font-size: 8vw;
     flex: 1;
     max-width: 100%;
@@ -1291,7 +1291,7 @@ nav .fas {
   .social-info i {
     font-size: 8vw;
   }
-  
+
   #container-head {
     flex-direction: column;
   }
@@ -1711,7 +1711,6 @@ nav .fas {
     padding: 0 10%;
   }
 
-  
   .proj1 {
     position: absolute;
     top: 15%;
@@ -1907,5 +1906,3 @@ nav .fas {
     animation: fadeOut 0.5s ease-in-out 2s forwards;
   }
 }
-
-
