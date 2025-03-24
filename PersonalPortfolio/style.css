@@ -21,7 +21,6 @@ body {
   width: 100%;
   height: 100vh;
 }
-
 .sub-title {
   color: #39ff14 !important;
 }
@@ -969,8 +968,6 @@ nav .fas {
   background-color: #1e1537;
   border-bottom-left-radius: 0;
 }
-
-/* Chat Input Area */
 .chat-input-container {
   display: flex;
   gap: 8px;
@@ -1101,7 +1098,6 @@ nav .fas {
 .cartoon-animate {
   animation: cartoonFly 1s ease-out;
 }
-
 /*------------------------------------------MEDIAQUERY------------------------------------------*/
 /*-----------------------------1200 PX [Tablet]-----------------------------*/
 @media only screen and (max-width: 1200px) {
@@ -1139,7 +1135,6 @@ nav .fas {
   }
 
   #container-head {
-    margin-top: 10%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1147,14 +1142,22 @@ nav .fas {
     flex-wrap: nowrap;
     width: 100%;
     gap: 20px;
+    margin-top: 2%;
   }
 
-  .header-text {
-    font-size: 24px;
+  .drop-text {
+    font-size: 3vh;
+  }
+
+  .header-text h1{
+    font-size: 5vw;
     flex: 1;
     max-width: 100%;
-    margin: 0;
+    margin-top: 5%;
     text-align: left;
+  }
+  .social-info i {
+    font-size: 5vw;
   }
 
   .photo-me {
@@ -1214,7 +1217,6 @@ nav .fas {
     padding: 0 10%;
   }
 }
-
 /*-----------------------------768 PX [CELLPHONE]-----------------------------*/
 @media only screen and (max-width: 768px) {
   .header-text {
@@ -1228,19 +1230,6 @@ nav .fas {
     order: -1;
     width: 100%;
   }
-
-  .social-info i {
-    font-size: 30px;
-  }
-
-  .social-info i:hover {
-    font-size: 30px;
-  }
-
-  .header-text h1 {
-    font-size: 28px;
-  }
-
   nav .fas {
     display: block;
     font-size: 25px;

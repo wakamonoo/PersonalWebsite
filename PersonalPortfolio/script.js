@@ -137,7 +137,7 @@ function appendMessage(sender, text, isMarkdown = false) {
 }
 
 // Header Typewriter Effect
-const textParts = ["Hi, I'm ", "Joven", " Bataller\nfrom The Philippines"];
+const textParts = ["Hi, I'm ", "Joven", " Bataller from The Philippines"];
 const h1 = document.getElementById("typewriter");
 let i = 0,
   j = 0;
