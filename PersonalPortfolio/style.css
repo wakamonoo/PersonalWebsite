@@ -166,8 +166,9 @@ nav ul li a:hover::after {
 }
 
 .social-info i {
+  padding-right: .5%;
   color: #d70026;
-  font-size: 4vw;
+  font-size: 3vw;
   transition: font-size 0.5s ease-out, 0.5s ease-out, opacity 0.5s ease-out;
   opacity: 0;
   transform: translateY(50px);
