@@ -29,15 +29,34 @@ window.onload = function () {
   }, 7500);
 };
 
+function toggleChat() {
+  const chatBox = document.getElementById("chatBox");
+  const isVisible = window.getComputedStyle(chatBox).display !== "none";
+
+  if (isVisible) {
+    chatBox.style.display = "none";
+    document.removeEventListener("click", closeChatOutside);
+  } else {
+    chatBox.style.display = "flex";
+    setTimeout(() => {
+      document.addEventListener("click", closeChatOutside);
+    }, 100);
+  }
+}
+
+function closeChatOutside(event) {
+  const chatBox = document.getElementById("chatBox");
+  const chatButton = document.getElementById("chatButton");
+
+  if (!chatBox.contains(event.target) && event.target !== chatButton) {
+    chatBox.style.display = "none";
+    document.removeEventListener("click", closeChatOutside);
+  }
+}
+
 function sendFAQ(question) {
   sendMessage(question);
   document.getElementById("faqContainer").style.display = "none";
-}
-
-function toggleChat() {
-  const chatBox = document.getElementById("chatBox");
-  chatBox.style.display =
-    window.getComputedStyle(chatBox).display === "none" ? "flex" : "none";
 }
 
 function handleKeyPress(event) {
@@ -62,16 +81,17 @@ async function sendMessage(customMessage = null) {
   const loadingMessage = document.createElement("div");
   loadingMessage.className = "message bot-message";
   loadingMessage.innerHTML = `
-<div class="bot-icon">
-  <img src="images/aibou.png" alt="Robot Icon" width="24" height="24">
-</div>
-<div class="loading-container">
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-</div>
-`;
+    <div class="bot-icon">
+      <img src="images/aibou.png" alt="Robot Icon" width="24" height="24">
+    </div>
+    <div class="loading-container">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  `;
   responseDiv.appendChild(loadingMessage);
+  scrollToBottom();
 
   try {
     const aiResponse = await fetch(
@@ -127,13 +147,22 @@ function appendMessage(sender, text, isMarkdown = false) {
   messageDiv.appendChild(textDiv);
   responseDiv.appendChild(messageDiv);
 
-  if (sender === "bot") {
+  if (sender === "user") {
+    scrollToBottom();
+  } else if (sender === "bot") {
     setTimeout(() => {
       messageDiv.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
   }
 
   return messageDiv;
+}
+
+function scrollToBottom() {
+  const responseDiv = document.getElementById("response");
+  setTimeout(() => {
+    responseDiv.scrollTop = responseDiv.scrollHeight;
+  }, 100);
 }
 
 // Header Typewriter Effect

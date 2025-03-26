@@ -166,7 +166,7 @@ nav ul li a:hover::after {
 }
 
 .social-info i {
-  padding-right: .5%;
+  padding-right: 0.5%;
   color: #d70026;
   font-size: 3vw;
   transition: font-size 0.5s ease-out, 0.5s ease-out, opacity 0.5s ease-out;
@@ -373,12 +373,14 @@ nav ul li a:hover::after {
   padding: 5px 8px;
   border-radius: 5px;
   font-size: 24px;
-  font-weight: 100;
+  font-weight: 600;
   white-space: nowrap;
   text-align: center;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
 }
 
 .tool-item:hover p {
