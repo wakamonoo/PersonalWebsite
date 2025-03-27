@@ -1228,7 +1228,7 @@ nav .fas {
     padding: 0 10%;
   }
 }
-/*-----------------------------576 PX [CELLPHONE]-----------------------------*/
+/*-----------------------------600 PX [CELLPHONE]-----------------------------*/
 @media only screen and (max-width: 600px) {
   .header-text {
     font-size: 16px;
