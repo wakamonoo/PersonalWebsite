@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(35, width / height, 0.1, 150);
- camera.position.z = 90;
+  camera.position.z = 90;
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(width, height);
@@ -20,21 +20,40 @@ document.addEventListener("DOMContentLoaded", function () {
   const groundShape = new CANNON.Plane();
   const groundBody = new CANNON.Body({ mass: 0 });
   groundBody.addShape(groundShape);
-  groundBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2);
+  groundBody.quaternion.setFromAxisAngle(
+    new CANNON.Vec3(1, 0, 0),
+    -Math.PI / 2
+  );
   groundBody.position.y = -15;
   world.addBody(groundBody);
 
   // Walls
   const wallShape = new CANNON.Plane();
   const padding = 20; // Extra padding to limit the balls from going beyond
-  
+
   const walls = [
-    { axis: new CANNON.Vec3(0, 1, 0), angle: Math.PI / 2, position: { x: -25 - padding, y: 0, z: 0 } },  // Left wall
-    { axis: new CANNON.Vec3(0, 1, 0), angle: -Math.PI / 2, position: { x: 25 + padding, y: 0, z: 0 } },  // Right wall
-    { axis: new CANNON.Vec3(0, 0, 0), angle: 0, position: { x: 0, y: 0, z: -25 - padding } },  // Back wall
-    { axis: new CANNON.Vec3(0, 1, 0), angle: Math.PI, position: { x: 0, y: 0, z: 25 + padding } },  // Front wall
+    {
+      axis: new CANNON.Vec3(0, 1, 0),
+      angle: Math.PI / 2,
+      position: { x: -25 - padding, y: 0, z: 0 },
+    }, // Left wall
+    {
+      axis: new CANNON.Vec3(0, 1, 0),
+      angle: -Math.PI / 2,
+      position: { x: 25 + padding, y: 0, z: 0 },
+    }, // Right wall
+    {
+      axis: new CANNON.Vec3(0, 0, 0),
+      angle: 0,
+      position: { x: 0, y: 0, z: -25 - padding },
+    }, // Back wall
+    {
+      axis: new CANNON.Vec3(0, 1, 0),
+      angle: Math.PI,
+      position: { x: 0, y: 0, z: 25 + padding },
+    }, // Front wall
   ];
-  
+
   walls.forEach(({ axis, angle, position }) => {
     const wall = new CANNON.Body({ mass: 0 });
     wall.addShape(wallShape);
@@ -64,7 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const radius = tech.size;
     const geometry = new THREE.SphereGeometry(radius, 32, 32);
     const texture = new THREE.TextureLoader().load(tech.icon);
-    const material = new THREE.MeshPhongMaterial({ map: texture, shininess: 30 });
+    const material = new THREE.MeshPhongMaterial({
+      map: texture,
+      shininess: 30,
+    });
     const mesh = new THREE.Mesh(geometry, material);
 
     mesh.position.set(
