@@ -4,8 +4,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const height = container.clientHeight;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(35, width / height, 0.1, 150);
-  camera.position.z = 90;
+  const aspect = width / height;
+  const zoom = 25; // Adjusted zoom to give more space vertically
+  const camera = new THREE.OrthographicCamera(
+    -zoom * aspect, // left
+    zoom * aspect,  // right
+    zoom,           // top
+    -zoom,          // bottom
+    0.1,
+    200
+  );
+  camera.position.z = 100; // Same as before but doesn’t affect scale now
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(width, height);
@@ -26,6 +35,17 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   groundBody.position.y = -15;
   world.addBody(groundBody);
+
+  // Ceiling
+  const ceilingShape = new CANNON.Plane();
+  const ceilingBody = new CANNON.Body({ mass: 0 });
+  ceilingBody.addShape(ceilingShape);
+  ceilingBody.quaternion.setFromAxisAngle(
+    new CANNON.Vec3(1, 0, 0),
+    Math.PI / 2
+  );
+  ceilingBody.position.y = 15; // Adjusted ceiling height to fit the container's height
+  world.addBody(ceilingBody);
 
   // Walls
   const wallShape = new CANNON.Plane();
@@ -91,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     mesh.position.set(
       (Math.random() - 0.5) * 20,
-      Math.random() * 10 + 10,
+      Math.random() * 10 + 5, // Lowered max height to prevent exceeding ceiling
       (Math.random() - 0.5) * 20
     );
     scene.add(mesh);
@@ -103,16 +123,17 @@ document.addEventListener("DOMContentLoaded", function () {
     body.position.copy(mesh.position);
     body.linearDamping = 0.4;
     body.angularDamping = 0.4;
-    ballBodies.push(body); // world.addBody(body) will be delayed
+    ballBodies.push(body); // add later via observer
   });
 
+  // Lighting
   const ambientLight = new THREE.AmbientLight(0x404040);
   scene.add(ambientLight);
   const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
   directionalLight.position.set(1, 1, 1);
   scene.add(directionalLight);
 
-  // Mouse attraction
+  // Mouse interaction
   let attractPosition = new THREE.Vector3();
   let isAttracting = false;
 
@@ -130,27 +151,24 @@ document.addEventListener("DOMContentLoaded", function () {
     return intersection;
   }
 
-  renderer.domElement.addEventListener("mousemove", (event) => {
+  // Mouse & touch events
+  const enableAttract = (x, y) => {
     isAttracting = true;
-    attractPosition = getMousePosInScene(event.clientX, event.clientY);
-  });
+    attractPosition = getMousePosInScene(x, y);
+  };
+  const disableAttract = () => (isAttracting = false);
 
-  renderer.domElement.addEventListener("mouseleave", () => {
-    isAttracting = false;
+  renderer.domElement.addEventListener("mousemove", (e) => enableAttract(e.clientX, e.clientY));
+  renderer.domElement.addEventListener("mouseleave", disableAttract);
+  window.addEventListener("mousemove", (e) => enableAttract(e.clientX, e.clientY));
+  window.addEventListener("mouseleave", disableAttract);
+  window.addEventListener("touchmove", (e) => {
+    if (e.touches.length > 0) enableAttract(e.touches[0].clientX, e.touches[0].clientY);
   });
+  renderer.domElement.addEventListener("touchend", disableAttract);
+  window.addEventListener("touchend", disableAttract);
 
-  renderer.domElement.addEventListener("touchmove", (event) => {
-    if (event.touches.length > 0) {
-      isAttracting = true;
-      const touch = event.touches[0];
-      attractPosition = getMousePosInScene(touch.clientX, touch.clientY);
-    }
-  });
-
-  renderer.domElement.addEventListener("touchend", () => {
-    isAttracting = false;
-  });
-
+  // Animate
   let animationStarted = false;
 
   function animate() {
@@ -172,9 +190,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    ballBodies.forEach((body, index) => {
-      balls[index].position.copy(body.position);
-      balls[index].quaternion.copy(body.quaternion);
+    ballBodies.forEach((body, i) => {
+      balls[i].position.copy(body.position);
+      balls[i].quaternion.copy(body.quaternion);
     });
 
     renderer.render(scene, camera);
@@ -182,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   animate();
 
-  // IntersectionObserver to trigger physics only when visible
+  // Intersection Observer
   const observer = new IntersectionObserver(
     (entries) => {
       if (entries[0].isIntersecting && !animationStarted) {
@@ -191,12 +209,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     },
     {
-      threshold: 0.3, // adjust as needed
+      threshold: 0.3,
     }
   );
 
   observer.observe(container);
 
+  // Resize handling
   window.addEventListener("resize", () => {
     const newWidth = container.clientWidth;
     const newHeight = container.clientHeight;
