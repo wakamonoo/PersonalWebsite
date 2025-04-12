@@ -99,8 +99,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const balls = [];
   const ballBodies = [];
 
+  function getScaleFactor() {
+    const screenWidth = container.clientWidth;
+    // Scale the balls based on screen width (reduce ball size on smaller screens)
+    if (screenWidth < 600) {
+      return 0.8; // Shrink the balls a bit for smaller screens
+    }
+    return 1; // Default scale
+  }
+
+  const scaleFactor = getScaleFactor();
+
   techItems.forEach((tech) => {
-    const radius = tech.size;
+    const radius = tech.size * scaleFactor; // Apply scaling factor
     const geometry = new THREE.SphereGeometry(radius, 32, 32);
     const texture = new THREE.TextureLoader().load(tech.icon);
     const material = new THREE.MeshPhongMaterial({
@@ -222,5 +233,11 @@ document.addEventListener("DOMContentLoaded", function () {
     camera.aspect = newWidth / newHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(newWidth, newHeight);
+
+    // Recalculate the scale factor on resize
+    const scaleFactor = getScaleFactor();
+    techItems.forEach((tech, index) => {
+      balls[index].scale.set(scaleFactor, scaleFactor, scaleFactor); // Scale the balls
+    });
   });
 });
