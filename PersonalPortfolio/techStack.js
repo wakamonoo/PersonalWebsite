@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     0.1,
     200
   );
-  camera.position.z = 100; // Same as before but doesn’t affect scale now
+  camera.position.z = 100;
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(width, height);
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     new CANNON.Vec3(1, 0, 0),
     Math.PI / 2
   );
-  ceilingBody.position.y = 15; // Adjusted ceiling height to fit the container's height
+  ceilingBody.position.y = 15;
   world.addBody(ceilingBody);
 
   // Walls
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
     body.position.copy(mesh.position);
     body.linearDamping = 0.4;
     body.angularDamping = 0.4;
-    ballBodies.push(body); // add later via observer
+    ballBodies.push(body);
   });
 
   // Lighting
