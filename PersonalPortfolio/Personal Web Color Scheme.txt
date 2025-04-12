@@ -1,7 +1,7 @@
 Personal Web Color Scheme: 
 Color----------------Hex Code--------Role in Design
-Dark Purple----------#2C1E4A---------Main background color (deep, sci-fi mood)
-Deep Black-----------#0A0A0A---------Accent background for sections (high contrast)
-Bold Red-------------#D70026---------Alerts, buttons, hover effects, and NERV-style warnings
-Neon Green-----------#39FF14---------Glowing UI elements, links, and data highlights
-White / Light Gray---#F1F3F1---------Common text for readability
+Dark Purple---------- #2C1E4A---------Main background color (deep, sci-fi mood)
+Deep Black----------- #0A0A0A---------Accent background for sections (high contrast)
+Bold Red------------- #D70026---------Alerts, buttons, hover effects, and NERV-style warnings
+Neon Green----------- #39FF14---------Glowing UI elements, links, and data highlights
+White / Light Gray--- #F1F3F1---------Common text for readability
