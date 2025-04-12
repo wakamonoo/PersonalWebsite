@@ -13,7 +13,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
-    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/logo.png" type="image/png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js"></script>
   </head>
   <body>
     <canvas id="leafCanvas"></canvas>
@@ -24,7 +26,7 @@
           <ul id="sidemenu">
             <li><a href="#header">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#tools-cert">Technical Credentials</a></li>
+            <li><a href="#tech-stack">Tech-Stack</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -129,87 +131,9 @@
       </div>
     </div>
     <!----------Tools-Certification---------->
-    <div id="tools-cert">
-      <h1 class="sub-title">Technical Credentials</h1>
-      <div id="tools-cert" class="tab-titles">
-        <p
-          class="tab-links active-link"
-          onclick="openToolsTab('tools-section')"
-        >
-          Tools
-        </p>
-        <p class="tab-links" onclick="openToolsTab('certificates-section')">
-          Certificates
-        </p>
-      </div>
-
-      <div class="tab-contents active-tab" id="tools-section">
-        <div class="content-grid">
-          <div class="tool-item">
-            <i class="devicon-cplusplus-plain colored"></i>
-            <p>C++</p>
-          </div>
-          <div class="tool-item">
-            <i class="devicon-java-plain colored"></i>
-            <p>JAVA</p>
-          </div>
-          <div class="tool-item">
-            <i class="devicon-javascript-plain colored"></i>
-            <p>JAVASCRIPT</p>
-          </div>
-          <div class="tool-item">
-            <i class="devicon-kotlin-plain colored"></i>
-            <p>KOTLIN</p>
-          </div>
-          <div class="tool-item">
-            <i class="devicon-firebase-plain colored"></i>
-            <p>FIREBASE</p>
-          </div>
-          <div class="tool-item">
-            <i class="devicon-mysql-plain colored"></i>
-            <p>MYSQL</p>
-          </div>
-          <div class="tool-item">
-            <i class="devicon-php-plain colored"></i>
-            <p>PHP</p>
-          </div>
-          <div class="tool-item">
-            <i class="devicon-html5-plain colored"></i>
-            <p>HTML</p>
-          </div>
-          <div class="tool-item">
-            <i class="devicon-css3-plain colored"></i>
-            <p>CSS</p>
-          </div>
-          <div class="tool-item">
-            <i class="devicon-nodejs-plain colored"></i>
-            <p>NODE.JS</p>
-          </div>
-          <div class="tool-item">
-            <i class="devicon-wordpress-plain colored"></i>
-            <p>WORD<br />PRESS</p>
-          </div>
-          <div class="tool-item">
-            <i class="devicon-figma-plain colored"></i>
-            <p>FIGMA</p>
-          </div>
-        </div>
-        <a href="#" class="btn_tools">See more</a>
-      </div>
-
-      <div class="tab-contents hidden" id="certificates-section">
-        <div class="content-grid">
-          <div class="certificate-item">
-            <img src="images/cert1.png" />
-            <p>Intro to Game Development</p>
-          </div>
-          <div class="certificate-item">
-            <img src="images/cert2.png" />
-            <p>Intro to IoT & Digital Transformation</p>
-          </div>
-        </div>
-        <a href="#" class="btn_certs">See more</a>
-      </div>
+    <div id="tech-stack">
+      <h1 class="sub-title">Tech Stack</h1>
+      <div id="physics-container"></div>
     </div>
 
     <!-----Services----->
@@ -405,5 +329,6 @@
     <!---------------JavaScript------------------->
     <script src="nerv.js"></script>
     <script src="script.js"></script>
+    <script src="techStack.js"></script>
   </body>
 </html>

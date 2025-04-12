@@ -318,148 +318,25 @@ nav ul li a:hover::after {
 }
 
 /*---------------------------------TOOLS & CERTIFICATES--------------------------------*/
-#tools-cert {
-  padding: 20px 0;
+#tech-stack {
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+  height: 60vh;
   background-color: #2c1e4a;
 }
-#tools-cert .sub-title {
-  padding: 30px 10%;
-}
 
-#tools-cert .tab-titles {
-  padding-left: 10%;
-  margin-bottom: 2%;
-  margin-top: -2%;
-}
-
-#tools-section .content-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
+#tech-stack .sub-title {
   margin-left: 10%;
-  margin-bottom: 5%;
 }
 
-.tool-item {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: rgba(10, 10, 10, 0.5);
-  border-radius: 10px;
-  border: 1px solid rgba(10, 10, 10, 0.8);
-  position: relative;
-  transition: background 0.3s ease;
-  cursor: pointer;
-}
-.tool-item i {
-  font-size: 80px;
-  color: white;
-  transition: transform 0.5s;
-}
-
-.tool-item i:hover {
-  transform: scale(1.1);
-}
-
-.tool-item p {
-  position: absolute;
-  color: #f1f3f1;
-  padding: 5px 8px;
-  border-radius: 5px;
-  font-size: 1.8vh;
-  font-weight: 600;
-  white-space: nowrap;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  line-height: 1.1;
-  letter-spacing: -0.5px;
-}
-
-.tool-item:hover p {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.tool-item:active p {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#certificates-section .content-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  padding-right: 5%;
-  margin-left: 10%;
-  width: fit-content;
-}
-
-.certificate-item {
-  background: rgba(10, 10, 10, 0.5);
-  border-radius: 10px;
-  border: 1px solid rgba(10, 10, 10, 0.8);
-  padding: 15px 10%;
-  text-align: center;
-  position: relative;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.certificate-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 5px 15px rgba(10, 10, 10, 0.4);
-}
-
-.certificate-item img {
+#physics-container {
   width: 100%;
   height: 100%;
-  border-radius: 8px;
-  transition: opacity 0.3s ease-in-out;
+  background-color: transparent;
+  position: relative;
 }
 
-.certificate-item p {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #f1f3f1;
-  font-weight: bold;
-  opacity: 0.8;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.certificate-item:hover img {
-  opacity: 0.9;
-}
-
-.certificate-item:hover p {
-  opacity: 1;
-}
-.btn_tools,
-.btn_certs {
-  display: block;
-  margin: 5% 10%;
-  margin-top: 5%;
-  width: fit-content;
-  border: 1px solid #39ff14;
-  padding: 14px 50px;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #f1f3f1;
-  transition: background-color 0.5s;
-}
-.btn_tools:hover,
-.btn_certs:hover {
-  background: #d70026;
-}
 /*---------------------------------SERVICES---------------------------------*/
 #services {
   padding: 30px 0;
@@ -1198,35 +1075,6 @@ nav .fas {
     margin-left: 10%;
     margin-bottom: 5%;
   }
-  #tools-cert .tab-titles {
-    margin: 0;
-    margin-top: -5%;
-  }
-
-  .tool-item {
-    width: 100px;
-    height: 100px;
-  }
-
-  .tool-item i {
-    font-size: 60px;
-  }
-  .certificate-item {
-    padding: 5% 0;
-  }
-  .certificate-item img {
-    width: 80%;
-    height: 80%;
-    border-radius: 8px;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  #certificates-section .content-grid {
-    margin-left: 0;
-    gap: 40px;
-    align-items: center;
-    padding: 0 10%;
-  }
 }
 /*-----------------------------600 PX [CELLPHONE]-----------------------------*/
 @media only screen and (max-width: 600px) {
@@ -1343,49 +1191,6 @@ nav .fas {
   .scroll-container {
     padding: 40px;
   }
-  #tools-cert .tab-titles {
-    margin: 0;
-    margin-top: -5%;
-    margin-bottom: 2%;
-  }
-  #tools-section .content-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    margin-left: 10%;
-    margin-bottom: 5%;
-  }
-  .tool-item {
-    width: 80px;
-    height: 80px;
-  }
-
-  .tool-item i {
-    font-size: 40px;
-  }
-  #tools-section .content-grid {
-    align-items: center;
-  }
-  .certificate-item {
-    padding: 5% 0;
-  }
-  .certificate-item img {
-    width: 90%;
-    height: 80%;
-    border-radius: 8px;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  #certificates-section .content-grid {
-    margin-left: 0;
-    gap: 40px;
-    align-items: center;
-    padding: 0 10%;
-  }
-
   .proj1 {
     position: absolute;
     top: 15%;
