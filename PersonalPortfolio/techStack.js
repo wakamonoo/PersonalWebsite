@@ -29,29 +29,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Walls
   const wallShape = new CANNON.Plane();
-  const padding = 20; // Extra padding to limit the balls from going beyond
+  const padding = 20;
 
   const walls = [
     {
       axis: new CANNON.Vec3(0, 1, 0),
       angle: Math.PI / 2,
       position: { x: -25 - padding, y: 0, z: 0 },
-    }, // Left wall
+    },
     {
       axis: new CANNON.Vec3(0, 1, 0),
       angle: -Math.PI / 2,
       position: { x: 25 + padding, y: 0, z: 0 },
-    }, // Right wall
+    },
     {
       axis: new CANNON.Vec3(0, 0, 0),
       angle: 0,
       position: { x: 0, y: 0, z: -25 - padding },
-    }, // Back wall
+    },
     {
       axis: new CANNON.Vec3(0, 1, 0),
       angle: Math.PI,
       position: { x: 0, y: 0, z: 25 + padding },
-    }, // Front wall
+    },
   ];
 
   walls.forEach(({ axis, angle, position }) => {
@@ -103,8 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
     body.position.copy(mesh.position);
     body.linearDamping = 0.4;
     body.angularDamping = 0.4;
-    world.addBody(body);
-    ballBodies.push(body);
+    ballBodies.push(body); // world.addBody(body) will be delayed
   });
 
   const ambientLight = new THREE.AmbientLight(0x404040);
@@ -113,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
   directionalLight.position.set(1, 1, 1);
   scene.add(directionalLight);
 
-  // Magnetic attraction variables
+  // Mouse attraction
   let attractPosition = new THREE.Vector3();
   let isAttracting = false;
 
@@ -123,14 +122,11 @@ document.addEventListener("DOMContentLoaded", function () {
       ((x - rect.left) / rect.width) * 2 - 1,
       -((y - rect.top) / rect.height) * 2 + 1
     );
-
     const raycaster = new THREE.Raycaster();
     raycaster.setFromCamera(mouse, camera);
-
     const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
     const intersection = new THREE.Vector3();
     raycaster.ray.intersectPlane(plane, intersection);
-
     return intersection;
   }
 
@@ -155,8 +151,12 @@ document.addEventListener("DOMContentLoaded", function () {
     isAttracting = false;
   });
 
+  let animationStarted = false;
+
   function animate() {
     requestAnimationFrame(animate);
+
+    if (!animationStarted) return;
 
     world.step(1 / 60);
 
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
           attractPosition.y - body.position.y,
           attractPosition.z - body.position.z
         );
-        force.scale(10, force); // adjust strength here
+        force.scale(10, force);
         body.applyForce(force, body.position);
       });
     }
@@ -181,6 +181,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   animate();
+
+  // IntersectionObserver to trigger physics only when visible
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting && !animationStarted) {
+        animationStarted = true;
+        ballBodies.forEach((body) => world.addBody(body));
+      }
+    },
+    {
+      threshold: 0.3, // adjust as needed
+    }
+  );
+
+  observer.observe(container);
 
   window.addEventListener("resize", () => {
     const newWidth = container.clientWidth;
