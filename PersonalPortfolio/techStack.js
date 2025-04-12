@@ -28,24 +28,46 @@ document.addEventListener("DOMContentLoaded", function () {
   const groundShape = new CANNON.Plane();
   const groundBody = new CANNON.Body({ mass: 0 });
   groundBody.addShape(groundShape);
-  groundBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2);
+  groundBody.quaternion.setFromAxisAngle(
+    new CANNON.Vec3(1, 0, 0),
+    -Math.PI / 2
+  );
   groundBody.position.y = -15;
   world.addBody(groundBody);
 
   const ceilingShape = new CANNON.Plane();
   const ceilingBody = new CANNON.Body({ mass: 0 });
   ceilingBody.addShape(ceilingShape);
-  ceilingBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), Math.PI / 2);
+  ceilingBody.quaternion.setFromAxisAngle(
+    new CANNON.Vec3(1, 0, 0),
+    Math.PI / 2
+  );
   ceilingBody.position.y = 15;
   world.addBody(ceilingBody);
 
   const wallShape = new CANNON.Plane();
   const padding = 20;
   const walls = [
-    { axis: new CANNON.Vec3(0, 1, 0), angle: Math.PI / 2, position: { x: -25 - padding, y: 0, z: 0 } },
-    { axis: new CANNON.Vec3(0, 1, 0), angle: -Math.PI / 2, position: { x: 25 + padding, y: 0, z: 0 } },
-    { axis: new CANNON.Vec3(0, 0, 0), angle: 0, position: { x: 0, y: 0, z: -25 - padding } },
-    { axis: new CANNON.Vec3(0, 1, 0), angle: Math.PI, position: { x: 0, y: 0, z: 25 + padding } },
+    {
+      axis: new CANNON.Vec3(0, 1, 0),
+      angle: Math.PI / 2,
+      position: { x: -25 - padding, y: 0, z: 0 },
+    },
+    {
+      axis: new CANNON.Vec3(0, 1, 0),
+      angle: -Math.PI / 2,
+      position: { x: 25 + padding, y: 0, z: 0 },
+    },
+    {
+      axis: new CANNON.Vec3(0, 0, 0),
+      angle: 0,
+      position: { x: 0, y: 0, z: -25 - padding },
+    },
+    {
+      axis: new CANNON.Vec3(0, 1, 0),
+      angle: Math.PI,
+      position: { x: 0, y: 0, z: 25 + padding },
+    },
   ];
   walls.forEach(({ axis, angle, position }) => {
     const wall = new CANNON.Body({ mass: 0 });
@@ -75,11 +97,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function getScaleFactor() {
     const screenWidth = container.clientWidth;
     if (screenWidth <= 600) {
-      return 0.8; // Small screens
+      return 0.8;
     } else if (screenWidth <= 1200) {
-      return 0.9; // Medium screens
+      return 0.9;
     }
-    return 1; // Large screens
+    return 1;
   }
 
   function createBall(index, scaleFactor) {
@@ -88,9 +110,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const geometry = new THREE.SphereGeometry(radius, 32, 32);
     const texture = new THREE.TextureLoader().load(tech.icon);
-    const material = new THREE.MeshPhongMaterial({ map: texture, shininess: 30 });
+    const material = new THREE.MeshPhongMaterial({
+      map: texture,
+      shininess: 30,
+    });
     const mesh = new THREE.Mesh(geometry, material);
-    mesh.position.set((Math.random() - 0.5) * 20, Math.random() * 10 + 5, (Math.random() - 0.5) * 20);
+    mesh.position.set(
+      (Math.random() - 0.5) * 20,
+      Math.random() * 10 + 5,
+      (Math.random() - 0.5) * 20
+    );
     scene.add(mesh);
     balls.push(mesh);
 
@@ -137,12 +166,17 @@ document.addEventListener("DOMContentLoaded", function () {
   };
   const disableAttract = () => (isAttracting = false);
 
-  renderer.domElement.addEventListener("mousemove", (e) => enableAttract(e.clientX, e.clientY));
+  renderer.domElement.addEventListener("mousemove", (e) =>
+    enableAttract(e.clientX, e.clientY)
+  );
   renderer.domElement.addEventListener("mouseleave", disableAttract);
-  window.addEventListener("mousemove", (e) => enableAttract(e.clientX, e.clientY));
+  window.addEventListener("mousemove", (e) =>
+    enableAttract(e.clientX, e.clientY)
+  );
   window.addEventListener("mouseleave", disableAttract);
   window.addEventListener("touchmove", (e) => {
-    if (e.touches.length > 0) enableAttract(e.touches[0].clientX, e.touches[0].clientY);
+    if (e.touches.length > 0)
+      enableAttract(e.touches[0].clientX, e.touches[0].clientY);
   });
   renderer.domElement.addEventListener("touchend", disableAttract);
   window.addEventListener("touchend", disableAttract);
@@ -200,14 +234,12 @@ document.addEventListener("DOMContentLoaded", function () {
     techItems.forEach((tech, index) => {
       const radius = tech.size * newScaleFactor;
 
-      // Replace geometry
       const newGeometry = new THREE.SphereGeometry(radius, 32, 32);
       balls[index].geometry.dispose();
       balls[index].geometry = newGeometry;
 
-      // Replace shape in physics body
       const newShape = new CANNON.Sphere(radius);
-      ballBodies[index].shapes = []; // Remove old shape
+      ballBodies[index].shapes = [];
       ballBodies[index].addShape(newShape);
     });
   });
