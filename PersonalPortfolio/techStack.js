@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(width, height);
+  renderer.setPixelRatio(window.devicePixelRatio); // Makes render HD on all screens
   container.appendChild(renderer.domElement);
 
   const world = new CANNON.World();
@@ -28,20 +29,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const groundShape = new CANNON.Plane();
   const groundBody = new CANNON.Body({ mass: 0 });
   groundBody.addShape(groundShape);
-  groundBody.quaternion.setFromAxisAngle(
-    new CANNON.Vec3(1, 0, 0),
-    -Math.PI / 2
-  );
+  groundBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2);
   groundBody.position.y = -15;
   world.addBody(groundBody);
 
   const ceilingShape = new CANNON.Plane();
   const ceilingBody = new CANNON.Body({ mass: 0 });
   ceilingBody.addShape(ceilingShape);
-  ceilingBody.quaternion.setFromAxisAngle(
-    new CANNON.Vec3(1, 0, 0),
-    Math.PI / 2
-  );
+  ceilingBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), Math.PI / 2);
   ceilingBody.position.y = 15;
   world.addBody(ceilingBody);
 
@@ -96,24 +91,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getScaleFactor() {
     const screenWidth = container.clientWidth;
-    if (screenWidth <= 600) {
-      return 0.8;
-    } else if (screenWidth <= 1200) {
-      return 0.9;
-    }
+    if (screenWidth <= 600) return 0.8;
+    if (screenWidth <= 1200) return 0.9;
     return 1;
   }
 
   function createBall(index, scaleFactor) {
     const tech = techItems[index];
     const radius = tech.size * scaleFactor;
+    const geometry = new THREE.SphereGeometry(radius, 64, 64); // High-res sphere
 
-    const geometry = new THREE.SphereGeometry(radius, 32, 32);
-    const texture = new THREE.TextureLoader().load(tech.icon);
+    const texture = new THREE.TextureLoader().load(tech.icon, (tex) => {
+      tex.generateMipmaps = true;
+      tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      tex.minFilter = THREE.LinearMipMapLinearFilter;
+      tex.magFilter = THREE.LinearFilter;
+    });
+
     const material = new THREE.MeshPhongMaterial({
       map: texture,
-      shininess: 30,
+      shininess: 50,
     });
+
     const mesh = new THREE.Mesh(geometry, material);
     mesh.position.set(
       (Math.random() - 0.5) * 20,
@@ -166,17 +165,12 @@ document.addEventListener("DOMContentLoaded", function () {
   };
   const disableAttract = () => (isAttracting = false);
 
-  renderer.domElement.addEventListener("mousemove", (e) =>
-    enableAttract(e.clientX, e.clientY)
-  );
+  renderer.domElement.addEventListener("mousemove", (e) => enableAttract(e.clientX, e.clientY));
   renderer.domElement.addEventListener("mouseleave", disableAttract);
-  window.addEventListener("mousemove", (e) =>
-    enableAttract(e.clientX, e.clientY)
-  );
+  window.addEventListener("mousemove", (e) => enableAttract(e.clientX, e.clientY));
   window.addEventListener("mouseleave", disableAttract);
   window.addEventListener("touchmove", (e) => {
-    if (e.touches.length > 0)
-      enableAttract(e.touches[0].clientX, e.touches[0].clientY);
+    if (e.touches.length > 0) enableAttract(e.touches[0].clientX, e.touches[0].clientY);
   });
   renderer.domElement.addEventListener("touchend", disableAttract);
   window.addEventListener("touchend", disableAttract);
@@ -229,12 +223,13 @@ document.addEventListener("DOMContentLoaded", function () {
     camera.aspect = newWidth / newHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(newWidth, newHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
 
     const newScaleFactor = getScaleFactor();
     techItems.forEach((tech, index) => {
       const radius = tech.size * newScaleFactor;
 
-      const newGeometry = new THREE.SphereGeometry(radius, 32, 32);
+      const newGeometry = new THREE.SphereGeometry(radius, 64, 64);
       balls[index].geometry.dispose();
       balls[index].geometry = newGeometry;
 
