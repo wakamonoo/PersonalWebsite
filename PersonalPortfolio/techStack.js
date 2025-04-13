@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(width, height);
-  renderer.setPixelRatio(window.devicePixelRatio); // Makes render HD on all screens
+  renderer.setPixelRatio(window.devicePixelRatio);
   container.appendChild(renderer.domElement);
 
   const world = new CANNON.World();
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function createBall(index, scaleFactor) {
     const tech = techItems[index];
     const radius = tech.size * scaleFactor;
-    const geometry = new THREE.SphereGeometry(radius, 64, 64); // High-res sphere
+    const geometry = new THREE.SphereGeometry(radius, 64, 64);
 
     const texture = new THREE.TextureLoader().load(tech.icon, (tex) => {
       tex.generateMipmaps = true;
@@ -163,16 +163,19 @@ document.addEventListener("DOMContentLoaded", function () {
     isAttracting = true;
     attractPosition = getMousePosInScene(x, y);
   };
-  const disableAttract = () => (isAttracting = false);
 
-  renderer.domElement.addEventListener("mousemove", (e) => enableAttract(e.clientX, e.clientY));
-  renderer.domElement.addEventListener("mouseleave", disableAttract);
+  const disableAttract = () => (isAttracting = false);
+  
+
+  document.getElementById("interaction-overlay").addEventListener("mousemove", (e) => {
+    enableAttract(e.clientX, e.clientY);
+  });
+  document.getElementById("interaction-overlay").addEventListener("mouseleave", disableAttract);
   window.addEventListener("mousemove", (e) => enableAttract(e.clientX, e.clientY));
   window.addEventListener("mouseleave", disableAttract);
   window.addEventListener("touchmove", (e) => {
     if (e.touches.length > 0) enableAttract(e.touches[0].clientX, e.touches[0].clientY);
   });
-  renderer.domElement.addEventListener("touchend", disableAttract);
   window.addEventListener("touchend", disableAttract);
 
   let animationStarted = false;
