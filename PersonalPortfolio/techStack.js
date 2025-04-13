@@ -253,4 +253,80 @@ document.addEventListener("DOMContentLoaded", function () {
       ballBodies[index].addShape(newShape);
     });
   });
+
+  let selectedBall = null;
+  let isDragging = false;
+
+  function onBallClick(event) {
+    const mouse = new THREE.Vector2();
+    const rect = renderer.domElement.getBoundingClientRect();
+    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+    const raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(balls);
+
+    if (intersects.length > 0) {
+      selectedBall = intersects[0].object;
+      isDragging = true;
+    }
+  }
+
+  function applyImpulseToBall(mouseX, mouseY) {
+    if (selectedBall) {
+      const index = balls.indexOf(selectedBall);
+      const body = ballBodies[index];
+
+      const forceDirection = new CANNON.Vec3(
+        (mouseX - selectedBall.position.x) * 10,
+        (mouseY - selectedBall.position.y) * 10,
+        0
+      );
+
+      body.applyImpulse(forceDirection, body.position);
+      selectedBall = null;
+      isDragging = false;
+    }
+  }
+
+  function rotateSelectedBall(deltaX) {
+    if (selectedBall) {
+      const index = balls.indexOf(selectedBall);
+      const body = ballBodies[index];
+      body.angularVelocity.set(0, deltaX * 0.1, 0);
+    }
+  }
+
+  document.addEventListener("mousedown", onBallClick);
+  document.addEventListener("touchstart", onBallClick);
+
+  document.addEventListener("mouseup", (event) => {
+    if (isDragging) {
+      applyImpulseToBall(event.clientX, event.clientY);
+    }
+  });
+
+  document.addEventListener("touchend", (event) => {
+    if (isDragging) {
+      applyImpulseToBall(
+        event.changedTouches[0].clientX,
+        event.changedTouches[0].clientY
+      );
+    }
+  });
+
+  document.addEventListener("mousemove", (event) => {
+    if (isDragging) {
+      const deltaX = event.movementX;
+      rotateSelectedBall(deltaX);
+    }
+  });
+
+  document.addEventListener("touchmove", (event) => {
+    if (isDragging) {
+      const deltaX = event.touches[0].clientX - event.touches[0].clientX;
+      rotateSelectedBall(deltaX);
+    }
+  });
 });
