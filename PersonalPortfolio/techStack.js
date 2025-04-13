@@ -29,14 +29,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const groundShape = new CANNON.Plane();
   const groundBody = new CANNON.Body({ mass: 0 });
   groundBody.addShape(groundShape);
-  groundBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2);
+  groundBody.quaternion.setFromAxisAngle(
+    new CANNON.Vec3(1, 0, 0),
+    -Math.PI / 2
+  );
   groundBody.position.y = -15;
   world.addBody(groundBody);
 
   const ceilingShape = new CANNON.Plane();
   const ceilingBody = new CANNON.Body({ mass: 0 });
   ceilingBody.addShape(ceilingShape);
-  ceilingBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), Math.PI / 2);
+  ceilingBody.quaternion.setFromAxisAngle(
+    new CANNON.Vec3(1, 0, 0),
+    Math.PI / 2
+  );
   ceilingBody.position.y = 15;
   world.addBody(ceilingBody);
 
@@ -165,16 +171,22 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const disableAttract = () => (isAttracting = false);
-  
 
-  document.getElementById("interaction-overlay").addEventListener("mousemove", (e) => {
-    enableAttract(e.clientX, e.clientY);
-  });
-  document.getElementById("interaction-overlay").addEventListener("mouseleave", disableAttract);
-  window.addEventListener("mousemove", (e) => enableAttract(e.clientX, e.clientY));
+  document
+    .getElementById("interaction-overlay")
+    .addEventListener("mousemove", (e) => {
+      enableAttract(e.clientX, e.clientY);
+    });
+  document
+    .getElementById("interaction-overlay")
+    .addEventListener("mouseleave", disableAttract);
+  window.addEventListener("mousemove", (e) =>
+    enableAttract(e.clientX, e.clientY)
+  );
   window.addEventListener("mouseleave", disableAttract);
   window.addEventListener("touchmove", (e) => {
-    if (e.touches.length > 0) enableAttract(e.touches[0].clientX, e.touches[0].clientY);
+    if (e.touches.length > 0)
+      enableAttract(e.touches[0].clientX, e.touches[0].clientY);
   });
   window.addEventListener("touchend", disableAttract);
 
