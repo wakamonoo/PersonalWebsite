@@ -10,6 +10,7 @@ body {
   overscroll-behavior-y: auto;
   overflow-x: hidden;
   width: 100vw;
+  scroll-behavior: smooth;
 }
 
 body {
