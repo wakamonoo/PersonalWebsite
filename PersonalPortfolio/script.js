@@ -284,10 +284,22 @@ function openToolsTab(tabName) {
   document.getElementById(tabName).classList.add("active-tab");
 }
 
-document.querySelector('.btn').addEventListener('click', function () {
-  document.querySelectorAll('.hidden-work').forEach(function (work) {
-    work.classList.add('fade-in');
-  });
-  this.style.display = 'none';
-});
+  const btn = document.querySelector('.btn');
+  const hiddenWorks = document.querySelectorAll('.hidden-work');
 
+  btn.addEventListener('click', function () {
+    const isVisible = hiddenWorks[0].classList.contains('fade-in');
+
+    hiddenWorks.forEach(function (work) {
+      if (isVisible) {
+        work.classList.remove('fade-in');
+        // Delay display:none until after fade-out
+        setTimeout(() => (work.style.display = 'none'), 300);
+      } else {
+        work.style.display = 'block';
+        setTimeout(() => work.classList.add('fade-in'), 10); // slight delay to trigger transition
+      }
+    });
+
+    btn.textContent = isVisible ? 'See more' : 'See less';
+  });
