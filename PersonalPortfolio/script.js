@@ -283,3 +283,11 @@ function openToolsTab(tabName) {
   event.currentTarget.classList.add("active-link");
   document.getElementById(tabName).classList.add("active-tab");
 }
+
+document.querySelector('.btn').addEventListener('click', function () {
+  document.querySelectorAll('.hidden-work').forEach(function (work) {
+    work.classList.add('fade-in');
+  });
+  this.style.display = 'none';
+});
+
