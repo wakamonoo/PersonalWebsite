@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { name: "Node.js", icon: "images/node.png", size: 7.3 },
     { name: "WordPress", icon: "images/wordpress.png", size: 7.5 },
     { name: "Figma", icon: "images/figma.png", size: 7.1 },
+    { name: "Figma", icon: "images/tailwind.png", size: 7.2 },
   ];
 
   const balls = [];
