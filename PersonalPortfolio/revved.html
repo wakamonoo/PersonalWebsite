@@ -1,12 +1,8 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta
-      property="og:title"
-      content="Revved"
-    />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Revved" />
     <meta
       property="og:description"
       content="Web-based E-commerce platform for motorcycle parts and accessories."
@@ -16,63 +12,67 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Revved" />
     <link rel="icon" href="images/revvedlogo.png" type="image/png" />
-    <title> Revved</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/c15538e89d.js" crossorigin="anonymous"></script>
+    <title>Revved</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/c15538e89d.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
 
-</head>
-
-<body class="revved">
-    <img class="proj2" src="images/revved.png">
-    <p class="swipe2"><i class="fa-solid fa-hand-point-left"></i> Swipe Left or Right <i
-            class="fa-solid fa-hand-point-right"></i></p>
+  <body class="revved">
+    <img class="proj2" src="images/revved.png" />
+    <p class="swipe2">
+      <i class="fa-solid fa-hand-point-left"></i> Swipe Left or Right
+      <i class="fa-solid fa-hand-point-right"></i>
+    </p>
     <a href="index.html#portfolio" class="back-button">
-        <img src="images/left-arrow.png">
+      <img src="images/left-arrow.png" />
     </a>
     <div class="gallery-wrap2">
-        <img src="images/back.png" id="backBtn">
-        <div class="gallery2">
-            <div>
-                <span><img src="images/revved1.png"></span>
-                <span><img src="images/revved2.png"></span>
-                <span><img src="images/revved3.png"></span>
-                <span><img src="images/revved4.png"></span>
-                <span><img src="images/revved5.png"></span>
-                <span><img src="images/revved6.png"></span>
-                <span><img src="images/revved7.png"></span>
-                <span><img src="images/revved8.png"></span>
-                <span><img src="images/revved9.png"></span>
-            </div>
+      <img src="images/back.png" id="backBtn" />
+      <div class="gallery2">
+        <div>
+          <span><img src="images/revved1.png" /></span>
+          <span><img src="images/revved2.png" /></span>
+          <span><img src="images/revved3.png" /></span>
+          <span><img src="images/revved4.png" /></span>
+          <span><img src="images/revved5.png" /></span>
+          <span><img src="images/revved6.png" /></span>
+          <span><img src="images/revved7.png" /></span>
+          <span><img src="images/revved8.png" /></span>
+          <span><img src="images/revved9.png" /></span>
         </div>
-        <img src="images/next.png" id="nextBtn">
+      </div>
+      <img src="images/next.png" id="nextBtn" />
     </div>
-    <p class="desc2">WEB BASED E-COMMERCE PLATFORM FOR MOTORCYCLE PARTS AND ACCESSORIES</p>
-
+    <p class="desc2">
+      WEB BASED E-COMMERCE PLATFORM FOR MOTORCYCLE PARTS AND ACCESSORIES
+    </p>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            let scrollContainer = document.querySelector(".gallery2");
-            let backBtn = document.getElementById("backBtn");
-            let nextBtn = document.getElementById("nextBtn");
+      document.addEventListener("DOMContentLoaded", () => {
+        let scrollContainer = document.querySelector(".gallery2");
+        let backBtn = document.getElementById("backBtn");
+        let nextBtn = document.getElementById("nextBtn");
 
-            scrollContainer.addEventListener("wheel", (evt) => {
-                evt.preventDefault();
-                scrollContainer.scrollLeft += evt.deltaY;
-            });
-
-            nextBtn.addEventListener("click", () => {
-                scrollContainer.scrollLeft += 900;
-            });
-
-            backBtn.addEventListener("click", () => {
-                scrollContainer.scrollLeft -= 900;
-            });
+        scrollContainer.addEventListener("wheel", (evt) => {
+          evt.preventDefault();
+          scrollContainer.scrollLeft += evt.deltaY;
         });
+
+        nextBtn.addEventListener("click", () => {
+          scrollContainer.scrollLeft += 900;
+        });
+
+        backBtn.addEventListener("click", () => {
+          scrollContainer.scrollLeft -= 900;
+        });
+      });
     </script>
     <script>
-        lucide.createIcons();
+      lucide.createIcons();
     </script>
-</body>
-
+  </body>
 </html>
