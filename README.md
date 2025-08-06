@@ -14,7 +14,7 @@ A sleek and responsive personal website showcasing projects, portfolio, or biogr
 
 ## 🚀 Try It Out
 
-Visit the live demo at [wakamonoov1.vercel.app](https://wakamonoov1.vercel.app) :contentReference[oaicite:1]{index=1}
+Visit the live demo at [wakamonoo-v1.vercel.app](https://wakamonoo-v1.vercel.app) :contentReference[oaicite:1]{index=1}
 
 ---
 
